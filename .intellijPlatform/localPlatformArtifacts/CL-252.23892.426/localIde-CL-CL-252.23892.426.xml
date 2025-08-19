@@ -1,0 +1,10 @@
+<ivy-module version="2.0">
+  <info organisation="localIde" module="CL" revision="CL-252.23892.426"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="home/arcno/bin/CLion" ext="directory" conf="default"/>
+  </publications>
+  <dependencies/>
+</ivy-module>

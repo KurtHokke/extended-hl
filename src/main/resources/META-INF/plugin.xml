@@ -1,0 +1,42 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>org.extended-hl.cpp</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>Extended-cpp-hl</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://DUMMY.com">DUMMY</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+        yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <!-- Ensure C/C++ language (CIDR) is loaded before our annotator -->
+    <depends>com.intellij.clion</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <colorSettingsPage implementation="org.extendedhl.cpp.settings.ColorSettings"/>
+        <annotator language="ObjectiveC"
+                   implementationClass="org.extendedhl.cpp.hl.ExtendedAnnotator"/>
+    </extensions>
+    <actions>
+        <action id="org.extendedhl.cpp.tools.ShowPsiDebugHint"
+                class="org.extendedhl.cpp.tools.ShowPsiDebugHintAction"
+                text="Show PSI Debug Hint"
+                description="Show debug info for PSI under caret">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl 1"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>
