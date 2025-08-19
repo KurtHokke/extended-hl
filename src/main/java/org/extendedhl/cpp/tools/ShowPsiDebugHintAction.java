@@ -39,9 +39,12 @@ public class ShowPsiDebugHintAction extends AnAction {
   private static String buildDebugHtml(@NotNull PsiElement el) {
   StringBuilder sb = new StringBuilder("<html><body style='font-family: monospace;'>");
 
+  String parent = el.getParent().getClass().getSimpleName();
+
   appendLine(sb, "element.class", el.getClass().getName());
   appendLine(sb, "element.typename", el.getClass().getTypeName());
   appendLine(sb, "element.simplename", el.getClass().getSimpleName());
+  appendLine(sb, "element.parent", parent);
   appendLine(sb, "element.toString", String.valueOf(el));
   appendLine(sb, "element.elementType", getElementTypeString(el));
   appendLine(sb, "element.range", String.valueOf(el.getTextRange()));
