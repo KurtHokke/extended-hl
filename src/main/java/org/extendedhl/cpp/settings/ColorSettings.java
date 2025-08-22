@@ -1,24 +1,53 @@
 package org.extendedhl.cpp.settings;
 
+import com.intellij.psi.tree.IElementType;
+import com.jetbrains.cidr.lang.editor.colors.OCHighlightingKeys;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.PlainSyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import org.extendedhl.cpp.hl.HighlighterTokens;
+import org.extendedhl.cpp.hl.ExtendedTokenTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.Icon;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ColorSettings implements ColorSettingsPage {
+import static org.extendedhl.cpp.hl.ExtendedTokenTypes.*;
+import org.extendedhl.cpp.hl.OCltt;
 
+public class ColorSettings implements ColorSettingsPage {
+  static AttributesDescriptor CreateAttrDescr(String cat, IElementType type) {
+    return new AttributesDescriptor(
+        cat + "//" + NAMES_AND_ATTRS_MAP.get(type).name(),
+        NAMES_AND_ATTRS_MAP.get(type).attr()
+    );
+  }
   private final AttributesDescriptor[] descriptors = new AttributesDescriptor[]{
-      //new AttributesDescriptor("Unsafe Identifier", ClionChlHighlighterKeys.UNSAFE_IDENTIFIER),
-      new AttributesDescriptor("Built-in Type", HighlighterTokens.BUILTIN_TYPE),
-      new AttributesDescriptor("Include path", HighlighterTokens.INCLUDE_DIRECTIVE)
+
+    CreateAttrDescr("Built-in Types", OCltt.VOID_KEYWORD),
+    CreateAttrDescr("Built-in Types", OCltt.INT_KEYWORD),
+    CreateAttrDescr("Built-in Types", OCltt.SHORT_KEYWORD),
+    CreateAttrDescr("Built-in Types", OCltt.LONG_KEYWORD),
+    CreateAttrDescr("Built-in Types", OCltt.BOOL_CPP_KEYWORD),
+    CreateAttrDescr("Built-in Types", OCltt.FLOAT_KEYWORD),
+    CreateAttrDescr("Built-in Types", OCltt.DOUBLE_KEYWORD),
+    CreateAttrDescr("Built-in Types", OCltt.CHAR_KEYWORD),
+    CreateAttrDescr("Built-in Types", OCltt.AUTO_KEYWORD),
+    CreateAttrDescr("Control Flow", OCltt.IF_KEYWORD),
+    CreateAttrDescr("Control Flow", OCltt.ELSE_KEYWORD),
+    CreateAttrDescr("Control Flow", OCltt.RETURN_KEYWORD),
+    CreateAttrDescr("Control Flow", OCltt.DO_KEYWORD),
+    CreateAttrDescr("Control Flow", OCltt.WHILE_KEYWORD),
+    CreateAttrDescr("Control Flow", OCltt.CONTINUE_KEYWORD),
+    CreateAttrDescr("Control Flow", OCltt.BREAK_KEYWORD),
+    CreateAttrDescr("Control Flow", OCltt.FOR_KEYWORD),
+    CreateAttrDescr("Class & Struct", OCltt.STRUCT_KEYWORD),
+    CreateAttrDescr("Functions", OCltt.IDENTIFIER)
   };
 
   @Override
@@ -55,19 +84,36 @@ public class ColorSettings implements ColorSettingsPage {
   @NotNull
   public String getDemoText() {
     return """
-                // Demo: built-in types
-                <bt>char</bt> c = 'a';
-                <bt>double</bt> d = 0.0;
-                <bt>long</bt> <bt>long</bt> ll = 0;
-                const <bt>int</bt>* p = <bt>nullptr</bt>;
-                """.trim();
+          <auto>auto</auto> <g_var>a</g_var> = <num>0</num>;
+          <bool>bool</bool> <g_var>b</g_var> = true;
+          <char>char</char> <g_var>c</g_var> = 'a';
+          <double>double</double> <g_var>d</g_var> = <num>0</num><dot>.</dot><num>0</num>;
+          <float>float</float> <g_var>f</g_var> = <num>0</num><dot>.</dot><num>0</num>f;
+          <long>long</long> <long>long</long> <g_var>ll</g_var> = <num>0</num>;
+          <short>short</short> <g_var>s</g_var> = <num>0</num>;
+          <void>void</void> *<g_var>v</g_var> = nullptr_t;
+          
+          <int>int</int> main() {
+            <if>if</if> (<g_var>a</g_var> < <num>0</num>) <g_var>b</g_var> = false;
+          }
+          
+          """.trim();
   }
 
   @Override
   @Nullable
   public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
-    return Map.of(
-        "bt", HighlighterTokens.BUILTIN_TYPE
-    );
+    Map<String, TextAttributesKey> mergedMap = new LinkedHashMap<>(NAME_TO_ATTR);
+    mergedMap.putAll(GetDefaults());
+    return mergedMap;
+  }
+  private static Map<String, TextAttributesKey> GetDefaults() {
+    LinkedHashMap<String, TextAttributesKey> d = new LinkedHashMap<>();
+    d.put("num", OCHighlightingKeys.OC_NUMBER);
+    d.put("comma", OCHighlightingKeys.OC_COMMA);
+    d.put("g_var", OCHighlightingKeys.GLOBAL_VARIABLE);
+    d.put("l_var", OCHighlightingKeys.LOCAL_VARIABLE);
+    d.put("dot", OCHighlightingKeys.OC_DOT);
+    return Collections.unmodifiableMap(d);
   }
 }

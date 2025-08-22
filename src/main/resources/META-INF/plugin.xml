@@ -27,7 +27,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <colorSettingsPage implementation="org.extendedhl.cpp.settings.ColorSettings"/>
         <annotator language="ObjectiveC"
-                   implementationClass="org.extendedhl.cpp.hl.ExtendedAnnotator"/>
+                   implementationClass="org.extendedhl.cpp.hl.ExtendedAnnotator"
+                   order="first"/>
     </extensions>
     <actions>
         <action id="org.extendedhl.cpp.tools.ShowPsiDebugHint"

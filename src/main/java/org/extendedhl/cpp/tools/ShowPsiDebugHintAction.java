@@ -6,10 +6,12 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.*;
-import com.intellij.psi.util.PsiUtilCore;
+import com.intellij.psi.util.PsiTreeUtil;
+import com.jetbrains.cidr.lang.psi.*;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class ShowPsiDebugHintAction extends AnAction {
   @Override
@@ -38,46 +40,91 @@ public class ShowPsiDebugHintAction extends AnAction {
 
   private static String buildDebugHtml(@NotNull PsiElement el) {
   StringBuilder sb = new StringBuilder("<html><body style='font-family: monospace;'>");
+    appendLine(sb, "element.first_child", el.getFirstChild() != null ? el.getFirstChild().getClass().getSimpleName() : "null");
+    if (el.getParent() instanceof OCStruct struct) {
+      List<OCDeclaration> members = struct.getMembers();
+      StringBuilder names = new StringBuilder();
+      names.append("[\n");
+      for (OCDeclaration member : members) {
+        names.append("  ").append(member.getText()).append(",\n");
+      }
+      names.append("]");
+      appendLine(sb, "method of class", names.toString());
+    }
+    OCFunctionDeclaration fdecl = PsiTreeUtil.getParentOfType(el, OCFunctionDeclaration.class, false);
+    if (fdecl != null) {
+      appendLine(sb, "instanceof", "OCFunctionDeclaration");
+      OCParameterList params = fdecl.getParameterList();
+      assert params != null;
+      params.getParameters().forEach(p -> {
+        appendLine(sb, "parameter", p.getText());
+        if (com.intellij.psi.PsiManager.getInstance(el.getProject()).areElementsEquivalent(p, el)) {
+          appendLine(sb, "parameter.is_caret", "true");
+        } else {
+          appendLine(sb, "parameter.is_caret", "false");
+        }
+        if (com.intellij.psi.util.PsiTreeUtil.isAncestor(p, el, false)) {
+          appendLine(sb, "parameter.is_ancestor", "true");
+        } else {
+          appendLine(sb, "parameter.is_ancestor", "false");
+        }
+      });
 
-  String parent = el.getParent().getClass().getSimpleName();
+    }
+    OCStruct enclosingStruct = PsiTreeUtil.getParentOfType(el, OCStruct.class, false);
+    if (enclosingStruct != null) {
+      String structName = enclosingStruct.getName() != null ? enclosingStruct.getName() : "<anonymous>";
+      appendLine(sb, "enclosing.struct", structName);
+      // Optionally list members
+      List<OCDeclaration> members = enclosingStruct.getMembers();
+      StringBuilder mem = new StringBuilder();
+      mem.append("[\n");
+      for (OCDeclaration m : members) {
+        mem.append("  ").append(m.getText()).append(",\n");
+      }
+      mem.append("]");
+      appendLine(sb, "enclosing.struct.members", mem.toString());
+    }
 
-  appendLine(sb, "element.class", el.getClass().getName());
-  appendLine(sb, "element.typename", el.getClass().getTypeName());
-  appendLine(sb, "element.simplename", el.getClass().getSimpleName());
-  appendLine(sb, "element.parent", parent);
-  appendLine(sb, "element.toString", String.valueOf(el));
-  appendLine(sb, "element.elementType", getElementTypeString(el));
-  appendLine(sb, "element.range", String.valueOf(el.getTextRange()));
-  appendLine(sb, "element.text", escape(el.getText()));
+    String parent = el.getParent().getClass().getSimpleName();
 
-  PsiElement original = el.getOriginalElement();
-  appendLine(sb, "original.class", original != null ? original.getClass().getName() : "null");
-  appendLine(sb, "original.toString", String.valueOf(original));
-  appendLine(sb, "original.elementType", getElementTypeString(original));
-  appendLine(sb, "original==element", String.valueOf(original == el));
-  if (original != null) {
-    appendLine(sb, "original.range", String.valueOf(original.getTextRange()));
-    appendLine(sb, "original.text", escape(original.getText()));
+    appendLine(sb, "element.class", el.getClass().getName());
+    appendLine(sb, "element.typename", el.getClass().getTypeName());
+    appendLine(sb, "element.simplename", el.getClass().getSimpleName());
+    appendLine(sb, "element.parent", parent);
+    appendLine(sb, "element.toString", String.valueOf(el));
+    appendLine(sb, "element.elementType", getElementTypeString(el));
+    appendLine(sb, "element.range", String.valueOf(el.getTextRange()));
+    appendLine(sb, "element.text", escape(el.getText()));
+
+    PsiElement original = el.getOriginalElement();
+    appendLine(sb, "original.class", original != null ? original.getClass().getName() : "null");
+    appendLine(sb, "original.toString", String.valueOf(original));
+    appendLine(sb, "original.elementType", getElementTypeString(original));
+    appendLine(sb, "original==element", String.valueOf(original == el));
+    if (original != null) {
+      appendLine(sb, "original.range", String.valueOf(original.getTextRange()));
+      appendLine(sb, "original.text", escape(original.getText()));
+    }
+
+    PsiElement nav = el.getNavigationElement();
+    appendLine(sb, "navigation.class", nav != null ? nav.getClass().getName() : "null");
+    appendLine(sb, "navigation.toString", String.valueOf(nav));
+    appendLine(sb, "navigation.elementType", getElementTypeString(nav));
+    appendLine(sb, "navigation.range", nav != null ? String.valueOf(nav.getTextRange()) : "null");
+
+    PsiReference ref = el.getReference();
+    if (ref != null) {
+      PsiElement resolved = ref.resolve();
+      appendLine(sb, "reference", ref.getClass().getName());
+      appendLine(sb, "resolvesTo", resolved != null ? resolved.getClass().getName() : "null");
+      appendLine(sb, "resolvesTo.toString", String.valueOf(resolved));
+      appendLine(sb, "resolvesTo.elementType", getElementTypeString(resolved));
+    }
+
+    sb.append("</body></html>");
+    return sb.toString();
   }
-
-  PsiElement nav = el.getNavigationElement();
-  appendLine(sb, "navigation.class", nav != null ? nav.getClass().getName() : "null");
-  appendLine(sb, "navigation.toString", String.valueOf(nav));
-  appendLine(sb, "navigation.elementType", getElementTypeString(nav));
-  appendLine(sb, "navigation.range", nav != null ? String.valueOf(nav.getTextRange()) : "null");
-
-  PsiReference ref = el.getReference();
-  if (ref != null) {
-    PsiElement resolved = ref.resolve();
-    appendLine(sb, "reference", ref.getClass().getName());
-    appendLine(sb, "resolvesTo", resolved != null ? resolved.getClass().getName() : "null");
-    appendLine(sb, "resolvesTo.toString", String.valueOf(resolved));
-    appendLine(sb, "resolvesTo.elementType", getElementTypeString(resolved));
-  }
-
-  sb.append("</body></html>");
-  return sb.toString();
-}
 
 private static String getElementTypeString(PsiElement el) {
   if (el == null) return "null";
@@ -97,7 +144,8 @@ private static String getElementTypeString(PsiElement el) {
         .replace("&", "&amp;")
         .replace("<", "&lt;")
         .replace(">", "&gt;")
-        .replace("\n", "\\n")
-        .replace("\r", "\\r");
+        .replace("\r\n", "\n")
+        .replace("\r", "\n")
+        .replace("\n", "<br/>");
   }
 }
