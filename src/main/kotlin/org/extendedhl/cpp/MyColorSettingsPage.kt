@@ -2,17 +2,17 @@ package org.extendedhl.cpp
 
 import com.intellij.openapi.fileTypes.PlainSyntaxHighlighter
 import com.intellij.openapi.fileTypes.SyntaxHighlighter
-
 import com.intellij.openapi.options.colors.AttributesDescriptor
 import com.intellij.openapi.options.colors.ColorSettingsPage
 import javax.swing.Icon
 
 class MyColorSettingsPage : ColorSettingsPage {
     private val descriptors = arrayOf(
-        AttributesDescriptor("Special macro", Colors.SPECIAL_MACRO)
+        AttributesDescriptor("int Keyword", Colors.C_INT_KEYWORD),
+        AttributesDescriptor("char Keyword", Colors.C_CHAR_KEYWORD)
     )
 
-    override fun getDisplayName() = "My C++ Highlighting (Nova)"
+    override fun getDisplayName() = "C/C++ Extended"
     override fun getIcon(): Icon? = null
     override fun getHighlighter(): SyntaxHighlighter = PlainSyntaxHighlighter()
 

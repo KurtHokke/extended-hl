@@ -1,48 +1,55 @@
 package org.extendedhl.cpp
 
-import com.intellij.openapi.diagnostic.Logger
 import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
 import com.intellij.lang.annotation.HighlightSeverity
+import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.project.DumbAware
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiUtilCore
-
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
-import com.jetbrains.rider.cpp.fileType.CppSyntaxHighlighter
 
 class CppAnnotator : Annotator, DumbAware {
-  companion object {
-    private val log = Logger.getInstance(CppAnnotator::class.java)
-  }
+  private val log = org.extendedhl.cpp.logger<CppAnnotator>()
   override fun annotate(element: PsiElement, holder: AnnotationHolder) {
-    // Example: detect a macro-like element or attribute by name/structure.
-    // Start with safe guards so you don’t touch huge trees unnecessarily.
     if (!element.isValid || element.textLength == 0) return
 
-    // Replace these with actual Nova PSI checks once you learn the element classes:
-    if (looksLikeSpecialThing(element)) {
-        holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
-            .range(element)
-            .textAttributes(Colors.SPECIAL_MACRO)
-            .create()
-        return
-    }
-    val highlighter = CppSyntaxHighlighter()
+    val A = holder.at(element)
     val elementType = PsiUtilCore.getElementType(element)
 
-    //if (highlighter.getTokenHighlights(elementType)[0].externalName == "") {}
+    if (elementType == CppTokenTypes.CHAR_KEYWORD) {
+      A.info(Colors.C_CHAR_KEYWORD); return
+    }
+    if (elementType == CppTokenTypes.INT_KEYWORD) {
+      A.info(Colors.C_INT_KEYWORD); return
+    }
+
   }
-
-  private fun looksLikeSpecialThing(e: PsiElement): Boolean {
-    // Start with a heuristic (text, parent chain, token type name), then refine
-    val text = e.text
-    if (text == "SPECIAL_MACRO") return true
-
-    // You can branch on class name without linking to internal API:
-    val cls = e.javaClass.name
-    // e.g., when you discover actual classes, do:
-    // if (cls.endsWith(".CppPreprocessorIdentifier") && text == "SPECIAL_MACRO") return true
-    return false
+  private fun AnnotationHolder.at(element: PsiElement) = ElementAnnotations(this, element)
+  private class ElementAnnotations(
+    private val holder: AnnotationHolder,
+    private val element: PsiElement
+  ) {
+    fun info(key: TextAttributesKey) {
+      holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
+        .range(element)
+        .textAttributes(key)
+        .create()
+    }
+    fun warn(message: String = "", key: TextAttributesKey? = null) {
+      val b = holder.newAnnotation(HighlightSeverity.WARNING, message).range(element)
+      if (key != null) b.textAttributes(key)
+      b.create()
+    }
+    fun error(message: String = "", key: TextAttributesKey? = null) {
+      val b = holder.newAnnotation(HighlightSeverity.ERROR, message).range(element)
+      if (key != null) b.textAttributes(key)
+      b.create()
+    }
+    fun weakInfo(message: String = "", key: TextAttributesKey? = null) {
+      val b = holder.newAnnotation(HighlightSeverity.WEAK_WARNING, message).range(element)
+      if (key != null) b.textAttributes(key)
+      b.create()
+    }
   }
 }

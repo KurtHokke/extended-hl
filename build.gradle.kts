@@ -27,6 +27,7 @@ dependencies {
         localPlugin("C:\\home\\arcno\\src\\intellij\\clion-radler")
         //implementation("com.jetbrains.intellij.resharper:resharper-cpp-lexer:252.23892.515")
         //bundledPlugin("com.intellij.clion")
+        bundledPlugin("com.intellij.cidr.lang")
         //runtimeOnly("com.jetbrains.intellij.resharper:resharper-cpp-lexer:252.23892.515")
         //runtimeOnly("com.jetbrains.intellij.resharper:resharper-cpp-assist:252.23892.515")
 

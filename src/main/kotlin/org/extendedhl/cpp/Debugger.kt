@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull
 
 import com.jetbrains.rider.cpp.fileType.CppSyntaxHighlighter
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
-
+import com.jetbrains.rdclient.highlighting.FrontendHighlighterAttributeCustomizer
 
 class Debugger : AnAction() {
   override fun actionPerformed(e: AnActionEvent) {
@@ -35,6 +35,8 @@ class Debugger : AnAction() {
     val eltype = PsiUtilCore.getElementType(el)
     if (eltype == CppTokenTypes.CHAR_KEYWORD) {
       appendLine(sb, "is char!", "")
+    } else if (eltype == CppTokenTypes.UNSIGNED_KEYWORD) {
+      appendLine(sb, "is unsigned!", "")
     }
     val highlighter = CppSyntaxHighlighter()
     highlighter.getTokenHighlights(eltype).forEach { attr -> appendLine(sb, "Syntax highlighting attribute", attr.externalName)}
@@ -43,6 +45,7 @@ class Debugger : AnAction() {
     //appendLine(sb, "Syntax highlighting attribute", extname)
     val tree = printAstTypeNamesTree(el, StringBuilder(), 2)
     sb.append(tree)
+    appendLine(sb, "typeName", getTypeName(el))
     appendLine(sb, "", "\n")
     appendLine(sb, "PsiUtilCore.getElementType(el).toString()", eltype.toString())
     appendLine(sb, "PsiUtilCore.getElementType(el).debugName", eltype.debugName)
@@ -61,6 +64,9 @@ class Debugger : AnAction() {
     appendLine(sb, "parent.javaClass.packageName", el.parent.javaClass.packageName)
 
     return sb.toString()
+  }
+  private fun getTypeName(el: PsiElement): String {
+    return PsiUtilCore.getElementType(el).toString()
   }
   private fun printAstTypeNamesTree(
     node: PsiElement,
