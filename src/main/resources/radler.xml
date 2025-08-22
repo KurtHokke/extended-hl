@@ -1,0 +1,1259 @@
+<idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude" package="com.jetbrains.cidr.radler">
+    <id>org.jetbrains.plugins.clion.radler</id>
+    <version>252.23892.426</version>
+    <idea-version since-build="252.23892.426" until-build="252.23892.426" />
+    <name>C++ Language Support via ReSharper</name>
+    <vendor>JetBrains</vendor>
+    <description><![CDATA[The plugin adds C/C++ Language Support via ReSharper]]></description>
+    <dependencies>
+        <module name="intellij.rd.ide.model.generated" />
+        <module name="intellij.rd.platform" />
+        <module name="intellij.rd.ui" />
+        <module name="intellij.spellchecker" />
+        <module name="intellij.cidr.execution" />
+        <module name="intellij.cidr.lang.base" />
+        <module name="intellij.cidr.psi.base" />
+        <module name="intellij.cidr.workspaceModel" />
+        <module name="intellij.cidr.projectModel" />
+        <module name="intellij.cidr.runner" />
+        <module name="intellij.cidr.util.execution" />
+    </dependencies>
+    <incompatible-with>com.intellij.modules.appcode.ide</incompatible-with>
+    <content>
+        <module name="intellij.rd.client" loading="embedded"><![CDATA[<idea-plugin separate-jar="true">
+  <module value="com.intellij.jetbrains.rd.client" />
+  <extensionPoints>
+    <extensionPoint qualifiedName="com.intellij.rdclient.textControlBindingPolicy" interface="com.jetbrains.rdclient.editors.FrontendTextControlBindingPolicy" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.textControlExtensionProcessor" interface="com.jetbrains.rdclient.editors.extensionProcessors.TextControlExtensionProcessor" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.fileEditorModelHandler" interface="com.jetbrains.rdclient.fileEditors.FrontendFileEditorModelHandler" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.asyncTabCreationVetoer" interface="com.jetbrains.rdclient.fileEditors.AsyncTabCreationVetoer" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.highlighterModelSupport" interface="com.jetbrains.rdclient.daemon.IProtocolHighlighterModelSupport" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.markupExtension" interface="com.jetbrains.rdclient.daemon.IFrontendProtocolMarkupExtension" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.highlighterExtensionHandler" interface="com.jetbrains.rdclient.daemon.FrontendHighlighterExtensionHandler" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.highlighterSuppressionHandler" interface="com.jetbrains.rdclient.daemon.FrontendHighlighterSuppressionHandler" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.lineMarkerRenderer" interface="com.jetbrains.rdclient.daemon.highlighters.lineMarkers.renderers.FrontendLineMarkerRendererProvider" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.actionCustomization" beanClass="com.jetbrains.rdclient.actions.base.BackendSpecificActionBean">
+      <with attribute="implementationClass" implements="com.jetbrains.rdclient.actions.base.BackendDelegatingActionCustomization" />
+    </extensionPoint>
+    <extensionPoint name="rdclient.codeStructureTextAttributeProvider" beanClass="com.intellij.lang.LanguageExtensionPoint">
+      <with attribute="implementationClass" implements="com.jetbrains.rdclient.fileStructure.TextAttributeProvider" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.rdclient.notificationLinkHandler" interface="com.jetbrains.rdclient.ui.NotificationLinkHandler" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.priorityRenameHandler" interface="com.intellij.refactoring.rename.RenameHandler" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.backendThreadDumper" interface="com.jetbrains.rd.platform.diagnostics.BackendThreadDumper" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.frontendTrafficLightRendererExtension" interface="com.jetbrains.rdclient.daemon.FrontendTrafficLightRendererExtension" area="IDEA_PROJECT" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.ignoreMouseClickRenderer" interface="com.jetbrains.rdclient.daemon.highlighters.inlays.IgnoreMouseClickRendererCustomizer" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdStartUpSerializerRegistrar" interface="com.jetbrains.rdclient.protocol.RdStartUpSerializerRegistrar" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.documentExtensionsProvider" interface="com.jetbrains.rdclient.document.FrontendDocumentExtensionsProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.editorExtensionsProvider" interface="com.jetbrains.rdclient.editors.FrontendEditorExtensionsProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.actionTimestampProvider" interface="com.jetbrains.rdclient.actions.cwm.ActionTimestampModelProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.actionTimestampValidator" interface="com.jetbrains.rdclient.actions.cwm.FrontendActionTimestampValidator" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.typedHandlerPolicy" interface="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncRawTypedHandlerPolicy" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.actionOverrideVetoer" interface="com.jetbrains.rdclient.actions.cwm.FrontendActionOverrideVetoer" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.presentationDecorator" interface="com.jetbrains.rdclient.actions.cwm.FrontendPresentationDecorator" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.uiContextListener" interface="com.jetbrains.rdclient.services.uiContext.UiContextListenerExtension" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.highlighting.frontendHighlighterAttributeCustomizer" interface="com.jetbrains.rdclient.highlighting.FrontendHighlighterAttributeCustomizer" />
+    <extensionPoint qualifiedName="com.intellij.rd.protocol.initializer" interface="com.jetbrains.rdclient.protocol.FrontendProtocolInitializer" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rd.frontendPatchAccessTokenProvider" interface="com.jetbrains.rdclient.engine.handlers.FrontendPatchAccessTokenProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rd.frontendRdPatchItemHandler" interface="com.jetbrains.rdclient.engine.handlers.FrontendRdPatchItemHandler" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.editorActionHandlerStrategyCustomizer" interface="com.jetbrains.rdclient.editorActions.cwm.FrontendEditorActionHandlerStrategyCustomizer" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.highlighterElementSuppressorFactory" interface="com.jetbrains.rdclient.daemon.suppressors.HighlighterElementSuppressorFactory" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.actions.remoteShortcutModelTransformer" interface="com.jetbrains.rdclient.actions.cwm.RemoteShortcutModelTransformer" dynamic="true" />
+  </extensionPoints>
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceInterface="com.jetbrains.rdclient.protocol.IPermittedModalities" serviceImplementation="com.jetbrains.rdclient.protocol.PermittedModalitiesImpl" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.document.PerProtocolData" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.ui.bindableUi.BeToolWindowHost" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.ui.bindableUi.FrontendDialogHost" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.completion.CustomLookupHost" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.actions.ActionsOverrider" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.actions.impl.BackendRenameHandler" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.util.tests.RdClientDistributedTestHost" preload="true" />
+    <actionConfigurationCustomizer implementation="com.jetbrains.rdclient.actions.ActionsOverrider$Customizer" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.actions.ActionCallPolicy" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.actions.base.FrontendActionsFacadeImpl" serviceInterface="com.jetbrains.rdclient.actions.base.FrontendActionsFacade" client="frontend" />
+    <projectService serviceInterface="com.intellij.codeInsight.codeVision.CodeVisionContextProvider" serviceImplementation="com.jetbrains.rdclient.codeVision.FrontendCodeVisionContextProvider" overrides="true" preload="true" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.actions.patchHandlers.FrontendActionGroupItemHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.actions.patchHandlers.FrontendLocalActionItemHandler" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.actions.patchHandlers.FrontendLocalActionItemHandlerActionProvider" />
+    <registryKey key="rdclient.backend.actionHandlers" description="Enables old backend delegating action handlers" defaultValue="true" restartRequired="false" />
+    <registryKey defaultValue="true" key="rdclient.patch.engine.enabled" description="Enables patch engine implementation of documents and editors synchronization (Do not disable in Jetbrains Client!)" />
+    <registryKey defaultValue="false" key="rdclient.patch.engine.new.async.request.executor.enabled" description="Enables new patch engine queue processing implementation of documents and editors synchronization" restartRequired="true" />
+    <registryKey key="rdclient.fold.debug.ui.enabled" defaultValue="false" description="Displays folding areas in the editor via color coding" />
+    <registryKey key="rdclient.disconnected.editor.header.delay.seconds" defaultValue="5" description="Delay after disconnect in seconds, when a header panel will appear above editor" />
+    <registryKey defaultValue="false" description="Throw an exception when trying to create a document from VirtualFile" key="rdclient.test.document.create.fail" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.daemon.components.FrontendHighlighterRegistrationHost" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.daemon.components.FrontendHighlighterRegistrationHost$MyListener" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.refactorings.ideaInterop.FrontendRenameHandlerRegistry" overrides="true" serviceInterface="com.intellij.refactoring.rename.RenameHandlerRegistry" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.actions.cwm.FrontendAsyncActionHost" client="frontend" />
+    <rawEditorTypedHandler implementationClass="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncRawTypedHandler" order="first" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncRawTypedHandler$TypeKeyRequestFactory" serviceImplementation="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncRawTypedHandler$LocalTypeKeyRequestFactory" client="frontend" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncRawTypedHandler$TypeKeyRequestFactory" serviceImplementation="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncRawTypedHandler$RemoteTypeKeyRequestFactory" client="remote" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.actions.cwm.FrontendAvailabilityMessageService" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.completion.FrontendCompletionPopupHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.liveTemplates.FrontendRdHotspotRangesUpdateHandler" />
+    <lookup.vetoPolicy implementation="com.jetbrains.rdclient.completion.FrontendLookupVetoPolicy" />
+    <lookup.charFilter implementation="com.jetbrains.rdclient.completion.FrontendDefaultCharFilter" order="before default, last" id="frontendDefault" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncEditorActionHandler$CallEditorActionRequestFactory" serviceImplementation="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncEditorActionHandler$LocalCallEditorActionRequestFactory" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.engine.handlers.FrontendRdPatchHandlerContext$ScopeHolder" client="all" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.document.FrontendDocumentHost$MyProtocolListener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.ui.bindableUi.BeToolWindowHost$Listener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.editors.FrontendTextControlHost$MyProtocolListener" />
+    <rd.extListener endpoint="IDE Frontend" location="NotificationsModel" listener="com.jetbrains.rdclient.notifications.NotificationsHost$Listener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.protocol.LoggerModelManager$RootListener" />
+    <editorFactoryListener implementation="com.jetbrains.rdclient.editors.FrontendTextControlHost$MyEditorFactoryListener" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.daemon.components.FrontendMarkupHost" />
+    <rdclient.ignoreMouseClickRenderer implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendInlineInlayRendererClickCustomizer" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.defaultHighlighters.FrontendDefaultHighlighterModelSupport" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.editors.patchItemHandlers.FrontendEditorPatchItemHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.editors.patchItemHandlers.FrontendSelectionChangeHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.editors.patchItemHandlers.FrontendInitialCaretStateHintHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.editors.patchItemHandlers.FrontendUpdateMouseSelectionStateItemHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.editors.patchItemHandlers.FrontendScrollingRequestHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.editors.patchItemHandlers.FrontendFocusRequestHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.editors.patchItemHandlers.FrontendUpdateMouseSelectionHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.dumbMode.FrontendDumbModeNotificationHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.dumbMode.FrontendToggleDumbModeHandler" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.liveTemplates.FrontendLiveTemplateHighlighterModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.occurrenceHighlighters.FrontendOccurrenceHighlighterModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.hyperlink.FrontendHyperlinkHighlighterModelSupport" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.hyperlink.HyperlinkNavigateModelExtension" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.indentGuides.FrontendIndentGuideHighlighterModelSupport" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.indentGuides.FrontendIndentGuideProtocolMarkupExtension" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.daemon.highlighters.indentGuides.currentScope.FrontendCurrentScopeHighlightingManager" serviceImplementation="com.jetbrains.rdclient.daemon.highlighters.indentGuides.currentScope.FrontendCurrentScopeHighlightingManagerImpl" />
+    <editorFactoryListener implementation="com.jetbrains.rdclient.daemon.highlighters.indentGuides.currentScope.FrontendCurrentScopeHighlightingEditorFactoryListener" />
+    <projectService serviceInterface="com.intellij.lang.documentation.ide.IdeDocumentationTargetProvider" serviceImplementation="com.jetbrains.rdclient.quickDoc.FrontendEditorDocumentationTargetProvider" overrides="true" />
+    <platform.backend.documentation.linkHandler implementation="com.jetbrains.rdclient.quickDoc.FrontendDocumentationLinkHandler" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.tooltips.FrontendTooltipProtocolMarkupExtension" />
+    <editorFactoryMouseMotionListener implementation="com.jetbrains.rdclient.daemon.highlighters.tooltips.FrontendLazyTooltipHighlightInfoRequester" />
+    <rdclient.highlighterModelSupport id="folding" implementation="com.jetbrains.rdclient.daemon.highlighters.foldings.FrontendCodeFoldingModelSupport" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.foldings.FrontendCodeFoldingModelExtension" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.gutterMarks.FrontendGutterMarkModelSupport" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.gutterMarks.FrontendGutterMarkProtocolMarkupExtension" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.customStyle.FrontendCustomStyleHighlighterModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.lineMarkers.FrontendLineMarkerModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendHintInlayModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendBlockInlayModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.lineMarkers.FrontendMatchedBraceModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendInlayWithPresentationModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendDebugInlayModelSupport" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.InlayEventsModelExtension" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.MouseTrackingInlayExtension" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.HintInlayHighlighterMarkupExtension" />
+    <rdclient.lineMarkerRenderer implementation="com.jetbrains.rdclient.daemon.highlighters.lineMarkers.renderers.DefaultLineMarkerRendererProvider" id="default" />
+    <rdclient.lineMarkerRenderer implementation="com.jetbrains.rdclient.daemon.highlighters.lineMarkers.renderers.FillingLineMarkerRendererProvider" order="before default" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.lineMarkers.FrontendLineMarkerMarkupExtension" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.methodSeparators.FrontendMethodSeparatorModelSupport" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.diagnostics.MarkupDiagnosticsExtension" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.fileAnnotations.FrontendFileAnnotationModelSupport" />
+    <rdclient.highlighterElementSuppressorFactory implementation="com.jetbrains.rdclient.daemon.suppressors.PatchEngineSynchronizationMarkupSuppressorFactory" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.renderedDocs.DocRenderModelExtension" />
+    <rdclient.highlighterModelSupport order="after folding" id="renderDocFolding" implementation="com.jetbrains.rdclient.daemon.highlighters.renderedDocs.FrontendDocRenderFoldingModelSupport" />
+    <rdclient.highlighterModelSupport order="before renderDocFolding" implementation="com.jetbrains.rdclient.daemon.highlighters.renderedDocs.FrontendDocRenderHighlighterModelSupport" />
+    <applicationService serviceInterface="com.intellij.codeInsight.documentation.render.DocRenderItemManager" serviceImplementation="com.jetbrains.rdclient.daemon.highlighters.renderedDocs.FrontendDocRenderItemManager" overrides="true" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendDeclarativeInlayModelSupport" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.DeclarativeInlayEventsModelExtension" />
+    <codeInsight.inlayActionHandler implementationClass="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendDeclarativeInlayActionHandler" handlerId="frontend.inlay.action.handler" />
+    <applicationService serviceInterface="com.intellij.codeInsight.hints.declarative.impl.DeclarativeInlayActionService" serviceImplementation="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendDeclarativeInlayActionService" overrides="true" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.FrontendCompletionInlayModelSupport" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.CompletionInlayEventsModelExtension" />
+    <editorActionHandler action="EditorEscape" implementationClass="com.jetbrains.rdclient.daemon.highlighters.inlays.EscapeInlineCompletionHandler" order="before hide-hints" />
+    <rdclient.markupExtension implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.BlockInlaysModelExtension" />
+    <editorFactoryMouseListener implementation="com.jetbrains.rdclient.hyperlinks.FrontendCtrlClickHost$MyEditorMouseListener" />
+    <editorFactoryListener implementation="com.jetbrains.rdclient.daemon.highlighters.indentGuides.FrontendIndentGuideEditorFactoryListener" />
+    <editorFactoryMouseMotionListener implementation="com.jetbrains.rdclient.hyperlinks.FrontendCtrlClickHost$MyEditorMouseMotionListener" />
+    <registryKey defaultValue="true" description="Enable Deferring content loading for frontend requested editor composites" restartRequired="true" key="rdclient.frontend.async.editor.composite.load" />
+    <projectService serviceImplementation="com.jetbrains.rdclient.fileEditors.FrontendFileEditorHost" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.liveTemplates.RdHotspotRangesTracker" client="all" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.fileEditors.FrontendFileEditorHost$MyProtocolListener" />
+    <rdclient.fileEditorModelHandler implementation="com.jetbrains.rdclient.fileEditors.TextEditorModelHandler" />
+    <rdclient.fileEditorModelHandler implementation="com.jetbrains.rdclient.fileEditors.DefaultEditorModelHandler" order="last" />
+    <rd.dataConstantProvider implementation="com.jetbrains.rdclient.actions.EditorConstantProvider" />
+    <moduleRendererFactory implementation="com.jetbrains.rdclient.gotoType.ProtocolNavigationItemRendererFactory" />
+    <structureViewBuilder implementationClass="com.jetbrains.rdclient.fileStructure.ProtocolStructureViewBuilder" order="last" />
+    <projectService serviceImplementation="com.jetbrains.rdclient.daemon.components.FrontendDaemonHost" client="frontend" />
+    <severitiesProvider implementation="com.jetbrains.rdclient.daemon.SuggestionSeveritiesProvider" />
+    <usageViewFactory implementation="com.jetbrains.rdclient.usages.FrontendUsageViewFactory" />
+    <projectService serviceInterface="com.intellij.platform.ide.navigation.impl.IdeNavigationServiceExecutor" serviceImplementation="com.jetbrains.rdclient.usages.FrontendNavigationServiceExecutor" overrides="true" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.usages.popup.FrontendShowUsagesCustomizer" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.usages.popup.FrontendShowUsagesManager" />
+    <trafficLightRendererContributor implementation="com.jetbrains.rdclient.daemon.components.FrontendTrafficLightRendererContributor" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.actions.base.EditorActionHandlersCustomization" />
+    <intentionMenuContributor implementation="com.jetbrains.rdclient.services.popups.FrontendIntentionMenuContributor" />
+    <projectService serviceImplementation="com.jetbrains.rdclient.intentions.FrontendActionPopupHost" preload="true" />
+    <retypeFileAssistant implementation="com.jetbrains.rdclient.internal.RdclientRetypeFileAssistant" />
+    <registryKey key="rider.completion.shouldTriggerCompletion" description="Completion should be triggered" defaultValue="true" restartRequired="false" />
+    <registryKey key="rider.typing.syncAllSymbols" description="Synchronous TypeAssist will be applied for each symbol" defaultValue="false" restartRequired="false" />
+    <registryKey key="rider.typing.async" description="Async typing mode" defaultValue="true" restartRequired="false" />
+    <codeInsight.parameterInfo language="ThinClientLanguage" implementationClass="com.jetbrains.rdclient.parameterInfo.FrontendParameterInfoHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.completion.FrontendLookupCreateItemHandler" />
+    <highlightingPassFactory implementation="com.jetbrains.rdclient.intentions.FrontendShowAutoImportPassFactory" />
+    <declarationRangeHandler key="com.jetbrains.rdclient.fileStructure.ProtocolFileStructureFakePsiElement" implementationClass="com.jetbrains.rdclient.fileStructure.ProtocolDeclarationRangeHandler" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.vfs.FrontendVirtualFileManager" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.daemon.highlighters.foldings.FrontendCodeFoldingManager" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.completion.FrontendAutoPopupHost" client="frontend" />
+    <projectService serviceImplementation="com.jetbrains.rdclient.gotoType.GotoHost" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.ui.bindableUi.BeDialogHostProtocolComponent$Listener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.services.backgroundTasks.FrontendProgressListener" />
+    <notificationGroup id="Actions" displayType="BALLOON" bundle="messages.RdClientBundle" key="notification.group.actions" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.ui.bindableUi.FrontendModalDialogItemHandler" />
+    <projectService serviceImplementation="com.jetbrains.rdclient.daemon.highlighters.inlays.PushToHintSettingsHost" />
+    <rd.platform.logTraceCategoriesListener implementation="com.jetbrains.rdclient.diagnostics.RdClientTraceScenarioListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.status.FrontendStatusBarModelListener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.ui.ColorChooserHost" />
+    <rd.extListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.requests.FrontendAsyncRequestExecutor$MyModelListener" location="DocumentsOperationModel.requestResponseModel" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.requests.FrontendAsyncRequestExecutorBehaviour" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.requests.FrontendAsyncRequestExecutor" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.requests.FrontendAsyncRequestExecutor$RetryCustomizer" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.patches.FrontendPatchEngineHost" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rdclient.permissions.FrontendPermissionHost" />
+    <rdclient.view key="com.jetbrains.ide.model.uiautomation.BeEditorImpl" implementationClass="com.jetbrains.rd.ui.bindable.views.EditorImplControl" />
+    <rdclient.view key="com.jetbrains.ide.model.uiautomation.BeConsoleViewImpl" implementationClass="com.jetbrains.rd.ui.bindable.views.ConsoleViewImplControl" />
+    <rdclient.view key="com.jetbrains.ide.model.uiautomation.BeEditorTextField" implementationClass="com.jetbrains.rd.ui.bindable.views.EditorTextFieldControl" />
+    <rdclient.view key="com.jetbrains.ide.model.uiautomation.BeContextActionBehavior" implementationClass="com.jetbrains.rd.ui.bindable.views.BeContextActionBehaviorControl" />
+    <rdclient.view key="com.jetbrains.ide.model.uiautomation.BeEditorFragment" implementationClass="com.jetbrains.rd.ui.bindable.views.EditorFragmentControl" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rd.ui.bindable.views.BeContextIdTimestampModelProvider" />
+    <statistics.counterUsagesCollector implementationClass="com.jetbrains.rdclient.daemon.components.statistics.DaemonRedCodeLogUsageCollector" />
+    <statistics.counterUsagesCollector implementationClass="com.jetbrains.rdclient.daemon.highlighters.inlays.PushToHintUsagesCollector" />
+    <rdclient.documentExtensionsProvider implementation="com.jetbrains.rdclient.document.FrontendMarkupDocumentExtensionProvider" />
+    <rdclient.documentExtensionsProvider implementation="com.jetbrains.rdclient.document.FrontendUndoDocumentExtensionProvider" />
+    <rdclient.editorExtensionsProvider implementation="com.jetbrains.rdclient.editors.MarkupFrontendEditorExtensionsProvider" />
+    <cwm.beFrontendContextProvider implementation="com.jetbrains.rdclient.ui.bindableUi.BeControlContextProvider" />
+    <rdclient.highlighterExtensionHandler implementation="com.jetbrains.rdclient.actions.EditorActionAvailabilityHintHandler" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.usages.FrontendUsageManagerHost$MyFindUsagesModelListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rdclient.fileStructure.FrontendFileStructureProtocolListener" />
+    <rd.protocol.initializer implementation="com.jetbrains.rdclient.protocol.LoggerModelManager$NewProtocolListener" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rdclient.document.FrontendPatchDocumentItemHandler" />
+    <rd.protocol.initializer implementation="com.jetbrains.rdclient.protocol.CacheResetListener" />
+    <actionPromoter implementation="com.jetbrains.rdclient.daemon.highlighters.inlays.InlayClickConsumerActionPromoter" />
+    <rdclient.editorActionHandlerStrategyCustomizer id="hint" implementation="com.jetbrains.rdclient.editorActions.cwm.ByHintActionStrategyCustomizer" />
+    <frontendDocumentIdRegistry implementation="com.jetbrains.rdclient.document.FrontendDocumentIdRegistryImpl" />
+    <adEntityProvider implementation="com.jetbrains.rdclient.document.FrontendAdEntityProvider" />
+  </extensions>
+  <projectListeners>
+    <listener topic="com.intellij.codeInsight.daemon.impl.EditorTrackerListener" class="com.jetbrains.rdclient.editors.FrontendTextControlHost$MyEditorTrackerListener" />
+    <listener topic="com.intellij.openapi.fileEditor.FileEditorManagerListener" class="com.jetbrains.rdclient.fileEditors.FrontendFileEditorHost$MyFileEditorManagerListener" />
+    <listener topic="com.intellij.openapi.fileEditor.FileEditorManagerListener" class="com.jetbrains.rdclient.editors.FrontendTextControlHost$MyFileEditorManagerListener" />
+    <listener topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener" class="com.jetbrains.rdclient.fileStructure.FrontendFileStructureToolWindowManagerListener" />
+    <listener class="com.jetbrains.rdclient.actions.cwm.FrontendAsyncActionHost$MyIdeBackendListener" topic="com.jetbrains.rdclient.services.IdeBackendListener" />
+  </projectListeners>
+  <applicationListeners>
+    <listener class="com.jetbrains.rdclient.liveTemplates.FrontendMirrorsUpdater" topic="com.jetbrains.rdclient.requests.FrontendSpeculativeRequestRecordingListener" />
+    <listener topic="com.intellij.openapi.command.impl.UndoRedoListener" class="com.jetbrains.rdclient.actions.cwm.PatchEngineUndoRedo$Listener" />
+    <listener topic="com.jetbrains.rdclient.connection.ClientSessionListener" class="com.jetbrains.rdclient.actions.cwm.FrontendActionsRegistrationHost$AsyncActionsModelInitializer" />
+    <listener topic="com.jetbrains.rdclient.document.FrontendDocumentHostListener" class="com.jetbrains.rdclient.editors.FrontendTextControlHost$MyDocumentListener" />
+    <listener topic="com.jetbrains.rdclient.document.FrontendDocumentHostListener" class="com.jetbrains.rdclient.document.FrontendDocumentUndoDisabler" />
+    <listener topic="com.jetbrains.rdclient.document.FrontendDocumentHostListener" class="com.jetbrains.rdclient.daemon.components.FrontendMarkupHost$MyDocumentListener" />
+    <listener topic="com.jetbrains.rdclient.document.FrontendDocumentHostListener" class="com.jetbrains.rdclient.daemon.components.FrontendDaemonHost$MyListener" />
+    <listener class="com.jetbrains.rdclient.parameterInfo.FrontendParameterInfoHost$FrontendParameterInfoTextControlListener" topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" />
+    <listener topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" class="com.jetbrains.rdclient.completion.summaryInfo.FrontendLookupSummaryInfoListener" />
+    <listener class="com.jetbrains.rdclient.daemon.highlighters.gutterMarks.HoverEditorGutterListener" topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" />
+    <listener topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" class="com.jetbrains.rdclient.daemon.components.FrontendErrorStripeListener" />
+    <listener topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" class="com.jetbrains.rdclient.services.popups.FrontendIntentionMenuContributor$MyTextControlListener" />
+    <listener topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" class="com.jetbrains.rdclient.daemon.components.FrontendMarkupHost$MyEditorListener" />
+    <listener class="com.jetbrains.rdclient.ui.UISettingsChangeOnActionsTrigger" topic="com.jetbrains.rdclient.actions.cwm.FrontendActionRegistrationListener" />
+    <listener class="com.jetbrains.rd.platform.diagnostics.LogTraceScenariosRegistry$LogTraceScenariosInitializer" topic="com.intellij.ide.AppLifecycleListener" activeInHeadlessMode="true" activeInTestMode="true" />
+    <listener topic="com.jetbrains.rdclient.requests.FrontendAsyncRequestListener" class="com.jetbrains.rdclient.diagnostics.FrontendRequestsLogger" />
+  </applicationListeners>
+  <project-components>
+    <component>
+      <implementation-class>com.jetbrains.rdclient.services.uiContext.UiContextManager</implementation-class>
+    </component>
+  </project-components>
+  <actions>
+    <group id="RdClient.internal.markup" text="Markup Actions" internal="true" popup="true">
+      <action id="ToggleMarkupDebugModeAction" class="com.jetbrains.rdclient.daemon.diagnostics.ToggleMarkupDebugModeAction" internal="true" />
+      <action id="DumpStickyLinesAction" class="com.jetbrains.rdclient.internal.markup.DumpStickyLinesModel" internal="true" text="Dump Sticky Lines" />
+      <action id="DumpHighlightersAction" class="com.jetbrains.rdclient.internal.markup.DumpProtocolHighlightersAction" internal="true" text="Dump Backend Highlighters" />
+      <action id="DumpFrontendPsiAction" class="com.jetbrains.rdclient.internal.markup.DumpFrontendPsiAction" internal="true" text="Dump Frontend PSI" />
+      <action id="DumpAllHighlightersAction" class="com.jetbrains.rdclient.internal.markup.DumpAllHighlightersAction" internal="true" text="Dump All Highlighters" />
+      <action id="DumpGutterMarksAction" class="com.jetbrains.rdclient.internal.markup.DumpProtocolGutterMarksAction" internal="true" text="Dump Gutter Marks" />
+      <action id="DumpFoldingAction" class="com.jetbrains.rdclient.internal.markup.DumpFoldingAction" internal="true" text="Dump Code Folding" />
+      <action id="DumpHintsAction" class="com.jetbrains.rdclient.internal.markup.DumpProtocolHintsAction" internal="true" text="Dump Hints" />
+      <action id="DumpHighlighterTextWithKeys" class="com.jetbrains.rdclient.internal.markup.DumpHighlighterTreeKeysAction" internal="true" text="Dump Highlighters' Text Attribute Keys" />
+      <action id="DumpTextAttributeKeysBreakdown" class="com.jetbrains.rdclient.internal.markup.DumpTextAttributeKeysBreakdownAction" internal="true" text="Dump Text Attribute Keys Breakdown" />
+      <action id="DumpTextAttributeTroubleshootingData" class="com.jetbrains.rdclient.internal.markup.DumpTextAttributeTroubleshootingDataAction" internal="true" text="Dump Text Attribute Troubleshooting Data" />
+      <action id="CompareBackendAndFrontendHighlighterTrees" class="com.jetbrains.rdclient.internal.markup.CompareBackendAndFrontendHighlighterTrees" text="Compare Backend &amp; Frontend Trees" internal="true" />
+      <add-to-group group-id="Internal" />
+    </group>
+    <group id="RdClient.internal" internal="true" popup="true" text="RdClient">
+      <action id="BeControlsDSLShowCase" internal="true" class="com.jetbrains.rdclient.ui.bindableUi.FrontendBeControlsDemoAction" text="BeControls Demo" />
+      <action id="MarkActionType" internal="true" class="com.jetbrains.rdclient.actions.internal.MarkActionTypeAction" text="Mark Frontend/Backend Actions" />
+      <add-to-group group-id="Internal" />
+    </group>
+    <action class="com.jetbrains.rdclient.daemon.highlighters.inlays.InlayClickConsumerAction" id="InlayClickAction" use-shortcut-of="GotoDeclaration" />
+  </actions>
+  <actions resource-bundle="messages.RdClientBundle">
+    <action id="LogTraceScenarios" class="com.jetbrains.rd.platform.diagnostics.LogTraceScenariosAction">
+      <add-to-group group-id="HelpDiagnosticTools" anchor="after" relative-to-action="ShowLog" />
+    </action>
+    <action id="ShowPatchEngineDiagnosticDialog" class="com.jetbrains.rdclient.diagnostics.ShowPatchEngineDiagnosticDialog" internal="true">
+      <add-to-group group-id="HelpDiagnosticTools" anchor="after" relative-to-action="LogTraceScenarios" />
+    </action>
+  </actions>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.rdclient.dotnet" loading="embedded"><![CDATA[<idea-plugin>
+  <dependencies>
+    <module name="intellij.rd.client" />
+    <module name="intellij.rd.ide.model.generated" />
+    <module name="intellij.rd.platform" />
+    <module name="intellij.rd.ui" />
+  </dependencies>
+  <extensionPoints>
+    <extensionPoint qualifiedName="com.intellij.rider.startupListener" interface="com.jetbrains.rider.startup.RiderInitialStartupListener" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rdclient.actionsDataContextProvider" interface="com.jetbrains.rdclient.actions.patchHandlers.FrontendActionsDataContextProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.projectModelViewUpdater" interface="com.jetbrains.rider.projectView.ProjectModelViewUpdater" area="IDEA_PROJECT" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.solutionLoadNotification" interface="com.jetbrains.rider.projectView.notifications.SolutionLoadNotification" area="IDEA_PROJECT" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.backend.markup.adapterFactory" beanClass="com.jetbrains.rdclient.daemon.FrontendMarkupAdapterFactoryEP">
+      <with attribute="implementationClass" implements="com.jetbrains.rdclient.daemon.FrontendMarkupAdapterFactory" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.backend.actions.support" beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
+      <with attribute="implementationClass" implements="com.jetbrains.rider.actions.RiderActionSupportPolicy" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.navbar.members.support" beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
+      <with attribute="implementationClass" implements="com.jetbrains.rider.navbar.RiderNavBarMembersSupport" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.backend.auto.import.support" beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
+      <with attribute="implementationClass" implements="com.jetbrains.rider.intentions.RiderAutoImportSupportPolicy" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.backend.autoPopup.support" beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
+      <with attribute="implementationClass" implements="com.jetbrains.rider.completion.RiderAutoPopupSupportPolicy" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.lang.altEnter" beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
+      <with attribute="implementationClass" implements="com.jetbrains.rider.intentions.altEnter.BulbMenuModelFactory" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.lang.altEnter.popupModelDelegate" interface="com.jetbrains.rider.intentions.altEnter.PopupModelDelegate" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.altEnter.layouter" interface="com.jetbrains.rider.intentions.altEnter.RiderAltEnterLayouter" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.credentials.provider" interface="com.jetbrains.rider.ea.authorization.ICredentialsProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.fileBreadcrumbExtensions" interface="com.jetbrains.rider.breadcrumbs.CustomFileBreadcrumbExtensions" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.documentBehaviour" interface="com.jetbrains.rider.document.RiderDocumentBehaviour" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.protocol.hostEnvProvider" interface="com.jetbrains.rider.protocol.RiderBackendEnvProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.extraSettingsSync" interface="com.jetbrains.rider.settings.ExtraSettingsSync" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.namingPageProvider" interface="com.jetbrains.rider.settings.naming.NamingPageProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.codeStyleContentConverter" interface="com.jetbrains.rider.settings.RiderCodeStyleContentPageConverter" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.action.fallback.strategy" interface="com.jetbrains.rider.actions.RiderAsyncBackendDelegatingActionFallbackStrategy" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.grave.filter" interface="com.jetbrains.rider.daemon.grave.filter.RiderHighlightingGraveFilter" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.frontend.completion.helper" beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
+      <with attribute="implementationClass" implements="com.jetbrains.rider.completion.ICompletionHelper" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.rdclient.preemptiveCompletionSuppressor" interface="com.jetbrains.rider.completion.PreemptiveCompletionSuppressor" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.completion.completionSessionStrategy" beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
+      <with attribute="implementationClass" implements="com.jetbrains.rider.completion.CompletionSessionStrategy" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.rdclient.typingPolicy" interface="com.jetbrains.rider.editorActions.CustomTypingSessionPolicy" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.backend.typedHandler" beanClass="com.intellij.lang.LanguageExtensionPoint" dynamic="true">
+      <with attribute="implementationClass" implements="com.jetbrains.rider.editorActions.FrontendTypedHandler" />
+    </extensionPoint>
+    <extensionPoint qualifiedName="com.intellij.rider.editors.customBackendLanguageSupport" interface="com.jetbrains.rider.editors.RiderCustomBackendLanguageSupport" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.backendLogXmlPathProvider" interface="com.jetbrains.rider.RiderCustomBackendLogXmlPathProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.riderApplicationPreloadListener" interface="com.jetbrains.rider.RiderApplicationPreloadListener" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.backendCrashAnalyser" interface="com.jetbrains.rider.protocol.BackendCrashAnalyzer" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.ideaInspectionBackendSuppressionSupport" interface="com.jetbrains.rider.inspections.suppression.IdeaInspectionBackendSuppressionSupport" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.selfProfilingPaths.customizer" interface="com.jetbrains.rider.diagnostics.dotnetSelfProfiling.DotnetSelfProfilerPathsCustomizer" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.smartTabsBackendSynchronizer" interface="com.jetbrains.rider.settings.RiderSmartTabsBackendSynchronizer" />
+    <extensionPoint qualifiedName="com.intellij.rider.additionalQuickDocProvider" interface="com.jetbrains.rider.quickDoc.AdditionalQuickDocProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.backendCompletionAppliedHandler" interface="com.jetbrains.rider.completion.patchEngine.handlers.IRiderBackendCompletionAppliedHandler" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.customNonSolutionRootsPredicate" interface="com.jetbrains.rider.projectView.workspace.CustomNonSolutionRootsPredicate" dynamic="true" />
+  </extensionPoints>
+  <extensions defaultExtensionNs="com.intellij">
+    <logLevelConfigurationListener implementation="com.jetbrains.rider.diagnostics.LogDebugCategorySynchronizer" />
+    <rdclient.highlighting.frontendHighlighterAttributeCustomizer implementation="com.jetbrains.rider.colorSchemes.FrontendRainbowHighlighterCustomizer" />
+    <applicationActivity implementation="com.jetbrains.rider.util.idea.LogCleanupActivity" />
+    <rdclient.backendThreadDumper implementation="com.jetbrains.rider.diagnostics.RiderBackendThreadDumper" />
+    <lang.altEnter language="" implementationClass="com.jetbrains.rider.intentions.altEnter.IntelliJBulbMenuModelFactory" />
+    <rider.altEnter.layouter implementation="com.jetbrains.rider.intentions.altEnter.RiderAltEnterGutterLayouter" />
+    <initProjectActivity implementation="com.jetbrains.rider.projectView.SolutionInitializerActivity" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.dialog.RiderDialogModelListener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.protocol.stub.FileNestingStubListener" id="stub" order="first" />
+    <applicationService serviceImplementation="com.jetbrains.rider.settings.SettingsSynchronizer" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rider.inTests.TestHost" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rider.settings.RegistrySynchronizer" client="frontend" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.settings.RegistrySynchronizer$Listener" />
+    <applicationService serviceImplementation="com.jetbrains.rider.protocol.components.ShellHost" client="frontend" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.protocol.components.RdShellModelListener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.notifications.BackendNotificationPopupHost" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.actions.RiderBackendActionTerminationListener" />
+    <applicationService serviceImplementation="com.jetbrains.rider.settings.RiderSettingMaintenanceController" client="frontend" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.document.RiderEnsureWritableListener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.services.RiderMessageBoxListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.services.RiderProgressListener" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.actions.patchHandlers.FrontendLocalActionItemHandlerActionProvider" serviceImplementation="com.jetbrains.rider.actions.RiderLocalActionItemHandlerActionProvider" overrides="true" />
+    <applicationService serviceImplementation="com.jetbrains.rider.protocol.components.SolutionHost" client="frontend" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.document.FrontendDocumentHost" serviceImplementation="com.jetbrains.rider.document.RiderDocumentHost" client="frontend" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.requests.FrontendAsyncRequestExecutorBehaviour" serviceImplementation="com.jetbrains.rider.editors.patchEngine.RiderAsyncRequestExecutorBehaviour" overrides="true" />
+    <applicationService serviceImplementation="com.jetbrains.rider.document.FrontendCommandsHost" client="frontend" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rider.document.FrontendSaveFilesHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rider.document.FrontendCommandHandler" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.document.FrontendCommandsHost$ProtocolListener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.utils.ServicesUtilsHost" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.document.DocumentHostHelper$ProtocolListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.quickDoc.FrontendQuickDocHost$MyListener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.document.RdCommandService$MyCommandModelListener" />
+    <applicationService serviceImplementation="com.jetbrains.rider.editors.notifications.NotificationPanelHost" client="frontend" />
+    <applicationService serviceInterface="com.intellij.platform.feedback.eap.EAPFeedbackUrlProvider" serviceImplementation="com.jetbrains.rider.notifications.RiderEAPFeedbackUrlProvider" overrides="true" />
+    <applicationService serviceImplementation="com.jetbrains.rider.completion.patchEngine.CompletionSessionHolder" client="all" />
+    <projectService serviceImplementation="com.jetbrains.rider.document.DocumentHostHelper" client="frontend" />
+    <projectService serviceImplementation="com.jetbrains.rider.completion.RiderCompletionHost" serviceInterface="com.jetbrains.rider.completion.FrontendCompletionHost" />
+    <projectService serviceImplementation="com.jetbrains.rider.ai.RiderFeatureExecutionService" />
+    <applicationService serviceImplementation="com.jetbrains.rider.document.RdCommandService" client="frontend" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.editors.FrontendTextControlHost" serviceImplementation="com.jetbrains.rider.editors.RiderTextControlHost" client="frontend" />
+    <applicationService serviceInterface="com.jetbrains.rider.editors.virtualFormat.RiderVirtualFormattingService" serviceImplementation="com.jetbrains.rider.editors.virtualFormat.RiderVirtualFormattingServiceImpl" />
+    <rd.frontendPatchAccessTokenProvider implementation="com.jetbrains.rider.document.PatchEngineCommandSessionAccessTokenProvider" />
+    <rdclient.textControlBindingPolicy id="custom_backend" implementation="com.jetbrains.rider.services.CustomBackendTextControlBindingPolicy" />
+    <rdclient.textControlBindingPolicy id="backend_feature_based" implementation="com.jetbrains.rider.editors.FeatureBasedTextControlBindingPolicy" />
+    <rdclient.textControlBindingPolicy id="real_document" order="after sandbox, before backend_feature_based" implementation="com.jetbrains.rider.util.idea.RealFileTextControlBindingPolicy" />
+    <rdclient.textControlBindingPolicy id="sandbox" implementation="com.jetbrains.rider.editors.sandboxes.SandboxTextControlBindingPolicy" />
+    <projectService serviceImplementation="com.jetbrains.rider.services.RiderGlobalProgressHost" preload="true" />
+    <applicationService serviceInterface="com.jetbrains.rider.editors.sandboxes.SandboxManager" serviceImplementation="com.jetbrains.rider.editors.sandboxes.SandboxManagerImpl" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.daemon.components.FrontendMarkupHost" serviceImplementation="com.jetbrains.rider.daemon.components.RiderMarkupHost" overrides="true" />
+    <postStartupActivity implementation="com.jetbrains.rider.settings.SettingsSynchronizer$StartActivity" />
+    <postStartupActivity implementation="com.jetbrains.rider.protocol.ProtocolManager$SessionsFlowInitializer" />
+    <postStartupActivity implementation="com.jetbrains.rider.encoding.FileEncodingSyncActivity" />
+    <rider.grave.filter implementation="com.jetbrains.rider.daemon.grave.filter.RiderGraveBackendSeverityFilter" />
+    <rider.grave.filter implementation="com.jetbrains.rider.daemon.grave.filter.RiderGraveResharperFilter" />
+    <projectService serviceInterface="com.intellij.lang.documentation.ide.IdeDocumentationTargetProvider" serviceImplementation="com.jetbrains.rider.quickDoc.RiderDocumentationTargetProvider" overrides="true" />
+    <projectService serviceInterface="com.intellij.openapi.client.ClientSessionsManager" serviceImplementation="com.jetbrains.rider.protocol.RiderProtocolProjectSessionsManager" overrides="true" preload="await" />
+    <projectService serviceInterface="com.jetbrains.rider.ai.RiderErrorCheckerService" serviceImplementation="com.jetbrains.rider.ai.RiderErrorCheckerServiceImpl" />
+    <applicationService serviceImplementation="com.jetbrains.rider.protocol.ProjectSessionFlowHolder" client="frontend" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.template.RiderLiveTemplateHost$ProtocolListener" />
+    <ApplicationLoadListener implementation="com.jetbrains.rider.RiderApplicationLoadListener" id="riderApplicationLoadListener" />
+    <applicationService serviceInterface="com.jetbrains.rider.services.popups.nova.PopupMenus" serviceImplementation="com.jetbrains.rider.services.popups.nova.ui.UiPopupMenus" testServiceImplementation="com.jetbrains.rider.services.popups.nova.ui.HeadlessPopupMenus" client="all" />
+    <applicationService serviceImplementation="com.jetbrains.rider.services.popups.nova.ui.RiderMainToolbarPopupContextCustomizer" client="all" />
+    <applicationService serviceImplementation="com.jetbrains.rider.intentions.altEnter.PopupModelTopLevelItemsCollector" />
+    <applicationService serviceImplementation="com.jetbrains.rider.completion.RiderCodeCompletionExtraSettings" />
+    <applicationService serviceImplementation="com.jetbrains.rider.editors.RiderBackendInteractionHelper" client="frontend" />
+    <projectService serviceInterface="com.intellij.codeInsight.actions.AsyncActionExecutionService" serviceImplementation="com.jetbrains.rider.actions.RiderAsyncActionExecutionService" overrides="true" />
+    <projectService serviceImplementation="com.jetbrains.rider.completion.FrontendCompletionHost$PerClientState" client="all" />
+    <projectService serviceImplementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderIgnoreProvider" />
+    <projectService serviceInterface="com.jetbrains.rider.editorActions.ITypingSessions" serviceImplementation="com.jetbrains.rider.editorActions.RiderTypingSessions" client="frontend" />
+    <projectService serviceInterface="com.jetbrains.rider.editors.ILastFocusedEditorSuppressor" serviceImplementation="com.jetbrains.rider.editors.RiderEditorSuppressor" client="frontend" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.services.TooltipsHost$Listener" />
+    <projectService serviceInterface="com.jetbrains.rdclient.services.IdeBackend" serviceImplementation="com.jetbrains.rider.services.RiderDefaultBackend" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.services.RdVirtualFilesProvider" serviceImplementation="com.jetbrains.rider.services.RiderRdVirtualFilesProvider" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.services.RdActionsSupport" serviceImplementation="com.jetbrains.rider.services.RiderRdActionsSupport" />
+    <projectService serviceInterface="com.jetbrains.rdclient.daemon.highlighters.inlays.PushToHintSettingsHost" serviceImplementation="com.jetbrains.rider.settings.RiderPushToHintSettingsHost" overrides="true" />
+    <projectService serviceInterface="com.jetbrains.rdclient.daemon.highlighters.inlays.InlayHintInteractionController" serviceImplementation="com.jetbrains.rider.intentions.altEnter.RiderInlayHintInteractionController" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.notifications.SolutionLoadNotification$Manager" preload="true" />
+    <projectService serviceInterface="com.jetbrains.rider.completion.AutoPopupHost" serviceImplementation="com.jetbrains.rider.editors.RiderAutoPopupHost" />
+    <applicationService serviceImplementation="com.jetbrains.rider.completion.ClientCompletionSupport" />
+    <applicationService serviceInterface="com.intellij.ide.ClientCopyPasteManager" serviceImplementation="com.jetbrains.rider.editors.RiderCopyPasteManager" client="local" overrides="true" />
+    <applicationService serviceImplementation="com.jetbrains.rider.actions.RiderFrontendActionsFacadeImpl" serviceInterface="com.jetbrains.rdclient.actions.base.FrontendActionsFacade" overrides="true" client="frontend" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.actions.ActionCallPolicy" serviceImplementation="com.jetbrains.rider.actions.RiderActionCallPolicy" overrides="true" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.actions.ActionsOverrider" serviceImplementation="com.jetbrains.rider.actions.RiderActionsOverrider" overrides="true" />
+    <applicationService serviceImplementation="com.jetbrains.rider.actions.InterruptibleBackendActionHost" client="frontend" />
+    <applicationService serviceInterface="com.intellij.openapi.actionSystem.ActionUpdaterInterceptor" serviceImplementation="com.jetbrains.rider.actions.RiderActionUpdateInterceptor" overrides="true" />
+    <actionPromoter implementation="com.jetbrains.rider.actions.RiderActionUpdateInterceptor$RiderUpdateSessionForInputEventActionsPromoter" order="last" />
+    <applicationService serviceInterface="com.jetbrains.rd.ui.bindable.BeActionSupport" serviceImplementation="com.jetbrains.rider.ui.bindableUi.RiderBeActionSupport" overrides="true" />
+    <applicationService serviceInterface="com.jetbrains.rider.actions.RdClientActionPresentationUpdateHost" serviceImplementation="com.jetbrains.rider.actions.RiderActionPresentationUpdateHost" client="frontend" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncEditorActionHandler$CallEditorActionRequestFactory" serviceImplementation="com.jetbrains.rider.editorActions.RiderCallEditorActionRequestFactory" overrides="true" client="frontend" />
+    <applicationService serviceImplementation="com.jetbrains.rider.editorActions.RiderPatchEngineBackendIsFrozenTracker" client="frontend" />
+    <postStartupActivity implementation="com.jetbrains.rider.editorActions.RiderPatchEngineBackendIsFrozenTracker$AutoLoader" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.editorActions.cwm.FrontendAsyncRawTypedHandler$TypeKeyRequestFactory" serviceImplementation="com.jetbrains.rider.editorActions.RiderLocalTypeKeyRequestFactory" overrides="true" client="frontend" />
+    <applicationService serviceInterface="com.intellij.codeInsight.actions.ReaderModeDefaultsOverride" serviceImplementation="com.jetbrains.rider.editors.inlineDoc.RdDotnetOverrideReaderModeDefaults" overrides="true" />
+    <ide.dynamicPluginVetoer implementation="com.jetbrains.rider.platform.AIPluginLoadVetoer" />
+    <projectService serviceImplementation="com.jetbrains.rider.actions.RiderAsyncActionModelInitializer" preload="true" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.actions.cwm.FrontendAvailabilityMessageService" serviceImplementation="com.jetbrains.rider.actions.RiderAvailabilityMessageService" overrides="true" />
+    <rd.actionProvider implementation="com.jetbrains.rider.actions.RiderBackendActionIdProvider" />
+    <codeFoldingOptionsProvider instance="com.jetbrains.rider.settings.foldings.impl.RiderDefaultCodeFoldingOptionProvider" id="rider_default" />
+    <applicationService serviceImplementation="com.jetbrains.rider.settings.foldings.impl.RiderDefaultCodeFoldingSettings" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rider.daemon.highlighters.foldings.RiderCodeFoldingModelSupport" />
+    <applicationService serviceImplementation="com.jetbrains.rider.actions.BackendDelegatingActionAliasMatcher$ActionAliasCache" preload="true" />
+    <codeInsight.inlayHintsSwitch implementation="com.jetbrains.rider.inlayHints.RiderInlayHintsSwitch" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rider.daemon.highlighters.inlays.RiderInlayModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rider.daemon.highlighters.fileAnnotations.RiderFileAnnotationsModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rider.editors.stickyLines.RiderStickyLinesModelSupport" />
+    <rdclient.highlighterModelSupport order="after folding" id="renderDocFolding" implementation="com.jetbrains.rider.editors.inlineDoc.RiderInlineDocFoldingModelSupport" />
+    <rdclient.highlighterModelSupport order="before renderDocFolding" implementation="com.jetbrains.rider.editors.inlineDoc.RiderInlineDocHighlighterModelSupport" />
+    <rdclient.highlighterModelSupport order="after renderDocFolding" implementation="com.jetbrains.rider.editors.virtualFormat.RiderVirtualFormatterModelSupport" />
+    <rdclient.view key="com.jetbrains.rd.ui.util.RichText" implementationClass="com.jetbrains.rider.ui.bindableUi.RichTextView" />
+    <rdclient.view key="com.jetbrains.ide.model.popups.RdRichTextMultiLineViewModel" implementationClass="com.jetbrains.rider.ui.bindableUi.protocolViews.RichTextMultiLineView" />
+    <rdclient.view key="com.jetbrains.ide.model.popups.RdRichTextWithProgressViewModel" implementationClass="com.jetbrains.rider.ui.bindableUi.protocolViews.RichTextWithProgressView" />
+    <rdclient.view key="com.jetbrains.ide.model.popups.RdThemedIconViewModel" implementationClass="com.jetbrains.rider.ui.bindableUi.protocolViews.ThemedIconView" />
+    <rdclient.view key="com.jetbrains.ide.model.popups.RdPresentableItemViewModel" implementationClass="com.jetbrains.rider.ui.bindableUi.protocolViews.PresentableItemView" />
+    <rdclient.view key="com.jetbrains.rider.ui.bindableUi.HtmlText" implementationClass="com.jetbrains.rider.ui.bindableUi.HtmlTextView" />
+    <rdclient.view key="com.jetbrains.rider.model.refactorings.BeUsagesPanel" implementationClass="com.jetbrains.rider.refactorings.Pages.controls.UsagesPanelViewControl" />
+    <rdclient.view key="com.jetbrains.rider.model.refactorings.ApplyChangeSignatureModel" implementationClass="com.jetbrains.rider.refactorings.Pages.ApplyChangeSignaturePage" />
+    <projectService serviceImplementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderFrontendRegistrationHost" preload="true" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderTextControlTimestampModelProvider" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderControlIdTimestampModelProvider" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderAsyncActionTimestampModelProvider" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderSolutionViewTimestampModelProvider" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderFileStructureActionTimestampModelProvider" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderBeControlTimestampModelProvider" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderTypeHierarchyTimestampProvider" />
+    <rider.action.fallback.strategy implementation="com.jetbrains.rider.actions.fallbackStrategy.RiderCtrlClickTreeActionFallbackStrategy" />
+    <rd.ui.componentIdProvider forClass="com.jetbrains.rd.ide.model.EditorComponentId" implementationClass="com.jetbrains.rider.actions.ui.EditorComponentIdProvider" />
+    <rd.ui.componentIdOwner implementation="com.jetbrains.rider.actions.ui.EditorComponentIdProvider" order="before RiderToolWindowComponentIdProvider" />
+    <rd.ui.componentIdProvider forClass="com.jetbrains.rd.ide.model.ToolWindowComponentId" implementationClass="com.jetbrains.rider.actions.ui.ToolWindowComponentIdProvider" />
+    <rd.ui.componentIdOwner id="RiderToolWindowComponentIdProvider" implementation="com.jetbrains.rider.actions.ui.ToolWindowComponentIdProvider" order="last" />
+    <rdclient.view key="com.jetbrains.ide.model.uiautomation.BeResharperAction" implementationClass="com.jetbrains.rider.ui.bindableUi.views.ResharperActionViewControl" />
+    <rdclient.typingPolicy implementation="com.jetbrains.rider.editorActions.RiderCustomTypingSessionPolicy" />
+    <fileIndentOptionsProvider implementation="com.jetbrains.rider.settings.RiderFileIndentOptionsProvider" order="first" />
+    <applicationActivity implementation="com.jetbrains.rider.editorActions.RiderTypedHandlersPreloader" />
+    <errorHandler implementation="com.jetbrains.rider.ea.DotNetExceptionReporter" order="first" />
+    <applicationService serviceInterface="com.jetbrains.rider.ea.IExceptionSubmitter" serviceImplementation="com.jetbrains.rider.ea.EASubmitter" />
+    <notificationGroup id="Rider Error Report" displayType="BALLOON" isLogByDefault="true" bundle="messages.DiagnosticBundle" key="error.report.title" />
+    <notificationGroup id="BackendProfiling" displayType="BALLOON" isLogByDefault="true" bundle="messages.RdClientDotnetBundle" key="self.profiling.notification.title" />
+    <notificationGroup id="PerformanceMeasuring" displayType="BALLOON" isLogByDefault="true" bundle="messages.RdClientDotnetBundle" key="performance.measuring.notification.title" />
+    <rider.credentials.provider implementation="com.jetbrains.rider.ea.authorization.token.RefreshTokenCredentialsProvider" />
+    <rider.credentials.provider implementation="com.jetbrains.rider.ea.authorization.password.AnonymousCredentialsProvider" />
+    <rider.backendCrashAnalyser implementation="com.jetbrains.rider.protocol.NetFrameworkVersionNotSupported" />
+    <projectService serviceInterface="com.jetbrains.rider.completion.summaryInfo.RiderLookupSummaryInfos" serviceImplementation="com.jetbrains.rider.completion.summaryInfo.RiderLookupSummaryInfosLocal" client="local" />
+    <postStartupActivity implementation="com.jetbrains.rider.services.popups.RiderPopupModelHost$SubscriptionActivity" />
+    <frontend.completion.helper language="" implementationClass="com.jetbrains.rider.completion.DefaultICompletionHelper" id="default" order="last" />
+    <typedHandler id="rdClientFrontend" order="first, before completionAutoPopup" implementation="com.jetbrains.rider.editorActions.FrontendTypedHandlerDelegate" />
+    <typedHandler implementation="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineAutoPopupStatisticsTypedHandlerDelegate" />
+    <editorActionHandler action="EditorSelectWord" implementationClass="com.jetbrains.rider.editorActions.FrontendSelectWordAtCaretHandler" id="rdclient.select.word" order="before indent.guide.select.word" />
+    <editorActionHandler action="EditorUnSelectWord" implementationClass="com.jetbrains.rider.editorActions.FrontendUnselectWordAtCaretHandler" id="rdclient.unselect.word" order="before psi.unselect.word" />
+    <editorActionHandler action="EditorTab" implementationClass="com.jetbrains.rider.editorActions.FrontendTabAction" id="rdclient.editor.tab" />
+    <editorActionHandler action="EditorIndentSelection" implementationClass="com.jetbrains.rider.editorActions.FrontendIndentSelectionAction" id="rd.client.editor.indent.selection" />
+    <editorActionHandler action="EditorUnindentSelection" implementationClass="com.jetbrains.rider.editorActions.FrontendTabLeftAction" id="rd.client.editor.unindent.selection" />
+    <editorActionHandler action="EditorBackSpace" implementationClass="com.jetbrains.rider.editorActions.FrontendBackspaceHandler" id="riderEditorBackspace" order="before backspace.for.selection" />
+    <editorActionHandler action="EditorBackSpace" implementationClass="com.jetbrains.rider.editorActions.BackspaceHandlerWithCookie" id="riderEditorBackspaceWithCookie" order="before backspace.lang" />
+    <editorActionHandler action="EditorDeleteToWordStart" implementationClass="com.jetbrains.rider.editorActions.FrontendDeleteToWordStartWithSelectionHandler" id="riderEditorDeleteToWordStart" order="before backspace.to.word.start" />
+    <editorActionHandler action="EditorDelete" implementationClass="com.jetbrains.rider.editorActions.FrontendDeleteHandler" id="riderEditorDelete" order="before delete.for.selection" />
+    <editorActionHandler action="EditorEnter" implementationClass="com.jetbrains.rider.editorActions.FrontendEnterHandler" id="rd.client.editor.enter" order="before editorEnter, after templateEnter, after inline.completion.enter" />
+    <editorActionHandler action="EditorCut" implementationClass="com.jetbrains.rider.editorActions.FrontendCutHandler" order="first" />
+    <editorActionHandler action="EditorCopy" implementationClass="com.jetbrains.rider.editorActions.FrontendCopyHandler" order="first" />
+    <editorActionHandler action="EditorChooseLookupItem" implementationClass="com.jetbrains.rider.editorActions.RiderChooseLookupItemAction" order="first" />
+    <editorActionHandler action="EditorChooseLookupItemReplace" implementationClass="com.jetbrains.rider.editorActions.RiderChooseLookupItemActionReplace" order="first" />
+    <editorActionHandler action="EditorChooseLookupItemCompleteStatement" implementationClass="com.jetbrains.rider.editorActions.RiderChooseLookupItemActionCompleteStatement" order="first" />
+    <editorActionHandler action="MoveStatementUp" implementationClass="com.jetbrains.rider.editorActions.FrontendMoveStatementUpHandler" order="first" />
+    <editorActionHandler action="MoveStatementDown" implementationClass="com.jetbrains.rider.editorActions.FrontendMoveStatementDownHandler" order="first" />
+    <editorActionHandler action="EditorCodeBlockStart" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorCodeBlockStartAction" order="first" />
+    <editorActionHandler action="EditorCodeBlockEnd" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorCodeBlockEndAction" order="first" />
+    <editorActionHandler action="EditorCodeBlockEnd" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorCodeBlockStartWithSelectionAction" order="first" />
+    <editorActionHandler action="EditorCodeBlockEnd" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorCodeBlockEndWithSelectionAction" order="first" />
+    <editorActionHandler action="EditorStartNewLineBefore" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorStartNewLineBeforeHandler" order="first" />
+    <editorActionHandler action="EditorStartNewLine" implementationClass="com.jetbrains.rider.editorActions.FrontendPatchEngineEditorEndNewLineBeforeHandler" order="first" />
+    <editorActionHandler action="EditorCodeBlockEnd" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorCodeBlockEndHandler" order="first" />
+    <editorActionHandler action="EditorCodeBlockStartWithSelection" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorCodeBlockStartWithSelectionHandler" order="first" />
+    <editorActionHandler action="EditorCodeBlockEndWithSelection" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorCodeBlockEndWithSelectionHandler" order="first" />
+    <editorActionHandler action="EditorEscape" implementationClass="com.jetbrains.rider.actions.RiderActionEscapeHandler" order="before hide-hints, after backend.escape" />
+    <editorActionHandler action="EditorPaste" implementationClass="com.jetbrains.rider.editorActions.RiderEditorPasteHandler" order="first" />
+    <editorActionHandler action="EditorLeft" implementationClass="com.jetbrains.rider.editorActions.RiderLookupLeftAction" order="first" id="rider.lookup.left" />
+    <editorActionHandler action="EditorRight" implementationClass="com.jetbrains.rider.editorActions.RiderLookupRightAction" order="first" id="rider.lookup.right" />
+    <editorActionHandler action="EditorLeft" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorLeftActionHandler" order="after rider.lookup.left" />
+    <editorActionHandler action="EditorRight" implementationClass="com.jetbrains.rider.editorActions.FrontendEditorRightActionHandler" order="after rider.lookup.right" />
+    <editorActionHandler action="EditorChooseLookupItem" implementationClass="com.jetbrains.rider.completion.RiderChooseLookupItemHandler" />
+    <editorActionHandler action="EditorChooseLookupItemReplace" implementationClass="com.jetbrains.rider.completion.RiderReplaceLookupItemHandler" />
+    <editorActionHandler action="EditorChooseLookupItemCompleteStatement" implementationClass="com.jetbrains.rider.completion.RiderCompleteStatementChooseLookupItemHandler" />
+    <enterHandlerDelegate implementation="com.jetbrains.rider.editorActions.RiderEnterHandlerDelegate" order="last" />
+    <editorActionHandler action="EditorEscape" implementationClass="com.jetbrains.rdclient.editorActions.IdeaOnlyEscapeHandlerAction" order="first" id="idea.only.escape" />
+    <editorActionHandler action="EditorEscape" implementationClass="com.jetbrains.rdclient.editorActions.FrontendEscapeHandlerAction" order="after idea.only.escape" id="backend.escape" />
+    <rawEditorTypedHandler implementationClass="com.jetbrains.rider.editorActions.RiderRawTypedHandler" />
+    <rdclient.actionCustomization backend="R#" actionId="GotoDeclaration" implementationClass="com.jetbrains.rider.actions.impl.RiderGotoDeclarationAction" />
+    <rdclient.actionCustomization backend="R#" actionId="GotoSuperMethod" implementationClass="com.jetbrains.rider.actions.impl.RiderGotoBaseAction" />
+    <rdclient.actionCustomization backend="R#" actionId="GotoImplementation" implementationClass="com.jetbrains.rider.actions.impl.RiderGotoInheritorsAction" />
+    <rdclient.actionCustomization backend="R#" actionId="CommentByBlockComment" implementationClass="com.jetbrains.rider.actions.impl.RiderCommentByBlockCommentAction" />
+    <rdclient.actionCustomization backend="R#" actionId="CommentByLineComment" implementationClass="com.jetbrains.rider.actions.impl.RiderCommentByLineCommentAction" />
+    <rdclient.actionCustomization backend="R#" actionId="ShowSettingsAndFindUsages" implementationClass="com.jetbrains.rider.actions.impl.RideFindUsagesAdvancedActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="ParameterInfo" implementationClass="com.jetbrains.rider.parameterInfo.RiderShowParameterInfoAction" />
+    <rdclient.actionCustomization backend="R#" actionId="TypeHierarchy" implementationClass="com.jetbrains.rider.inspections.typeHierarchy.actions.RiderBrowseTypeHierarchyActionCustomization" />
+    <rdclient.typedHandlerPolicy implementation="com.jetbrains.rider.editorActions.RiderLookupTypedHandlerPolicy" />
+    <cachesInvalidator implementation="com.jetbrains.rider.ideaInterop.RiderCachesInvalidator" />
+    <fileDocumentSynchronizationVetoer implementation="com.jetbrains.rider.document.RiderReloadVetoer" />
+    <rdclient.textControlBindingPolicy id="diff" order="before real_document" implementation="com.jetbrains.rider.editors.DiffTextControlBindingPolicy" />
+    <applicationService serviceImplementation="com.jetbrains.rider.utils.BackendPerformanceWatcher" />
+    <statistics.applicationUsagesCollector implementation="com.jetbrains.rider.runtime.BackendRuntimeCollector" />
+    <registryKey key="dotnet.clr.stack.new" description="Use new implementation of clr stack" defaultValue="true" />
+    <registryKey key="dotnet.clr.stack.use.worker" description="Run a separate process worker which will collect stack traces" defaultValue="true" />
+    <registryKey key="dotnet.clr.stack.timeout" description="Max timeout we allow to suspend target process" defaultValue="5000" />
+    <registryKey key="dotnet.clr.stack.suspend.target.process" description="Suspend target process before collection stack traces" defaultValue="true" />
+    <registryKey key="dotnet.clr.stack.throttling.timeout" description="Minimum interval (ms) between collecting stack traces from a process." defaultValue="10000" />
+    <registryKey key="patch.engine.backend.freeze.timeout" description="Timeout, after which we consider the backend frozen and use speculative instead of backend" defaultValue="2000" />
+    <registryKey key="patch.engine.backend.freeze.timeout.allow.in.tests" description="Allow patch.engine.backend.freeze.timeout in test" defaultValue="false" />
+    <registryKey key="rd.enable.call.hierarchy" description="Enable support for the IDEA-style call hierarchy action" defaultValue="false" />
+    <registryKey key="rdclient.patch.engine.preemptive.completion.enabled" defaultValue="true" description="Enables preemptive completion in patch engine." restartRequired="false" />
+    <registryKey key="rider.backend.performance.watcher.isEnabled" description="Turn on backend freeze diagnostics (slow `getting the action ready` and etc.)." defaultValue="false" restartRequired="true" />
+    <registryKey key="rider.backend.performance.watcher.maxAllowedTimeMs" description="Maximum allowed time (Ms)." defaultValue="500" restartRequired="false" />
+    <registryKey key="rider.backend.performance.watcher.delayTimeMs" description="Start delay (Ms)." defaultValue="500" restartRequired="false" />
+    <registryKey key="rider.backend.performance.watcher.samplingIntervalMs" description="Sampling interval (Ms)." defaultValue="500" restartRequired="false" />
+    <registryKey key="rider.backend.performance.watcher.openFolder" description="Open folder with thread dumps automatically." defaultValue="false" restartRequired="false" />
+    <registryKey key="rider.editor.inmemory.markup.cache" description="Saves editors markup between editor reopens" defaultValue="5" />
+    <registryKey key="rider.editor.markup.disk.cache" description="Saves editors markup between IDE reopens" defaultValue="false" />
+    <registryKey defaultValue="false" description="Always shows search field in alt-enter popup" key="rider.altEnter.search.field.show" restartRequired="false" />
+    <registryKey defaultValue="true" description="Enables or disables preemptoveness of backend-supplied code completion" key="rider.completion.preemptiveness.enabled" restartRequired="true" />
+    <registryKey description="Enable Code Vision performance watcher" key="code.vision.performance.watcher.enabled" defaultValue="false" order="first" overrides="true" />
+    <registryKey defaultValue="true" description="Use IntelliJ goto usages popup" key="rider.goto.usages.popup" restartRequired="false" />
+    <registryKey key="rdct.new.async.actions.delegation" defaultValue="true" description="Enables non-blocking action queue update" />
+    <registryKey key="rider.search.everywhere.preview.do.dispatch.all.on.threshold" defaultValue="false" description="Enables ore disables the flushing of all items for preview calculation when some threshold of eager requests is met" />
+    <httpRequestHandler implementation="com.jetbrains.rider.ea.authorization.token.RiderAuthenticationRequestHandler" />
+    <generalTroubleInfoCollector implementation="com.jetbrains.rider.diagnostics.RiderBrowserTroubleInfoCollector" />
+    <generalTroubleInfoCollector implementation="com.jetbrains.rider.diagnostics.RiderBackendTroubleInfoCollector" />
+    <statusBarWidgetFactory implementation="com.jetbrains.rider.diagnostics.RiderMemoryIndicatorWidgetFactory" id="RiderMemory" order="last" />
+    <diagnostic.specialPathsProvider implementation="com.jetbrains.rider.diagnostics.RiderApplicationSpecialPathsProvider" />
+    <diagnostic.specialPathsProvider implementation="com.jetbrains.rider.diagnostics.RiderProjectSpecialPathsProvider" />
+    <feedbackDescriptionProvider implementation="com.jetbrains.rider.diagnostics.RiderFeedbackDescriptionProvider" />
+    <aboutPopupDescriptionProvider implementation="com.jetbrains.rider.diagnostics.RiderAboutPopupDescriptionProvider" />
+    <rd.iconConverter implementation="com.jetbrains.rider.icons.ManualCompositeIconConverter" order="before rider" />
+    <rd.iconConverter id="rider" implementation="com.jetbrains.rider.icons.RiderCompositeIconConverter" order="before default" />
+    <applicationService serviceImplementation="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineProtocolProvider" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.daemon.highlighters.foldings.FrontendCodeFoldingManager" serviceImplementation="com.jetbrains.rider.daemon.highlighters.foldings.RiderCodeFoldingManager" overrides="true" />
+    <rd.actionProvider implementation="com.jetbrains.rider.actions.RiderActionProvider" />
+    <fileBreadcrumbsCollector implementation="com.jetbrains.rider.breadcrumbs.RiderFileBreadcrumbsCollector" />
+    <actionConfigurationCustomizer implementation="com.jetbrains.rider.actions.DotNetActionConfigurationCustomizer" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.refactorings.RefactoringInteractionProtocolListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.refactorings.FrontendRefactoringInteractionProtocolListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.refactorings.GenerateProtocolListener" />
+    <rider.refactoringPageProvider implementation="com.jetbrains.rider.refactorings.RiderRefactoringPageProvider" />
+    <rd.ide.root.marshallersProvider implementation="com.jetbrains.rider.protocol.DotnetFrontendIdeRootMarshallersProvider" order="after Default" id="DotNetDefault" />
+    <typeHierarchyProvider language="" implementationClass="com.jetbrains.rider.inspections.typeHierarchy.RiderTypeHierarchyProvider" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.inspections.typeHierarchy.RiderTypeHierarchyHost$Listener" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rider.spellChecker.grazie.RiderGrammarCheckerTargetHighlighterModelSupport" />
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.rider.spellChecker.RiderSpellCheckerTargetHighlighterModelSupport" />
+    <rdclient.actionCustomization backend="R#" actionId="RenameElement" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="IntroduceVariable" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="Inline" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="ChangeSignature" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="ExtractSuperclass" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="ExtractInterface" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="MembersPullUp" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="MemberPushDown" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="ExtractMethod" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="IntroduceField" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="IntroduceParameter" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rdclient.actionCustomization backend="R#" actionId="CopyElement" implementationClass="com.jetbrains.rider.refactorings.DotNetRefactoringActionCustomization" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.actions.RiderActionsHost$ProtocolListener" />
+    <rd.rootExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.actions.RiderBackendOverridesRegistrar" />
+    <rd.platform.traceScenarioHolder implementation="com.jetbrains.rider.diagnostics.LogTraceScenarios" />
+    <projectService serviceImplementation="com.jetbrains.rider.actions.impl.TestToolWindowDetector" />
+    <applicationService serviceImplementation="com.jetbrains.rider.document.FallbackSandboxInfoProvider" />
+    <rd.dataConstantProvider implementation="com.jetbrains.rider.actions.ClipboardTextConstantProvider" />
+    <rd.dataConstantProvider implementation="com.jetbrains.rider.inspections.typeHierarchy.RiderTypeHierarchyConstantProvider" />
+    <rd.dataConstantProvider implementation="com.jetbrains.rider.actions.RiderAsyncActionDelegatingConstantProvider" />
+    <rd.dataConstantProvider implementation="com.jetbrains.rider.actions.RiderAsyncActionEnabledConstantProvider" />
+    <rd.dataConstantProvider implementation="com.jetbrains.rider.actions.RiderAsyncActionComponentConstantProvider" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.solutionAnalysis.SolutionAnalysisHost$ProtocolListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.document.RiderTransactionsProtocolListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.document.RiderDocumentBindingService$ProtocolListener" />
+    <rider.rdclient.breakingWorkflowChangeInterceptor implementation="com.jetbrains.rider.completion.ai.RiderInlineCompletionWorkflowInterceptorPreserver" />
+    <rdclient.actions.remoteShortcutModelTransformer implementation="com.jetbrains.rider.actions.RiderBackendShortcutModelTransformer" />
+    <statistics.projectUsagesCollector implementation="com.jetbrains.rider.solutionAnalysis.SolutionAnalysisProjectUsageCollector" />
+    <statistics.counterUsagesCollector implementationClass="com.jetbrains.rider.solutionAnalysis.SolutionAnalysisCounterUsageCollector" />
+    <statistics.validation.customValidationRule implementation="com.jetbrains.rider.solutionAnalysis.ValidationRule" />
+    <statistics.counterUsagesCollector implementationClass="com.jetbrains.rider.editors.statistic.RiderCompletionStatisticCollector" />
+    <statistics.validation.customValidationRule implementation="com.jetbrains.rider.editors.statistic.ValidationRule" />
+    <statistics.counterUsagesCollector implementationClass="com.jetbrains.rider.projectView.notifications.SolutionWaitNotification$Collector" />
+    <rdclient.uiContextListener implementation="com.jetbrains.rider.services.uiContext.RiderUiContextListenerExtension" />
+    <projectService serviceImplementation="com.jetbrains.rider.intentions.altEnter.ReSharperPopupMenuModelFactory$StateHolder" client="all" />
+    <applicationService serviceImplementation="com.jetbrains.rider.protocol.ReSharperBackendPresenter" />
+    <postStartupActivity implementation="com.jetbrains.rider.protocol.ProtocolAutoTweaker" order="last" />
+    <postStartupActivity implementation="com.jetbrains.rider.inspections.PowerSaveModeActivity" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.inspections.RiderInspectionsProtocolListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.settings.CodeStyleSettingsModelListener" />
+    <rdclient.documentExtensionsProvider implementation="com.jetbrains.rider.document.RiderCrumbsDocumentExtensionProvider" />
+    <rdclient.documentExtensionsProvider implementation="com.jetbrains.rider.document.RiderSandboxDocumentExtensionProvider" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.requests.recovering.RecoveringStrategyProvider" serviceImplementation="com.jetbrains.rider.requests.RiderRecoveringStrategyProvider" />
+    <applicationService serviceInterface="com.jetbrains.rdclient.requests.FrontendAsyncRequestExecutor$RetryCustomizer" serviceImplementation="com.jetbrains.rider.requests.RiderRetryCustomizer" overrides="true" />
+    <applicationService serviceImplementation="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineAutoPopupHost" serviceInterface="com.jetbrains.rdclient.completion.FrontendAutoPopupHost" overrides="true" client="frontend" />
+    <notificationGroup id="DotNetHeapVerifyNotifier" displayType="BALLOON" isLogByDefault="false" bundle="messages.RdClientDotNetDiagnosticsBundle" key="notification-group.dot-net-heap-verification" />
+    <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.actions.patchSynchronizationEngine.RiderAIIgnoreTimestampModelProvider" />
+    <rdclient.editorExtensionsProvider implementation="com.jetbrains.rider.editors.notifications.NotificationsEditorExtensionsProvider" />
+    <projectService serviceInterface="com.intellij.lang.documentation.ide.impl.DocumentationPopupFocusService" serviceImplementation="com.jetbrains.rider.quickDoc.FrontendDocumentationPopupFocusService" overrides="true" />
+    <textEditorNecromancerAwaker implementation="com.jetbrains.rider.daemon.grave.RiderHighlightingNecromancerAwaker" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rider.completion.patchEngine.handlers.RiderBackendLookupCreateItemHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rider.completion.patchEngine.handlers.RiderBackendLookupTerminateItemHandler" />
+    <rd.frontendRdPatchItemHandler implementation="com.jetbrains.rider.completion.patchEngine.handlers.RiderBackendCompletionAppliedItemHandler" />
+    <rdclient.editorActionHandlerStrategyCustomizer order="after hint" implementation="com.jetbrains.rider.completion.patchEngine.RiderEditorActionHandlerStrategyCustomizer" />
+    <intentionAction>
+      <className>com.jetbrains.rider.editors.inlineDoc.RdDotnetInlineDocToggleAction</className>
+    </intentionAction>
+    <search.traverseUiHelper implementation="com.jetbrains.rider.settings.search.RiderTraverseUIHelper" />
+  </extensions>
+  <application-components>
+    <component>
+      <implementation-class>com.jetbrains.rider.protocol.ProtocolManagerInitializer</implementation-class>
+    </component>
+  </application-components>
+  <applicationListeners>
+    <listener class="com.jetbrains.rider.completion.FrontendCompletionHost$MyFrontendTextControlHostListener" topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" />
+    <listener class="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineProtocolProvider$PatchEngineCompletionFrontendTextControlHostListener" topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" />
+    <listener topic="com.intellij.openapi.actionSystem.ex.AnActionListener" class="com.jetbrains.rider.completion.MyEditorTypingListener" />
+    <listener topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" class="com.jetbrains.rider.completion.CompletionSessionHeuristics$MyTextControlListener" />
+    <listener topic="com.intellij.ide.AppLifecycleListener" class="com.jetbrains.rider.protocol.RiderEBSPluginCacheHandler" />
+    <listener topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" class="com.jetbrains.rider.completion.FrontendAutoPopupHost$MyListener" />
+    <listener class="com.jetbrains.rider.editors.notifications.NotificationPanelHost$NotificationsHostTextControlListener" topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" />
+    <listener class="com.jetbrains.rider.diagnostics.ParanoidActionTracing" topic="com.intellij.openapi.actionSystem.ex.AnActionListener" />
+    <listener topic="com.jetbrains.rdclient.requests.FrontendAsyncRequestListener" class="com.jetbrains.rider.completion.ai.RiderPatchEngineDocumentEventsSynchronizer" />
+    <listener topic="com.jetbrains.rdclient.requests.FrontendAsyncRequestListener" class="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineRequestsListener" />
+    <listener class="com.jetbrains.rider.colorSchemes.RiderRainbowStateChangeListener" topic="com.intellij.application.options.colors.RainbowStateChangeListener" />
+    <listener class="com.jetbrains.rider.colorSchemes.HighlighterColorUpdater" topic="com.intellij.openapi.editor.colors.EditorColorsListener" />
+    <listener class="com.jetbrains.rider.document.RiderEnsureWritableListener$VfsWritableApplicationListener" topic="com.intellij.openapi.vfs.newvfs.BulkFileListener" />
+    <listener topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" class="com.jetbrains.rider.spellChecker.RiderSpellCheckingTargetsListener" />
+    <listener topic="com.jetbrains.rdclient.editors.FrontendTextControlHostListener" class="com.jetbrains.rider.spellChecker.grazie.RiderGrammarCheckingTargetsListener" />
+    <listener class="com.jetbrains.rider.diagnostics.DotNetHeapVerifyNotifier" topic="com.intellij.ide.AppLifecycleListener" />
+    <listener class="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineProtocolProvider$PatchEngineCompletionContributorListener" topic="com.intellij.codeInsight.completion.CompletionContributorListener" />
+  </applicationListeners>
+  <projectListeners>
+    <listener class="com.jetbrains.rider.editors.EditorsSynchronizer$WorkspaceModelEventsListener" topic="com.intellij.platform.backend.workspace.WorkspaceModelChangeListener" />
+    <listener class="com.jetbrains.rider.completion.RiderLookupListener" topic="com.intellij.codeInsight.lookup.LookupManagerListener" />
+    <listener class="com.jetbrains.rider.document.DocumentHostHelper$BeforeDocumentSavedListener" topic="com.intellij.openapi.fileEditor.FileDocumentManagerListener" />
+    <listener class="com.jetbrains.rider.fus.RiderSolutionStatisticsIdListener" topic="com.intellij.openapi.project.ProjectManagerListener" />
+    <listener class="com.jetbrains.rider.settings.RiderCustomCodeStyleSettingsSynchronizer" topic="com.intellij.psi.codeStyle.CodeStyleSettingsListener" />
+    <listener topic="com.intellij.codeInsight.lookup.LookupManagerListener" class="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineLookupManagerListener" />
+    <listener topic="com.jetbrains.rdclient.actions.base.FrontendActionExecutionListener" class="com.jetbrains.rider.editors.RiderCopyPasteManager$RiderBeforeActionExecutionClipboardSynchronizer" />
+    <listener topic="com.intellij.ide.util.FileStructurePopupListener" class="com.jetbrains.rider.fileStructure.RiderFileStructurePopupListener" />
+  </projectListeners>
+  <actions resource-bundle="messages.RdClientDotnetBundle">
+    <action id="CollectBackendThreadDumps" class="com.jetbrains.rider.util.CollectBackendThreadDumps" />
+    <action id="CollectInternalDotnetProcessThreadDump" class="com.jetbrains.rider.diagnostics.CollectInternalDotnetProcessThreadDumpAction" />
+    <action id="GenerateThreadsFiltersForDump" class="com.jetbrains.rider.clrmd.GenerateThreadsFiltersForDumpAction" internal="true" />
+    <action id="MeasurePerformanceAndDump" class="com.jetbrains.rider.util.performanceDiagnostics.MeasurePerformanceAction" internal="true" />
+    <group id="RiderInternal" class="com.jetbrains.rider.internal.RiderInternalActionGroup" internal="true" popup="true">
+      <group id="RiderDumpGroup" internal="true" popup="true">
+        <action id="DumpProjectModelAction" class="com.jetbrains.rider.internal.dump.DumpProjectModelAction" internal="true" />
+        <action id="DumpPsiModulesAction" class="com.jetbrains.rider.internal.dump.DumpPsiModulesAction" internal="true" />
+        <action id="DumpTargetFrameworkIdsAction" class="com.jetbrains.rider.internal.dump.DumpTargetFrameworkIdsAction" internal="true" />
+        <action id="DumpPlatformsAction" class="com.jetbrains.rider.internal.dump.DumpPlatformsAction" internal="true" />
+        <action id="DumpWildcardContainer" class="com.jetbrains.rider.actions.impl.DumpWildcardContainerAction" internal="true" />
+        <separator />
+        <action id="DumpContentModelAction" class="com.jetbrains.rider.internal.dump.DumpIdeaProjectModelAction" internal="true" />
+        <action id="DumpFilePathIndexAction" class="com.jetbrains.rider.internal.dump.DumpIdeaIndexAction" internal="true" />
+        <action id="DumpVfsIndexAction" class="com.jetbrains.rider.internal.dump.DumpVfsIndexAction" internal="true" />
+        <separator />
+        <action id="DumpRiderEditorsAction" class="com.jetbrains.rider.internal.dump.DumpEditorsAction" internal="true" />
+        <separator />
+        <action id="DumpShortcutsAction" class="com.jetbrains.rider.internal.dump.DumpShortcutsAction" internal="true" />
+        <action id="DumpShortcutsForHelpAction" class="com.jetbrains.rider.internal.dump.DumpMenuPaths" internal="true" />
+        <separator />
+        <action id="RiderDumpComponentContainersStatisticsAction" class="com.jetbrains.rider.internal.dump.RiderDumpComponentContainersStatisticsAction" internal="true" />
+        <action id="RiderDumpProhibitedContainerInjectionsAction" class="com.jetbrains.rider.internal.dump.RiderDumpUnwantedContainerDependenciesAction" internal="true" />
+        <action id="RiderDumpComponentContainersCtorStepsToJsonAction" class="com.jetbrains.rider.internal.dump.RiderDumpComponentContainersCtorStepsToJsonAction" internal="true" />
+      </group>
+      <action id="LogExceptionOnBackend" class="com.jetbrains.rider.internal.LogExceptionAction" internal="true" />
+      <action id="RiderTraceThisAction" class="com.jetbrains.rider.actions.impl.RiderTraceThisAction" internal="true" />
+      <action id="RiderStartMonitoringTool" class="com.jetbrains.rider.internal.StartMonitoringToolAction" internal="true" />
+      <action id="ShowHelloWorldPopupAction" class="com.jetbrains.rider.internal.ShowHelloWorldPopupAction" internal="true" />
+      <action id="RiderDumpLookupAction" class="com.jetbrains.rider.completion.RiderDumpLookupAction" internal="true">
+        <keyboard-shortcut first-keystroke="ctrl alt shift q" keymap="$default" />
+      </action>
+      <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="Internal" />
+    </group>
+    <group id="BackendInternalActionGroupNew" class="com.jetbrains.rider.internal.dump.BackendInternalActionGroupNew" internal="true">
+      <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="RiderInternal" />
+    </group>
+    <group id="RiderBackendProfiling" popup="false">
+      <separator />
+      <reference ref="Performance.DumpThreads" />
+      <reference ref="CollectBackendThreadDumps" />
+      <reference ref="CollectInternalDotnetProcessThreadDump" />
+      <action class="com.jetbrains.rider.diagnostics.RiderStartSamplingAction" id="RiderStartSampling" />
+      <action class="com.jetbrains.rider.diagnostics.RiderStartTimelineAction" id="RiderStartTimeline" />
+      <action class="com.jetbrains.rider.diagnostics.RiderTakeMemorySnapshotAction" id="RiderTakeMemorySnapshot" />
+      <action class="com.jetbrains.rider.diagnostics.RiderConfigureBackendGcAction" id="RiderConfigureBackendGcAction" />
+      <add-to-group group-id="HelpDiagnosticTools" anchor="last" />
+    </group>
+    <action id="SwitchBackendRuntime" class="com.jetbrains.rider.runtime.RestartWithRuntimeAction" />
+    <action id="SwitchGCServerAction" class="com.jetbrains.rider.runtime.SwitchGCServerAction" internal="true" />
+    <action id="DisableCpp" class="com.jetbrains.rider.cpp.DisableCppAction" />
+    <group id="RiderTypeHierarchyPopupMenu">
+      <action id="RiderTypeHierarchy.BaseOnThisType" class="com.jetbrains.rider.inspections.typeHierarchy.actions.RiderBaseOnThisTypeAction" use-shortcut-of="TypeHierarchy" />
+      <separator />
+      <action id="RiderTypeHierarchy.Subtypes" class="com.jetbrains.rider.inspections.typeHierarchy.actions.RiderViewSubtypesHierarchyAction" />
+      <action id="RiderTypeHierarchy.Supertypes" class="com.jetbrains.rider.inspections.typeHierarchy.actions.RiderViewSupertypesHierarchyAction" />
+      <separator />
+      <reference ref="EditSource" />
+      <separator />
+      <reference ref="FindUsages" />
+      <reference ref="ShowSettingsAndFindUsages" />
+      <reference ref="Refactorings.QuickListPopupAction" />
+    </group>
+    <group id="ProfileRiderInternalDotnetProcess" class="com.jetbrains.rider.diagnostics.ProfileRiderInternalDotnetProcessActionGroup" popup="true">
+      <action class="com.jetbrains.rider.diagnostics.StartDotnetSelfProfilingAction" id="StartDotnetSelfProfiling" />
+      <action class="com.jetbrains.rider.diagnostics.ProfileDebuggerWorkerAction" id="ProfileDebuggerWorkerAction" />
+      <add-to-group group-id="RiderBackendProfiling" anchor="last" />
+    </group>
+    <action id="RunErrorCheck" class="com.jetbrains.rider.ai.RunErrorCheckAction" internal="true" text="Run Error Check on File in Current Folder" description="Runs error checks on a file from the current editor's folder that is not currently opened" />
+  </actions>
+  <extensionPoints>
+    <extensionPoint qualifiedName="com.intellij.rider.projectModelIconProvider" interface="com.jetbrains.rider.projectView.ProjectModelIconProvider" dynamic="true" />
+    <extensionPoint qualifiedName="com.intellij.rider.workspaceCountableProjectsPolicy" interface="com.jetbrains.rider.projectView.workspace.impl.WorkspaceProjectsCount$CountableProjectsPolicy" dynamic="true" />
+  </extensionPoints>
+  <extensions defaultExtensionNs="com.intellij">
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.workspace.impl.WorkspaceModelInitializer" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.workspace.impl.WorkspaceModelDirectoryIndex" preload="true" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.workspace.impl.WorkspaceEditorsUpdater" preload="true" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.workspace.impl.WorkspaceEntityErrorsSupport" preload="true" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.workspace.impl.WorkspaceVirtualFileRefresher" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.workspace.impl.WorkspaceUserModelUpdaterInfo" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.projectView.workspace.impl.WorkspaceModelUpdater$ProtocolListener" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.ideaInterop.vfs.VfsListener$FileSystemModelListener" />
+    <projectService serviceImplementation="com.jetbrains.rider.ideaInterop.vfs.VfsWriteOperationsHost" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.ideaInterop.vfs.FileSystemModelProtocolListener" />
+    <postStartupActivity implementation="com.jetbrains.rider.ideaInterop.vfs.VfsWarmQueue$VfsWarmQueueStartupActivity" />
+    <postStartupActivity implementation="com.jetbrains.rider.projectView.notifications.SolutionWaitNotification" />
+    <postStartupActivity implementation="com.jetbrains.rider.projectView.SolutionLifecycleHost$SolutionLifecycleActivity" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.BackendFileTemplatesInitializer" preload="true" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.listeners.ProjectModelViewFileStatusListener" preload="true" />
+    <projectService serviceImplementation="com.jetbrains.rider.projectView.ProjectModelStatuses" preload="true" />
+    <applicationService serviceImplementation="com.jetbrains.rider.projectView.SolutionOpenStrategyProvider" />
+  </extensions>
+  <applicationListeners>
+    <listener class="com.jetbrains.rider.projectView.RiderSolutionEventsTracker" topic="com.intellij.openapi.project.impl.ProjectLifecycleListener" />
+    <listener class="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineAutoPopupStatisticsHolder$MyCompletionPhaseListener" topic="com.intellij.codeInsight.completion.CompletionPhaseListener" />
+  </applicationListeners>
+  <projectListeners>
+    <listener class="com.jetbrains.rider.ideaInterop.vfs.VfsWriteOperationsHost$Refresher" topic="com.intellij.openapi.command.CommandListener" />
+    <listener class="com.jetbrains.rider.projectView.listeners.ProjectModelViewVirtualFileListener" topic="com.intellij.openapi.vfs.newvfs.BulkFileListener" />
+  </projectListeners>
+  <project-components>
+    <component>
+      <implementation-class>com.jetbrains.rider.projectView.SolutionLifecycleHost</implementation-class>
+    </component>
+  </project-components>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.rdclient.dotnet.spellchecker"><![CDATA[<idea-plugin>
+  <module value="com.intellij.rider.rdclient.spellchecker" />
+  <dependencies>
+    <module name="intellij.rider.rdclient.dotnet" />
+    <module name="intellij.spellchecker" />
+  </dependencies>
+  <extensions defaultExtensionNs="com.intellij">
+    <spellchecker.quickFixFactory implementation="com.intellij.rider.rdclient.dotnet.spellchecker.rename.SpellCheckerRdBackendRenameQuickFixFactory" />
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.intellij.rider.rdclient.dotnet.spellchecker.SpellCheckerProtocolListener" />
+  </extensions>
+  <projectListeners>
+    <listener class="com.intellij.rider.rdclient.dotnet.spellchecker.RiderCustomSpellcheckerDictionaryListener" topic="com.intellij.spellchecker.settings.CustomDictionarySettingsListener" />
+  </projectListeners>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.cpp.core.spellchecker"><![CDATA[<idea-plugin>
+  <dependencies>
+    <module name="intellij.rider.rdclient.dotnet.spellchecker" />
+  </dependencies>
+  <extensions defaultExtensionNs="com.intellij">
+    <spellchecker.support language="C++" implementationClass="com.intellij.rider.cpp.core.spellchecker.CppSpellcheckingStrategy" order="first" />
+  </extensions>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.plugins.clion.radler.clangFormat"><![CDATA[<idea-plugin>
+  <dependencies>
+    <module name="intellij.cidr.clangFormat.common" />
+    <module name="intellij.cidr.lang.base" />
+  </dependencies>
+  <extensions defaultExtensionNs="com.intellij">
+    <codeStyleSettingsProvider implementation="com.jetbrains.cidr.radler.clangFormat.RadClangFormatSettingsProvider" />
+    <clangFormatProvider implementation="com.jetbrains.cidr.radler.clangFormat.RadClangDaemonFormatProvider" />
+    <applicationService serviceInterface="com.jetbrains.cidr.radler.clangFormat.RadClangFormatHelper" serviceImplementation="com.jetbrains.cidr.radler.clangFormat.RadClangFormatHelperImpl" overrides="true" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppBracesAllmanCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppBracesKRCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppBracesWhitesmithsCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppGNUCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppGoogleCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppLLDBCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppLLVMCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppMicrosoftCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppQtCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppSTLCodeStyle" />
+    <predefinedCodeStyle implementation="com.jetbrains.cidr.radler.clangFormat.codeStyles.CppStroustrupCodeStyle" />
+    <codeStyleSettingsModifier id="com.jetbrains.cidr.radler.clangFormat.RadReadFromCFSettingsModifier" implementation="com.jetbrains.cidr.radler.clangFormat.RadReadFromCFSettingsModifier" order="first, after com.jetbrains.clangFormat.settings.ClangFormatCodeStyleSettingsModifier, before org.editorconfig.EditorConfigCodeStyleSettingsModifier" />
+  </extensions>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.plugins.clion.radler.dfa"><![CDATA[<idea-plugin package="com.jetbrains.cidr.radler.inspections.dfa">
+  <dependencies>
+    <module name="intellij.clion.dfa" />
+    <module name="intellij.cidr.lang.base" />
+    <module name="intellij.rd.ide.model.generated" />
+    <module name="intellij.rd.platform" />
+  </dependencies>
+  <extensions defaultExtensionNs="cidr.lang">
+    <dfaInspectionConfig implementation="com.jetbrains.cidr.radler.inspections.dfa.RadDFAInspectionConfig" />
+  </extensions>
+  <extensions defaultExtensionNs="com.intellij">
+    <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.cidr.radler.inspections.dfa.RadDFAExtListener" />
+    <registryKey key="rider.plugins.clion.radler.enable.dfa.by.ir" defaultValue="false" restartRequired="false" description="Let dataflow analysis use IR instead of clangd" />
+  </extensions>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.plugins.clion.radler.featuresTrainer"><![CDATA[<idea-plugin package="com.jetbrains.cidr.radler.featuresTrainer">
+  <dependencies>
+    <plugin id="training" />
+    <module name="intellij.clion.featuresTrainer" />
+  </dependencies>
+  <extensions defaultExtensionNs="training.clion">
+    <lessons implementation="com.jetbrains.cidr.radler.featuresTrainer.RadExternalLessons" />
+  </extensions>
+  <extensions defaultExtensionNs="com.intellij">
+    <lang.documentationProvider language="C++" implementationClass="com.jetbrains.cidr.radler.featuresTrainer.onboarding.tips.RadOnboardingTipsDocumentationProvider" order="first" />
+  </extensions>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.plugins.clion.radler.ide"><![CDATA[<idea-plugin separate-jar="true">
+  <dependencies>
+    <plugin id="com.intellij.modules.clion" />
+    <module name="intellij.clion.langSwitcher" />
+    <module name="intellij.platform.whatsNew" />
+  </dependencies>
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceInterface="com.intellij.platform.whatsNew.WhatsNewInVisionContentProvider" serviceImplementation="com.jetbrains.cidr.radler.whatsNew.RadWhatsNewInVisionContentProvider" overrides="true" />
+    <statusBarWidgetFactory id="RadSendFeedbackWidget" implementation="com.jetbrains.cidr.radler.feedback.RadSendFeedbackWidgetFactory" order="last" />
+    <feedback.idleFeedbackSurvey implementation="com.jetbrains.cidr.radler.feedback.RadInIdeFeedbackSurvey" />
+    <postStartupActivity implementation="com.jetbrains.cidr.radler.feedback.RadFeedbackStartupActivity" />
+    <registryKey defaultValue="false" key="rad.feedback.form" restartRequired="true" description="Enable custom feedback form" />
+    <registryKey defaultValue="false" key="rad.feedback.form.test" restartRequired="false" description="Send feedback to the staging server instead of a production one" />
+  </extensions>
+  <actions resource-bundle="messages.RadBundle">
+    <action id="SendFeedback" class="com.jetbrains.cidr.radler.feedback.RadSendFeedbackAction" overrides="true" />
+  </actions>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.plugins.rdclient.performance"><![CDATA[<idea-plugin>
+  <dependencies>
+    <plugin id="com.jetbrains.performancePlugin" />
+    <module name="intellij.rd.ide.model.generated" />
+    <module name="intellij.rd.platform" />
+    <module name="intellij.rd.ui" />
+    <module name="intellij.rider.rdclient.dotnet" />
+  </dependencies>
+  <extensions defaultExtensionNs="com.jetbrains">
+    <performancePlugin.commandProvider implementation="com.jetbrains.rider.command.RdClientCommandProvider" />
+  </extensions>
+  <applicationListeners>
+    <listener class="com.jetbrains.rider.command.BackendCompletionFinishedCommand$PhaseListener" topic="com.intellij.codeInsight.completion.CompletionPhaseListener" />
+  </applicationListeners>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.plugins.clion.radler.performance"><![CDATA[<idea-plugin>
+  <module value="com.intellij.modules.cidr.performance-capable" />
+  <dependencies>
+    <plugin id="com.jetbrains.performancePlugin" />
+    <module name="intellij.cidr.workspaceModel" />
+    <module name="intellij.rd.ide.model.generated" />
+    <module name="intellij.rd.platform" />
+    <module name="intellij.rider.rdclient.dotnet" />
+    <module name="intellij.rider.plugins.rdclient.performance" />
+  </dependencies>
+  <extensions defaultExtensionNs="com.jetbrains">
+    <performancePlugin.commandProvider implementation="com.jetbrains.cidr.radler.performance.RadCommandProvider" />
+  </extensions>
+</idea-plugin>]]></module>
+        <module name="intellij.rider.plugins.clion.radler.testing"><![CDATA[<idea-plugin>
+  <dependencies>
+    <module name="intellij.cidr.execution" />
+  </dependencies>
+  <extensionPoints>
+    <extensionPoint qualifiedName="com.jetbrains.cidr.radler.testing.testFrameworkExtension" interface="com.jetbrains.cidr.radler.testing.RadTestFrameworkExtension" dynamic="true" />
+  </extensionPoints>
+  <actions resource-bundle="messages.RadBundle">
+    <action class="com.jetbrains.cidr.radler.testing.RadShowTestListAction" id="RadShowTestList" />
+  </actions>
+  <extensions defaultExtensionNs="com.intellij">
+    <rdclient.highlighterModelSupport implementation="com.jetbrains.cidr.radler.testing.RunTestMarkerModelSupport" />
+  </extensions>
+</idea-plugin>]]></module>
+        <module name="intellij.clion.runFile"><![CDATA[<idea-plugin package="com.jetbrains.cidr.cpp.runfile">
+  <dependencies>
+    <plugin id="com.intellij.modules.nativeDebug" />
+    <module name="intellij.cidr.execution" />
+    <module name="intellij.cidr.workspaceModel" />
+    <module name="intellij.cidr.projectModel" />
+    <module name="intellij.cidr.lang.base" />
+    <module name="intellij.cidr.psi.base" />
+    <module name="intellij.cidr.runner" />
+    <module name="intellij.cidr.util" />
+    <module name="intellij.cidr.util.execution" />
+    <module name="intellij.clion.toolchains" />
+    <module name="intellij.clion.execution" />
+  </dependencies>
+  <extensionPoints>
+    <extensionPoint qualifiedName="cidr.cpp.runFile.entryPointDetector" interface="com.jetbrains.cidr.cpp.runfile.CppFileEntryPointDetector" dynamic="true" />
+  </extensionPoints>
+  <extensions defaultExtensionNs="com.intellij">
+    <configurationType implementation="com.jetbrains.cidr.cpp.runfile.CppFileRunConfigurationType" />
+    <projectTaskRunner implementation="com.jetbrains.cidr.cpp.runfile.CppFileProjectTaskRunner" id="BasicProjectTaskRunner" />
+    <stepsBeforeRunProvider implementation="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider" />
+    <runConfigurationProducer implementation="com.jetbrains.cidr.cpp.runfile.CppFileTargetRunConfigurationProducer" />
+    <projectOpenProcessor id="CppFileProjectOpenProcessor" implementation="com.jetbrains.cidr.cpp.runfile.CppFileProjectOpenProcessor" order="last" />
+    <registryKey key="clion.runFile.fallback.compiler.override" defaultValue="" description="Override default compiler used from C/C++ File run configuration" />
+  </extensions>
+  <extensions defaultExtensionNs="cidr">
+    <buildConfigurationProvider id="BasicBuildConfigurationProvider" implementation="com.jetbrains.cidr.cpp.runfile.CppFileBuildConfigurationProvider" />
+    <project.popup.projectFixesProvider implementation="com.jetbrains.cidr.cpp.runfile.projectStatus.CppFileProjectFixesProvider" />
+    <project.widget.widgetStatusProvider implementation="com.jetbrains.cidr.cpp.runfile.projectStatus.CppFileWidgetStatusProvider" />
+  </extensions>
+  <projectListeners>
+    <listener class="com.jetbrains.cidr.cpp.runfile.CppFileRunConfigurationListener" topic="com.intellij.execution.RunManagerListener" />
+  </projectListeners>
+</idea-plugin>]]></module>
+        <module name="intellij.clion.runFile.valgrind"><![CDATA[<idea-plugin package="com.jetbrains.cidr.cpp.runfile.valgrind">
+  <dependencies>
+    <module name="intellij.cidr.profiling" />
+    <module name="intellij.clion.runFile" />
+  </dependencies>
+  <extensions defaultExtensionNs="cidr">
+    <profiler.valgrind.disabler implementation="com.jetbrains.cidr.cpp.runfile.valgrind.CppFileValgrindDisabler" />
+  </extensions>
+</idea-plugin>]]></module>
+        <module name="intellij.clion.runFile.profiler"><![CDATA[<idea-plugin package="com.jetbrains.cidr.cpp.runfile.profiler">
+  <dependencies>
+    <module name="intellij.profiler.clion" />
+    <module name="intellij.clion.runFile" />
+  </dependencies>
+  <extensions defaultExtensionNs="com.intellij">
+    <profiler.clion.profilerDisabler implementation="com.jetbrains.cidr.cpp.runfile.profiler.CppFileProfilerDisabler" />
+  </extensions>
+</idea-plugin>]]></module>
+        <module name="intellij.clion.runFile.nova"><![CDATA[<idea-plugin package="com.jetbrains.cidr.cpp.runFile.nova">
+  <dependencies>
+    <module name="intellij.rd.platform" />
+    <module name="intellij.rd.ui" />
+    <module name="intellij.cidr.projectModel" />
+    <module name="intellij.cidr.runner" />
+    <module name="intellij.clion.runFile" />
+    <module name="intellij.cidr.debugger.core" />
+  </dependencies>
+  <extensions defaultExtensionNs="com.intellij">
+    <runLineMarkerContributor language="C++" implementationClass="com.jetbrains.cidr.cpp.runFile.nova.CppFileNovaRunLineMarkerProvider" />
+  </extensions>
+  <extensions defaultExtensionNs="cidr.cpp.runFile">
+    <entryPointDetector implementation="com.jetbrains.cidr.cpp.runFile.nova.CppFileNovaEntryPointDetector" />
+  </extensions>
+</idea-plugin>]]></module>
+    </content>
+    <module value="com.intellij.modules.rider.cpp.core" />
+    <depends optional="true" config-file="RiderCppInjectionImpl.xml">org.intellij.intelliLang</depends>
+    <depends optional="true" config-file="RiderPluginsAppenderBaseWithGrazie.xml">tanvd.grazi</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <typedHandler implementation="com.intellij.resharper.cpp.assist.CppTypedHandlerDelegate" order="before selectionQuoting" />
+        <registryKey defaultValue="false" description="Enable frontend typing assistance for C++" key="resharper.cpp.frontend.typing.assist.enabled" />
+        <editorActionHandler action="EditorBackSpace" implementationClass="com.intellij.resharper.cpp.assist.CppBackspaceHandler" id="cpp.backspace.lang" order="before backspace.lang" />
+    </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="C/C++" language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppSourceFileType" fieldName="INSTANCE" />
+        <fileType name="C/C++ Header" implementationClass="com.jetbrains.rider.cpp.fileType.CppHeaderFileType" fieldName="INSTANCE" />
+        <fileType name="HLSL" implementationClass="com.jetbrains.rider.cpp.fileType.HlslSourceFileType" fieldName="INSTANCE" extensions="hlsl" />
+        <fileType name="HLSL Header" implementationClass="com.jetbrains.rider.cpp.fileType.HlslHeaderFileType" fieldName="INSTANCE" extensions="hlsli" />
+        <fileTypeDetector implementation="com.jetbrains.rider.cpp.fileType.CppHeaderFileTypeDetector" />
+        <lang.parserDefinition language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppParserDefinition" />
+        <lang.documentationProvider language="C++" implementationClass="com.jetbrains.rider.quickDoc.FrontendDocumentationProvider" />
+        <backend.typedHandler language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppTypedHandler" />
+        <codeInsight.parameterInfo language="C++" implementationClass="com.jetbrains.rdclient.parameterInfo.FrontendParameterInfoHandler" />
+        <completion.contributor language="C++" implementationClass="com.jetbrains.rider.completion.ProtocolCompletionContributor" id="protocolCompletion" />
+        <lookup.charFilter implementation="com.jetbrains.rider.cpp.completion.CppCharFilter" id="cpp" order="first,before csharp" />
+        <frontend.completion.helper language="C++" implementationClass="com.jetbrains.rider.cpp.completion.CppCompletionHelper" />
+        <completion.completionSessionStrategy language="C++" implementationClass="com.jetbrains.rider.cpp.completion.CppCompletionStrategy" />
+        <backend.autoPopup.support language="C++" implementationClass="com.jetbrains.rider.completion.TrustOnlyBackend" />
+        <backend.markup.adapterFactory language="C++" implementationClass="com.jetbrains.rider.cpp.daemon.RiderCppCacheAwareMarkupAdapterFactory" />
+        <backend.actions.support language="C++" implementationClass="com.jetbrains.rider.cpp.actions.CppActionSupportPolicy" />
+        <backend.actions.support language="" implementationClass="com.jetbrains.rider.cpp.actions.DirectoryRenameActionPolicy" />
+        <rd.dataConstantProvider implementation="com.jetbrains.rider.cpp.actions.CppFilePathsConstantProvider" />
+        <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.cpp.actions.CppFilePathsTimestampProvider" />
+        <code.cleanup.support language="C++" implementationClass="com.jetbrains.rider.actions.impl.cleanup.BackendCodeCleanupSupportPolicy" />
+        <backend.auto.import.support language="C++" implementationClass="com.jetbrains.rider.intentions.RiderAutoImportSupportPolicy" />
+        <lang.altEnter language="C++" implementationClass="com.jetbrains.rider.intentions.altEnter.ReSharperAltEnterMenuModelFactory" />
+        <lang.commenter language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppCommenter" />
+        <breadcrumbsInfoProvider implementation="com.jetbrains.rider.cpp.fileType.CppBreadcrumbsInfoProvider" />
+        <lang.foldingBuilder language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppDummyFoldingBuilder" />
+        <annotator language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.daemon.CppBaseFrontendAnnotator" />
+        <lang.elementManipulator forClass="com.jetbrains.rider.cpp.fileType.psi.CppStringLiteralExpression" implementationClass="com.jetbrains.rider.cpp.fileType.psi.CppStringElementManipulator" />
+        <editor.injectedFileChangesHandlerProvider language="C++" implementationClass="com.intellij.cidr.cpp.CidrInjectedFileChangesHandlerProvider" />
+        <codeInsight.folding.collapseBlockHandler language="C++" implementationClass="com.jetbrains.rdclient.daemon.highlighters.foldings.CollapseCodeBlockHandler" />
+        <psi.referenceContributor language="C++" implementation="com.jetbrains.rider.cpp.fileType.psi.CppWebReferenceContributor" />
+        <rd.platform.traceScenarioHolder implementation="com.jetbrains.rider.cpp.logs.RiderCppCoreLogTraceScenarios" />
+        <codeFoldingOptionsProvider instance="com.jetbrains.rider.cpp.configurations.folding.CppCodeFoldingProvider" id="cpp" />
+        <applicationService serviceImplementation="com.jetbrains.rider.cpp.configurations.folding.CppCodeFoldingSettings" />
+        <navbar.members.support language="C++" implementationClass="com.jetbrains.rider.cpp.navbar.CppNavBarMembersSupport" />
+        <intentionsOrderProvider language="C++" implementationClass="com.jetbrains.rider.spellChecker.BackendLanguageIntentionsOrderProvider" />
+        <lang.inspectionSuppressor language="C++" implementationClass="com.jetbrains.rider.cpp.inspections.suppression.CppInspectionSuppressor" />
+        <completion.contributor language="C++" implementationClass="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineCompletionContributor" />
+        <rider.backendCompletionAppliedHandler implementation="com.jetbrains.rider.cpp.completion.CppBackendCompletionAppliedHandler" />
+        <callHierarchyProvider language="C++" implementationClass="com.jetbrains.rider.inspections.callHierarchy.RiderCallHierarchyProvider" />
+        <projectService serviceInterface="com.intellij.resharper.cpp.assist.utils.TypingAssistOptionsProvider" serviceImplementation="com.jetbrains.rider.cpp.editorActions.TypingAssistOptionsProviderImpl" />
+        <projectService serviceInterface="com.jetbrains.rider.debugger.DebuggerWriteAccessPolicyService" serviceImplementation="com.jetbrains.rider.debugger.DefaultDebuggerWriteAccessPolicyService" />
+        <registryKey key="resharper.cpp.frontend.only.typing.assist" defaultValue="false" description="                  Removes backend typing assistance for C++.                   Don't forget to enable `resharper.cpp.frontend.typing.assist.enabled`, otherwise there will be NO typing assistance at all." />
+        <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.rider.cpp.ctd.CppCTDHost$ProtocolListener" />
+        <registryKey defaultValue="false" description="Enable experimental CTD" key="rider.cpp.enable.ctd" />
+    </extensions>
+    <actions resource-bundle="messages.RiderCppCoreBundle">
+        <action class="com.jetbrains.rider.cpp.actions.CppSwitchHeaderSourceAction" id="SwitchHeaderSource">
+            <override-text place="MainMenu" />
+            <add-to-group group-id="GoToCodeGroup" anchor="after" relative-to-action="GotoRelated" />
+        </action>
+        <action class="com.jetbrains.rider.cpp.actions.CppDocumentAction" id="CppDocument">
+            <override-text place="MainMenu" />
+            <add-to-group group-id="CodeMenu" anchor="after" relative-to-action="CodeFormatGroup" />
+        </action>
+        <action class="com.jetbrains.rider.cpp.ctd.CppCTDStepBackwardAction">
+            <add-to-group group-id="XDebugger.ToolWindow.TopToolbar3" anchor="after" relative-to-action="StepOut" />
+        </action>
+        <action class="com.jetbrains.rider.cpp.ctd.CppCTRestartAction">
+            <add-to-group group-id="XDebugger.ToolWindow.TopToolbar3" anchor="before" relative-to-action="Stop" />
+        </action>
+    </actions>
+    <extensionPoints>
+        <extensionPoint qualifiedName="com.intellij.rider.rdclient.breakingWorkflowChangeInterceptor" interface="com.jetbrains.rider.rdclient.languages.RiderBreakingWorkflowChangeInterceptor" />
+    </extensionPoints>
+    <extensionPoints>
+        <extensionPoint qualifiedName="com.intellij.rider.refactoringPageProvider" interface="com.jetbrains.rider.refactorings.RefactoringPageProvider" />
+        <extensionPoint qualifiedName="cidr.radler.externalSymbolsProvider" interface="com.jetbrains.cidr.radler.protocol.RadExternalSymbolsProvider" dynamic="true" />
+    </extensionPoints>
+    <extensions defaultExtensionNs="com.intellij">
+        <registryKey overrides="true" key="rd.enable.call.hierarchy" description="Enable support for the IDEA-style call hierarchy action" defaultValue="true" />
+        <registryKey key="radler.enable.declarations.in.usages.popup" description="Enable showing of declarations when 'Go to Usages or Declarations' is invoked" defaultValue="true" />
+        <registryKey key="rdclient.patch.engine.enabled" defaultValue="true" restartRequired="true" overrides="true" description="Enables patch engine implementation of documents and editors synchronization" />
+        <registryKey key="rdct.new.async.actions.fastUpdate" defaultValue="false" overrides="true" description="Enables prioritizing frontend actions during execution" />
+        <registryKey key="rdct.new.async.actions.delegation" defaultValue="true" overrides="true" description="Enables non-blocking action queue update" />
+        <registryKey key="resharper.cpp.frontend.typing.assist.enabled" defaultValue="true" overrides="true" description="Enable frontend typing assistance for C++" />
+        <registryKey key="radler.deep.project.scan" description="Enable deep project scanning to enable R++ support in out of project files" defaultValue="true" restartRequired="true" />
+        <registryKey key="radler.visualize.clangd.suppressed.ranges" defaultValue="false" description="Enable highlighting of ranges where clangd should be suppressed." />
+        <registryKey key="radler.await.project.activities" defaultValue="false" description="Enable awaiting of project loading at IDE startup, useful for headless scenarios" />
+        <projectService serviceInterface="com.intellij.openapi.roots.ProjectFileIndex" serviceImplementation="com.intellij.openapi.roots.impl.ProjectFileIndexImpl" overrides="true" />
+        <applicationService serviceInterface="com.jetbrains.cidr.lang.LanguageUtils" serviceImplementation="com.jetbrains.cidr.radler.util.RadLanguageUtils" overrides="true" />
+        <applicationService serviceInterface="com.jetbrains.cidr.radler.clangFormat.RadClangFormatHelper" serviceImplementation="com.jetbrains.cidr.radler.clangFormat.RadClangFormatHelperFallback" />
+        <inspectionToolProvider implementation="com.jetbrains.cidr.radler.inspections.RadInspectionsToolProvider" />
+        <severitiesProvider implementation="com.jetbrains.cidr.radler.inspections.RadSeveritiesProvider" />
+        <globalInspection key="inspection.compiler.errors.title" hasStaticDescription="true" bundle="messages.RadBundle" implementationClass="com.jetbrains.cidr.radler.inspections.RadGlobalInspection" enabledByDefault="true" language="C++" />
+        <globalInspection key="inspection.measure.resolve.title" hasStaticDescription="true" bundle="messages.RadBundle" implementationClass="com.jetbrains.cidr.radler.inspections.RadMeasureResolveInspection" enabledByDefault="false" isInternal="true" language="C++" />
+        <applicationService serviceInterface="com.jetbrains.rider.cpp.configurations.CppAvailabilityService" serviceImplementation="com.jetbrains.cidr.radler.settings.RadAvailabilityService" />
+        <applicationService serviceImplementation="com.jetbrains.cidr.radler.settings.RadCodeCompletionExtraSettings" />
+        <fileType name="C/C++" extensions="c;cp;cpp;cc;cxx;c++;cu;usf;i;ii;m;mm;ixx;cppm;mxx;cxxm;c++m;ccm" />
+        <fileType name="C/C++ Header" extensions="h;hp;hpp;hh;hxx;h++;icc;ino;tcc;pch;inc;inl;cuh;tpp;ipp;mpp;ush" />
+        <lang.syntaxHighlighterFactory language="C++" implementationClass="com.jetbrains.cidr.radler.fileType.RadSyntaxHighlighterFactory" />
+        <rdclient.highlighting.frontendHighlighterAttributeCustomizer implementation="com.jetbrains.cidr.radler.inspections.RadHighlighterAttributeCustomizer" />
+        <rider.backendLogXmlPathProvider implementation="com.jetbrains.cidr.radler.loader.RadCustomBackendLogXmlPathProvider" />
+        <applicationService serviceInterface="com.jetbrains.rider.projectView.SolutionOpenStrategyProvider" serviceImplementation="com.jetbrains.cidr.radler.projectmodel.CLionSolutionOpener" overrides="true" />
+        <applicationService serviceInterface="com.jetbrains.rdclient.daemon.components.FrontendHighlighterRegistrationHost" serviceImplementation="com.jetbrains.cidr.radler.inspections.RadHighlighterRegistrationHost" overrides="true" />
+        <applicationService serviceInterface="com.intellij.openapi.options.newEditor.SettingsDialogFactory" serviceImplementation="com.jetbrains.cidr.radler.settings.RadSettingsDialogFactory" overrides="true" />
+        <applicationService serviceInterface="com.intellij.ConfigurableFactory" serviceImplementation="com.jetbrains.cidr.radler.settings.RadConfigurableFactory" overrides="true" />
+        <applicationService serviceInterface="com.intellij.openapi.options.ShowSettingsUtil" serviceImplementation="com.jetbrains.rider.settings.RiderShowSettingsUtilImpl" overrides="true" />
+        <applicationService serviceInterface="com.jetbrains.rdclient.usages.popup.FrontendShowUsagesCustomizer" serviceImplementation="com.jetbrains.cidr.radler.usages.RadShowUsagesCustomizer" overrides="true" />
+        <applicationService serviceInterface="com.jetbrains.rdclient.actions.impl.BackendRenameHandler" serviceImplementation="com.jetbrains.cidr.radler.refactorings.RadRenameHandler" overrides="true" />
+        <applicationService serviceInterface="com.jetbrains.rider.protocol.ReSharperBackendPresenter" serviceImplementation="com.jetbrains.cidr.radler.protocol.RadBackendPresenter" overrides="true" />
+        <projectService serviceInterface="com.intellij.codeInsight.codeVision.CodeVisionHost" serviceImplementation="com.jetbrains.cidr.radler.codeVision.RadCodeVisionHost" overrides="true" />
+        <rider.riderApplicationPreloadListener implementation="com.jetbrains.cidr.radler.loader.RadBackendFromPluginDir" />
+        <applicationInitializedListener implementation="com.jetbrains.cidr.radler.loader.RadInitialConfigurator" order="after dotnetbackend-configurator" />
+        <rider.protocol.hostEnvProvider implementation="com.jetbrains.cidr.radler.loader.RadEnvProvider" />
+        <gotoClassContributor implementation="com.jetbrains.rdclient.gotoType.ProtocolGotoClassContributor" />
+        <gotoSymbolContributor implementation="com.jetbrains.rdclient.gotoType.ProtocolGotoSymbolContributor" />
+        <gutterMarkPreprocessor implementation="com.jetbrains.cidr.radler.bulb.RadGutterMarkPreprocessor" />
+        <usageGroupingRuleProvider implementation="com.jetbrains.cidr.radler.usages.RadUsageGroupingRuleProvider" />
+        <rdclient.textControlBindingPolicy id="notBindBeforeFrontProjectInit" order="first" implementation="com.jetbrains.cidr.radler.protocol.RadClientEditorBindingPolicy" />
+        <rider.extraSettingsSync implementation="com.jetbrains.cidr.radler.settings.RadExtraSettingsSync" />
+        <externalFormatProcessor implementation="com.jetbrains.cidr.radler.format.RadExternalFormatter" />
+        <postFormatProcessor implementation="com.jetbrains.cidr.radler.format.RadPostFormatProcessor" />
+        <statusBarWidgetFactory implementation="com.jetbrains.cidr.radler.ui.RadContextWidgetFactory" id="ActiveRadlerBuildConfiguration" order="after CodeStyleStatusBarWidget" />
+        <codeCompletionConfigurable instance="com.jetbrains.cidr.radler.settings.RadCodeCompletionExtraOptions" order="first" />
+        <optionsApplicabilityFilter implementation="com.jetbrains.cidr.radler.settings.RadOptionsApplicabilityFilter" order="first" />
+        <projectConfigurable parentId="inlay.hints" bundle="messages.RadBundle" key="projectConfigurable.RiderInlayHintsCppOptions.displayName" instance="com.jetbrains.cidr.radler.settings.RadGeneralInlayHintsPage" id="RiderInlayHintsCppOptions" groupWeight="200" />
+        <projectConfigurable parentId="RiderInlayHintsCppOptions" bundle="messages.RadBundle" key="projectConfigurable.ParameterNameHints.displayName" provider="com.jetbrains.rider.cpp.configurations.CppParameterNameHintsOptionsPageProvider" />
+        <projectConfigurable parentId="RiderInlayHintsCppOptions" bundle="messages.RadBundle" key="projectConfigurable.AggregateHints.displayName" provider="com.jetbrains.rider.cpp.configurations.CppAggregateHintsOptionsPageProvider" />
+        <projectConfigurable parentId="RiderInlayHintsCppOptions" bundle="messages.RadBundle" key="projectConfigurable.TypeNameHints.displayName" provider="com.jetbrains.rider.cpp.configurations.CppTypeNameHintsOptionsPageProvider" />
+        <projectConfigurable parentId="RiderInlayHintsCppOptions" bundle="messages.RadBundle" key="projectConfigurable.TypeConversionHints.displayName" provider="com.jetbrains.rider.cpp.configurations.CppTypeConversionHintsOptionsPageProvider" />
+        <projectConfigurable parentId="RiderInlayHintsCppOptions" bundle="messages.RadBundle" key="projectConfigurable.Other.displayName" provider="com.jetbrains.rider.cpp.configurations.CppOtherHintsOptionsPageProvider" />
+        <editorSmartKeysConfigurable instance="com.jetbrains.cidr.radler.settings.RadCppSmartKeysPage" id="Cpp.Editor" />
+        <projectConfigurable groupId="editor" instance="com.jetbrains.cidr.radler.settings.RadTemplatesOptionPage" id="LiveTemplatesSettingsId" key="RiderTemplatesOptionPage.configurable.name.live.templates" bundle="messages.RiderSettingsBundle" />
+        <projectConfigurable parentId="LiveTemplatesSettingsId" provider="com.jetbrains.cidr.radler.settings.RadCppTemplatesOptionPageProvider" groupWeight="-10" />
+        <projectConfigurable parentId="LiveTemplatesSettingsId" instance="com.intellij.codeInsight.template.impl.LiveTemplatesConfigurable" bundle="messages.RadBundle" key="projectConfigurable.Other.languages.displayName" id="editing.templates" groupWeight="-1000" />
+        <projectConfigurable id="CppGeneralOptionsId" parentId="language.cpp" instance="com.jetbrains.cidr.radler.settings.RadCppGeneralSettingsPage" groupWeight="10" bundle="messages.RadBundle" key="projectConfigurable.Cpp.General.displayName" />
+        <projectConfigurable id="CppCodeGenerationId" parentId="language.cpp" instance="com.jetbrains.cidr.radler.settings.RadCppCodeGenerationPage" bundle="messages.RadBundle" key="projectConfigurable.Cpp.CodeGeneration.displayName" />
+        <projectConfigurable id="CppIncludesOrderOptionsId" parentId="language.cpp" instance="com.jetbrains.cidr.radler.settings.RadCppIncludesOrderOptionPage" bundle="messages.RadBundle" key="projectConfigurable.Cpp.IncludesOrder.displayName" />
+        <projectConfigurable id="CppInternalOptionsId" parentId="language.cpp" provider="com.jetbrains.cidr.radler.settings.RadCppInternalOptionsPageProvider" groupWeight="-10" bundle="messages.RadBundle" key="projectConfigurable.Cpp.Internal.displayName" />
+        <implementationViewSessionFactory implementation="com.jetbrains.rdclient.showImplementations.FrontendImplementationViewSessionFactory" order="last" />
+        <implementationViewDocumentFactory implementation="com.jetbrains.cidr.radler.editor.RadQuickDefinitionDocumentFactory" />
+        <colorSettingsPage implementation="com.jetbrains.cidr.radler.settings.RadColorSettingsPage" order="after general" />
+        <additionalTextAttributes scheme="Default" file="colorSchemes/OCDefault.xml" />
+        <additionalTextAttributes scheme="Darcula" file="colorSchemes/OCDarcula.xml" />
+        <codeStyleSettingsProvider implementation="com.jetbrains.cidr.radler.settings.migration.CidrCodeStyleSettingsProvider" />
+        <langCodeStyleSettingsProvider implementation="com.jetbrains.cidr.radler.settings.migration.CidrLanguageCodeStyleSettingsProvider" />
+        <langCodeStyleSettingsProvider implementation="com.jetbrains.cidr.radler.configurations.RadCppCodeStyleSettingsProvider" />
+        <rider.namingPageProvider implementation="com.jetbrains.cidr.radler.settings.RadCppNamingPanelProvider" />
+        <rider.altEnter.layouter implementation="com.jetbrains.cidr.radler.bulb.IdeaAltEnterMenuLayouter" order="first" />
+        <rd.platform.traceScenarioHolder implementation="com.jetbrains.cidr.radler.log.RadLogTraceScenarios" />
+        <backend.actions.support language="CMake" implementationClass="com.jetbrains.cidr.radler.refactorings.RadCMakeActionSupportPolicy" />
+        <backend.actions.support language="C++" implementationClass="com.jetbrains.cidr.radler.refactorings.RadBackendFirstActionSupportPolicy" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="RenameElement" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendFirst" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="IntroduceVariable" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="Inline" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="ChangeSignature" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="ExtractSuperclass" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="ExtractInterface" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="MembersPullUp" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="MemberPushDown" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="ExtractMethod" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="IntroduceField" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="IntroduceParameter" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="CopyElement" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="Move" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendOnly" order="first" />
+        <rdclient.actionCustomization backend="R#" actionId="SafeDelete" implementationClass="com.jetbrains.cidr.radler.actions.RadRefactoringActionCustomization$BackendFirst" order="first" />
+        <moveFileHandler implementation="com.jetbrains.cidr.radler.refactorings.RadFileMoveHandler" />
+        <postStartupActivity implementation="com.jetbrains.cidr.radler.protocol.RadInitProtocolModelsStartupActivity" />
+        <postStartupActivity implementation="com.jetbrains.cidr.radler.editor.RadInitCodeEditorSettingsStartupActivity" />
+        <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.cidr.radler.refactorings.RadRefactoringExtListener" />
+        <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.cidr.radler.inspections.RadInspectionsHost$RadInspectionExtListener" />
+        <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.cidr.radler.protocol.RadSymbolsHost$RadSymbolsModelExtListener" />
+        <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.cidr.radler.protocol.RadCacheState$RadCacheStateExtListener" />
+        <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.cidr.radler.projectmodel.RadProjectModelExtListener" />
+        <rd.solutionExtListener endpoint="IDE Frontend" listener="com.jetbrains.cidr.radler.intentions.RadIntentionHintIndicatorHost" />
+        <commandLineInspectionProjectConfigurator implementation="com.jetbrains.cidr.radler.inspections.RadCommandLineProjectAwaiter" />
+        <activityTracker implementation="com.jetbrains.cidr.radler.inspections.RadProjectAwaiter" />
+        <codeInspection.InspectionExtension implementation="com.jetbrains.cidr.radler.inspections.batch.RadBatchInspectionContextFactory" />
+        <iconProvider implementation="com.jetbrains.cidr.radler.fileType.RadFileIconProvider" />
+        <statistics.counterUsagesCollector implementationClass="com.jetbrains.cidr.radler.settings.migration.RadMigrationCollector" />
+        <selfProfilingPaths.customizer implementation="com.jetbrains.cidr.radler.diagnostics.RadDotnetSelfProfilerPathsCustomizer" />
+        <intentionPopupProvider implementation="com.jetbrains.cidr.radler.intentions.RadIntentionPopupProvider" />
+        <spellchecker.quickFixFactory implementation="com.jetbrains.cidr.radler.spellchecker.RadSaveToQuickFixFactory" />
+        <applicationService serviceInterface="com.intellij.codeInsight.documentation.render.DocRenderItemManager" serviceImplementation="com.intellij.codeInsight.documentation.render.DocRenderItemManagerImpl" overrides="true" />
+        <applicationService serviceInterface="com.intellij.codeInsight.documentation.render.DocRendererProvider" serviceImplementation="com.jetbrains.rdclient.quickDoc.mixproj.MixingProjectingDocRendererProvider" overrides="true" />
+        <projectService serviceInterface="com.intellij.codeInsight.documentation.render.InlineDocumentationFinder" serviceImplementation="com.jetbrains.rdclient.quickDoc.mixproj.MixingProjectingInlineDocumentationFinder" overrides="true" />
+        <platform.backend.documentation.inlineDocumentationProvider implementation="com.jetbrains.cidr.radler.inlineDoc.BackendCppInlineDocumentationProvider" />
+        <lang.floatingToolbar language="C++" />
+        <actionConfigurationCustomizer implementation="com.jetbrains.cidr.radler.actions.RadActionConfigurationCustomizer" />
+    </extensions>
+    <extensions defaultExtensionNs="cidr">
+        <projectModel.supportedFileChecker implementation="com.jetbrains.cidr.radler.projectmodel.RadSupportedFileChecker" />
+        <resolveConfigurationProvider implementation="com.jetbrains.cidr.radler.projectmodel.RadResolveConfigurationProvider" />
+        <targetConfigurationHelper implementation="com.jetbrains.cidr.radler.symbols.RadTargetConfigurationHelper" />
+    </extensions>
+    <extensions defaultExtensionNs="cidr.lang">
+        <newFileLangBackendHandler implementation="com.jetbrains.cidr.radler.actions.RadNewFileLangBackendHandler" />
+        <projectWizardFilesFormatter implementation="com.jetbrains.cidr.radler.format.RadProjectWizardFormatter" />
+        <navigatableSymbolSearcherBridge implementation="com.jetbrains.cidr.radler.symbols.RadNavigatableSymbolSearcher" />
+        <fileScopeProvider implementation="com.jetbrains.cidr.radler.search.RadFileScopeProvider" />
+        <languageKindHelper implementation="com.jetbrains.cidr.radler.projectmodel.RadLanguageKindCalculatorHelper" />
+    </extensions>
+    <extensions defaultExtensionNs="cidr.debugger">
+        <nativeSelfProfilerPathProvider implementation="com.jetbrains.cidr.radler.diagnostics.RadNativeSelfProfilerPathProvider" />
+    </extensions>
+    <actions resource-bundle="messages.RadBundle">
+        <action class="com.jetbrains.cidr.radler.settings.migration.RadMigrateCodeStyleAction" id="RadMigrateCodeStyle" />
+        <action class="com.jetbrains.cidr.radler.settings.migration.RadResetCodeStyleAction" id="RadResetCodeStyle" />
+        <action id="OpenFile" class="com.jetbrains.cidr.radler.actions.RadOpenFileAction" icon="AllIcons.Actions.MenuOpen" overrides="true" />
+        <action id="JunieRadFileStructure" class="com.jetbrains.cidr.radler.junie.RadFileStructureAction" icon="AllIcons.Toolwindows.ToolWindowAskAI" internal="true" />
+    </actions>
+    <extensions defaultExtensionNs="com.intellij">
+        <rdclient.highlighterModelSupport implementation="com.jetbrains.cidr.radler.symbols.RadRunMainMarkerModelSupport" />
+        <daemon.tooltipActionProvider implementation="com.jetbrains.cidr.radler.intentions.RadDaemonTooltipActionProvider" />
+    </extensions>
+    <application-components>
+        <component>
+            <implementation-class>com.jetbrains.cidr.radler.settings.RadSettingsUpdater</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.jetbrains.cidr.radler.ui.RadIconPatcherRegistrar</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.jetbrains.cidr.radler.loader.RadExtensionsConfigurator</implementation-class>
+        </component>
+    </application-components>
+    <project-components>
+        <component>
+            <implementation-class>com.jetbrains.rider.settings.OptionsUtilsHost</implementation-class>
+        </component>
+    </project-components>
+    <projectListeners>
+        <listener class="com.jetbrains.cidr.radler.projectmodel.RadProjectModelHost$Listener" topic="com.jetbrains.cidr.lang.workspace.OCWorkspaceListener" />
+        <listener class="com.jetbrains.cidr.radler.projectmodel.RadProjectModelHost$Listener" topic="com.intellij.openapi.vfs.newvfs.BulkFileListener" />
+        <listener class="com.jetbrains.cidr.radler.projectmodel.RadProjectModelHost$Listener" topic="com.intellij.openapi.roots.ModuleRootListener" />
+        <listener class="com.jetbrains.cidr.radler.inspections.RadInspectionsHost$RadProfileChangeListener" topic="com.intellij.profile.ProfileChangeAdapter" />
+    </projectListeners>
+    <actions resource-bundle="messages.RiderCppCoreBundle">
+        <action id="CppIncludesHierarchy" class="com.jetbrains.rider.cpp.features.includesHierarchy.CppBrowseIncludeHierarchyAction">
+            <add-to-group group-id="HierarchyGroup" anchor="first" />
+            <keyboard-shortcut first-keystroke="alt shift H" keymap="$default" />
+        </action>
+        <action id="CppGenerateDefinitions" class="com.jetbrains.cidr.radler.actions.RadGenerateDefinitionsAction">
+            <keyboard-shortcut keymap="$default" first-keystroke="control shift D" />
+            <add-to-group group-id="CodeMenu" anchor="before" relative-to-action="Generate" />
+        </action>
+    </actions>
+    <actions resource-bundle="messages.CidrDebuggerBundle">
+        <action id="CIDR.Debugger.SelfProfiling" class="com.jetbrains.cidr.execution.debugger.actions.SelfProfilingAction">
+            <add-to-group group-id="HelpDiagnosticTools" anchor="last" />
+        </action>
+    </actions>
+</idea-plugin>

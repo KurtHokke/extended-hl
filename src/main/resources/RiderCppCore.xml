@@ -1,0 +1,100 @@
+<idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="intellij.resharper.cpp.assist.xml" xpointer="xpointer(/idea-plugin/*)"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- file types should be registered in plugins which are uses that module, but right now Unity and Cpp plugins requires hlsl filetype,
+        Unity & Cpp plugin could be installed together, thus hlsl registration in plugin is impossible -->
+        <fileType name="C/C++" language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppSourceFileType" fieldName="INSTANCE" />
+        <fileType name="C/C++ Header" implementationClass="com.jetbrains.rider.cpp.fileType.CppHeaderFileType" fieldName="INSTANCE" />
+        <fileType name="HLSL" implementationClass="com.jetbrains.rider.cpp.fileType.HlslSourceFileType" fieldName="INSTANCE" extensions="hlsl" />
+        <fileType name="HLSL Header" implementationClass="com.jetbrains.rider.cpp.fileType.HlslHeaderFileType" fieldName="INSTANCE" extensions="hlsli" />
+        <fileTypeDetector implementation="com.jetbrains.rider.cpp.fileType.CppHeaderFileTypeDetector"/>
+        <lang.parserDefinition language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppParserDefinition"/>
+        <lang.documentationProvider language="C++" implementationClass="com.jetbrains.rider.quickDoc.FrontendDocumentationProvider"/>
+        <backend.typedHandler language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppTypedHandler"/>
+        <codeInsight.parameterInfo language="C++" implementationClass="com.jetbrains.rdclient.parameterInfo.FrontendParameterInfoHandler"/>
+        <completion.contributor language="C++" implementationClass="com.jetbrains.rider.completion.ProtocolCompletionContributor" id="protocolCompletion"/>
+        <lookup.charFilter implementation="com.jetbrains.rider.cpp.completion.CppCharFilter" id="cpp" order="first,before csharp"/>
+        <frontend.completion.helper language="C++" implementationClass="com.jetbrains.rider.cpp.completion.CppCompletionHelper" />
+        <completion.completionSessionStrategy language="C++" implementationClass="com.jetbrains.rider.cpp.completion.CppCompletionStrategy" />
+        <backend.autoPopup.support language="C++" implementationClass="com.jetbrains.rider.completion.TrustOnlyBackend" />
+        <backend.markup.adapterFactory language="C++" implementationClass="com.jetbrains.rider.cpp.daemon.RiderCppCacheAwareMarkupAdapterFactory" />
+        <backend.actions.support language="C++" implementationClass="com.jetbrains.rider.cpp.actions.CppActionSupportPolicy" />
+        <backend.actions.support language="" implementationClass="com.jetbrains.rider.cpp.actions.DirectoryRenameActionPolicy"/>
+        <rd.dataConstantProvider implementation="com.jetbrains.rider.cpp.actions.CppFilePathsConstantProvider"/>
+        <rdclient.actionTimestampProvider implementation="com.jetbrains.rider.cpp.actions.CppFilePathsTimestampProvider"/>
+        <code.cleanup.support language="C++" implementationClass="com.jetbrains.rider.actions.impl.cleanup.BackendCodeCleanupSupportPolicy" />
+        <backend.auto.import.support language="C++" implementationClass="com.jetbrains.rider.intentions.RiderAutoImportSupportPolicy" />
+        <lang.altEnter language="C++" implementationClass="com.jetbrains.rider.intentions.altEnter.ReSharperAltEnterMenuModelFactory" />
+        <lang.commenter language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppCommenter"/>
+        <breadcrumbsInfoProvider  implementation="com.jetbrains.rider.cpp.fileType.CppBreadcrumbsInfoProvider" />
+        <lang.foldingBuilder language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.CppDummyFoldingBuilder" />
+        <annotator language="C++" implementationClass="com.jetbrains.rider.cpp.fileType.daemon.CppBaseFrontendAnnotator"/>
+        <lang.elementManipulator forClass="com.jetbrains.rider.cpp.fileType.psi.CppStringLiteralExpression"
+                                 implementationClass="com.jetbrains.rider.cpp.fileType.psi.CppStringElementManipulator" />
+        <editor.injectedFileChangesHandlerProvider language="C++"
+                                                   implementationClass="com.intellij.cidr.cpp.CidrInjectedFileChangesHandlerProvider"/>
+        <codeInsight.folding.collapseBlockHandler language="C++" implementationClass="com.jetbrains.rdclient.daemon.highlighters.foldings.CollapseCodeBlockHandler"/>
+
+        <psi.referenceContributor language="C++" implementation="com.jetbrains.rider.cpp.fileType.psi.CppWebReferenceContributor" />
+
+        <rd.platform.traceScenarioHolder implementation="com.jetbrains.rider.cpp.logs.RiderCppCoreLogTraceScenarios"/>
+
+        <!-- { folding order="after rider_default"-->
+        <codeFoldingOptionsProvider instance="com.jetbrains.rider.cpp.configurations.folding.CppCodeFoldingProvider" id="cpp" />
+        <applicationService serviceImplementation="com.jetbrains.rider.cpp.configurations.folding.CppCodeFoldingSettings"/>
+        <!-- } folding -->
+
+        <navbar.members.support language="C++" implementationClass="com.jetbrains.rider.cpp.navbar.CppNavBarMembersSupport"/>
+        <intentionsOrderProvider language="C++" implementationClass="com.jetbrains.rider.spellChecker.BackendLanguageIntentionsOrderProvider"/>
+        <lang.inspectionSuppressor language="C++" implementationClass="com.jetbrains.rider.cpp.inspections.suppression.CppInspectionSuppressor"/>
+
+        <completion.contributor language="C++" implementationClass="com.jetbrains.rider.completion.patchEngine.RiderPatchEngineCompletionContributor" />
+        <rider.backendCompletionAppliedHandler implementation="com.jetbrains.rider.cpp.completion.CppBackendCompletionAppliedHandler"/>
+
+        <!-- Hierarchies -->
+        <callHierarchyProvider language="C++" implementationClass="com.jetbrains.rider.inspections.callHierarchy.RiderCallHierarchyProvider"/>
+
+        <!-- Typing Assistance -->
+        <projectService serviceInterface="com.intellij.resharper.cpp.assist.utils.TypingAssistOptionsProvider"
+                        serviceImplementation="com.jetbrains.rider.cpp.editorActions.TypingAssistOptionsProviderImpl"
+        />
+
+        <projectService serviceInterface="com.jetbrains.rider.debugger.DebuggerWriteAccessPolicyService"
+                        serviceImplementation="com.jetbrains.rider.debugger.DefaultDebuggerWriteAccessPolicyService"/>
+
+        <registryKey key="resharper.cpp.frontend.only.typing.assist"
+                     defaultValue="false"
+                     description="
+                 Removes backend typing assistance for C++.
+
+                 Don't forget to enable `resharper.cpp.frontend.typing.assist.enabled`, otherwise there will be NO typing assistance at all."
+        />
+
+        <!-- CTD -->
+        <rd.solutionExtListener endpoint="IDE Frontend"
+                                listener="com.jetbrains.rider.cpp.ctd.CppCTDHost$ProtocolListener"/>
+        <registryKey defaultValue="false" description="Enable experimental CTD" key="rider.cpp.enable.ctd"/>
+    </extensions>
+
+    <actions resource-bundle="messages.RiderCppCoreBundle">
+        <!-- Navigation-->
+        <action class="com.jetbrains.rider.cpp.actions.CppSwitchHeaderSourceAction" id="SwitchHeaderSource">
+            <override-text place="MainMenu"/>
+            <add-to-group group-id="GoToCodeGroup" anchor="after" relative-to-action="GotoRelated"/>
+        </action>
+
+        <action class="com.jetbrains.rider.cpp.actions.CppDocumentAction" id="CppDocument">
+            <override-text place="MainMenu"/>
+            <add-to-group group-id="CodeMenu" anchor="after" relative-to-action="CodeFormatGroup"/>
+        </action>
+
+        <!-- CTD -->
+        <action class="com.jetbrains.rider.cpp.ctd.CppCTDStepBackwardAction">
+            <add-to-group group-id="XDebugger.ToolWindow.TopToolbar3" anchor="after" relative-to-action="StepOut"/>
+        </action>
+        <action class="com.jetbrains.rider.cpp.ctd.CppCTRestartAction">
+            <add-to-group group-id="XDebugger.ToolWindow.TopToolbar3" anchor="before" relative-to-action="Stop"/>
+        </action>
+    </actions>
+</idea-plugin>
