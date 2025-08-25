@@ -33,20 +33,13 @@ class Debugger : AnAction() {
   private fun buildDebugHtml(el: @NotNull PsiElement): String {
     val sb = StringBuilder("<html><body style='font-family: monospace;'>")
     val eltype = PsiUtilCore.getElementType(el)
-    if (eltype == CppTokenTypes.CHAR_KEYWORD) {
-      appendLine(sb, "is char!", "")
-    } else if (eltype == CppTokenTypes.UNSIGNED_KEYWORD) {
-      appendLine(sb, "is unsigned!", "")
-    }
-    val highlighter = CppSyntaxHighlighter()
-    highlighter.getTokenHighlights(eltype).forEach { attr -> appendLine(sb, "Syntax highlighting attribute", attr.externalName)}
 
-    //val extname = attr[0].externalName
-    //appendLine(sb, "Syntax highlighting attribute", extname)
-    val tree = printAstTypeNamesTree(el, StringBuilder(), 2)
-    sb.append(tree)
-    appendLine(sb, "typeName", getTypeName(el))
+    sb.append(printAstTypeNamesTree(el, StringBuilder(), 2))
     appendLine(sb, "", "\n")
+
+    CppSyntaxHighlighter().getTokenHighlights(eltype)
+      .forEach { attr -> appendLine(sb, "Syntax highlighting attribute", attr.externalName) }
+
     appendLine(sb, "PsiUtilCore.getElementType(el).toString()", eltype.toString())
     appendLine(sb, "PsiUtilCore.getElementType(el).debugName", eltype.debugName)
     appendLine(sb, "PsiUtilCore.getElementType(el).javaClass.toString()", eltype.javaClass.toString())
@@ -65,9 +58,7 @@ class Debugger : AnAction() {
 
     return sb.toString()
   }
-  private fun getTypeName(el: PsiElement): String {
-    return PsiUtilCore.getElementType(el).toString()
-  }
+
   private fun printAstTypeNamesTree(
     node: PsiElement,
     builder: java.lang.StringBuilder,
