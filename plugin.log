@@ -1,0 +1,457 @@
+2025-08-26 10:13:19.058 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.059 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> a
+2025-08-26 10:13:19.059 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:19.059 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:19.060 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.060 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> a
+2025-08-26 10:13:19.061 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:19.061 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> c
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> c
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> d
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> d
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.062 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> e
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> e
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> dd
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:19.063 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> dd
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> f
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> f
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:19.064 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> int
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> int
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:INT_KEYWORD
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: INT_KEYWORD, CppKeyword:INT_KEYWORD, Keywords//Types//int Keyword
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for INT_KEYWORD: EXTENDEDHL.INT_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> char
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> char
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:CHAR_KEYWORD
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: CHAR_KEYWORD, CppKeyword:CHAR_KEYWORD, Keywords//Types//char Keyword
+2025-08-26 10:13:19.066 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for CHAR_KEYWORD: EXTENDEDHL.CHAR_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> short
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> short
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:SHORT_KEYWORD
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: SHORT_KEYWORD, CppKeyword:SHORT_KEYWORD, Keywords//Types//short Keyword
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for SHORT_KEYWORD: EXTENDEDHL.SHORT_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> bool
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> bool
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:BOOL_KEYWORD
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: BOOL_KEYWORD, CppKeyword:BOOL_KEYWORD, Keywords//Types//bool Keyword
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for BOOL_KEYWORD: EXTENDEDHL.BOOL_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> long
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> long
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:LONG_KEYWORD
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: LONG_KEYWORD, CppKeyword:LONG_KEYWORD, Keywords//Types//long Keyword
+2025-08-26 10:13:19.067 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for LONG_KEYWORD: EXTENDEDHL.LONG_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> double
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> double
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:DOUBLE_KEYWORD
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: DOUBLE_KEYWORD, CppKeyword:DOUBLE_KEYWORD, Keywords//Types//double Keyword
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for DOUBLE_KEYWORD: EXTENDEDHL.DOUBLE_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> a
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:19.068 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.069 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.069 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> c
+2025-08-26 10:13:19.069 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.069 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:19.069 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:19.069 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> d
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> e
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:19.070 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> dd
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> f
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:19.071 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:19.370 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=NULL!!!
+2025-08-26 10:13:19.370 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> 
+2025-08-26 10:13:19.370 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:19.370 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> null
+2025-08-26 10:13:19.370 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for NULL!!! is WHITE_SPACE
+2025-08-26 10:13:19.370 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for NULL!!!
+2025-08-26 10:13:20.651 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=NULL!!!
+2025-08-26 10:13:20.651 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> 
+2025-08-26 10:13:20.651 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:20.651 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> null
+2025-08-26 10:13:20.651 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for NULL!!! is WHITE_SPACE
+2025-08-26 10:13:20.651 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for NULL!!!
+2025-08-26 10:13:22.593 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> a
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> a
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> c
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> c
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:22.594 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> d
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> d
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> e
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> e
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> dd
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:22.595 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> dd
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.GLOBAL_VARIABLE, hlModelExtName=ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.GLOBAL_VARIABLE -> f
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.GLOBAL_VARIABLE / ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER:
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=[255,192,198], hex="#ffc0c6"
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER -> f
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER is IDENTIFIER
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.CPP_GLOBAL_VARIABLE_IDENTIFIER
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> int
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> int
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:INT_KEYWORD
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: INT_KEYWORD, CppKeyword:INT_KEYWORD, Keywords//Types//int Keyword
+2025-08-26 10:13:22.596 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for INT_KEYWORD: EXTENDEDHL.INT_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> char
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> char
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:CHAR_KEYWORD
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: CHAR_KEYWORD, CppKeyword:CHAR_KEYWORD, Keywords//Types//char Keyword
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for CHAR_KEYWORD: EXTENDEDHL.CHAR_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> short
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> short
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:SHORT_KEYWORD
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: SHORT_KEYWORD, CppKeyword:SHORT_KEYWORD, Keywords//Types//short Keyword
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for SHORT_KEYWORD: EXTENDEDHL.SHORT_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> bool
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> bool
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:BOOL_KEYWORD
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: BOOL_KEYWORD, CppKeyword:BOOL_KEYWORD, Keywords//Types//bool Keyword
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for BOOL_KEYWORD: EXTENDEDHL.BOOL_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> long
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.597 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> long
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:LONG_KEYWORD
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: LONG_KEYWORD, CppKeyword:LONG_KEYWORD, Keywords//Types//long Keyword
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for LONG_KEYWORD: EXTENDEDHL.LONG_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> double
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> double
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:DOUBLE_KEYWORD
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: DOUBLE_KEYWORD, CppKeyword:DOUBLE_KEYWORD, Keywords//Types//double Keyword
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for DOUBLE_KEYWORD: EXTENDEDHL.DOUBLE_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> a
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> c
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:22.598 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> d
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> e
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> dd
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.599 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:13:22.600 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> f
+2025-08-26 10:13:22.600 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:13:22.600 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:13:22.600 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:13:22.600 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.894 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=WARNING_ATTRIBUTES, hlModelExtName=WARNING_ATTRIBUTES
+2025-08-26 10:16:03.894 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - WARNING_ATTRIBUTES -> shor
+2025-08-26 10:16:03.894 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for WARNING_ATTRIBUTES / WARNING_ATTRIBUTES:
+2025-08-26 10:16:03.894 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:16:03.894 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.894 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - WARNING_ATTRIBUTES -> shor
+2025-08-26 10:16:03.894 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for WARNING_ATTRIBUTES is IDENTIFIER
+2025-08-26 10:16:03.894 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for WARNING_ATTRIBUTES
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> a
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> a
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.896 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> c
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> c
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> d
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.897 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> d
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> e
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> e
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> dd
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> dd
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.898 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> f
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> f
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:03.899 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:03.912 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=WARNING_ATTRIBUTES, hlModelExtName=WARNING_ATTRIBUTES
+2025-08-26 10:16:03.912 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - WARNING_ATTRIBUTES -> d
+2025-08-26 10:16:03.912 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for WARNING_ATTRIBUTES / WARNING_ATTRIBUTES:
+2025-08-26 10:16:03.912 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:16:03.912 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:03.912 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - WARNING_ATTRIBUTES -> d
+2025-08-26 10:16:03.912 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for WARNING_ATTRIBUTES is IDENTIFIER
+2025-08-26 10:16:03.912 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for WARNING_ATTRIBUTES
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=OC.BUILTIN_TYPE_KEYWORD, hlModelExtName=ReSharper.CPP_BUILTIN_TYPE_KEYWORD
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - OC.BUILTIN_TYPE_KEYWORD -> short
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - color for OC.BUILTIN_TYPE_KEYWORD / ReSharper.CPP_BUILTIN_TYPE_KEYWORD:
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - rgb=null, hex=null
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.CPP_BUILTIN_TYPE_KEYWORD -> short
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.CPP_BUILTIN_TYPE_KEYWORD is CppKeyword:SHORT_KEYWORD
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found config for ReSharper.CPP_BUILTIN_TYPE_KEYWORD: SHORT_KEYWORD, CppKeyword:SHORT_KEYWORD, Keywords//Types//short Keyword
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - Found colorKey for SHORT_KEYWORD: EXTENDEDHL.SHORT_KEYWORD (fallbackKey: ReSharper.BUILTIN_TYPE_KEYWORD (fallbackKey: DEFAULT_KEYWORD))
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> a
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.709 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> a
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> c
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> c
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> d
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> d
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> e
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> e
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.710 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> dd
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> dd
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> f
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - hlExtName=NULL!!!, hlModelExtName=ReSharper.SPELL_CHECKER_TARGET
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - NULL!!! -> f
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - no last applied
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - ReSharper.SPELL_CHECKER_TARGET -> null
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - elementType for ReSharper.SPELL_CHECKER_TARGET is IDENTIFIER
+2025-08-26 10:16:04.711 [DEBUG] org.extendedhl.cpp.core.ExtendedHighlightExtHandler - No config for ReSharper.SPELL_CHECKER_TARGET

@@ -1,16 +1,18 @@
-package org.extendedhl.cpp
+package org.extendedhl.cpp.config
 
 import com.intellij.openapi.editor.colors.TextAttributesKey
-import com.intellij.openapi.fileTypes.PlainSyntaxHighlighter
 import com.intellij.openapi.fileTypes.SyntaxHighlighter
 import com.intellij.openapi.options.colors.AttributesDescriptor
+import com.intellij.openapi.options.colors.ColorDescriptor
 import com.intellij.openapi.options.colors.ColorSettingsPage
 import com.intellij.psi.codeStyle.DisplayPriority
 import com.intellij.psi.codeStyle.DisplayPrioritySortable
-import org.extendedhl.cpp.Colors.cppHighlighter
+import org.extendedhl.cpp.config.Colors
+import org.extendedhl.cpp.config.Colors.cppHighlighter
+import org.extendedhl.cpp.config.HlConfigProvider
 import javax.swing.Icon
 
-class MyColorSettingsPage : ColorSettingsPage, DisplayPrioritySortable {
+class ExtendedColorSettingsPage : ColorSettingsPage, DisplayPrioritySortable {
   private val descriptors by lazy {
     HlConfigProvider.configs.map { config ->
       AttributesDescriptor(
@@ -26,7 +28,7 @@ class MyColorSettingsPage : ColorSettingsPage, DisplayPrioritySortable {
   override fun getHighlighter(): SyntaxHighlighter = cppHighlighter
 
   override fun getAttributeDescriptors() = descriptors
-  override fun getColorDescriptors() = emptyArray<com.intellij.openapi.options.colors.ColorDescriptor>()
+  override fun getColorDescriptors() = emptyArray<ColorDescriptor>()
   override fun getDemoText() = """
       <INCLUDE_DIRECTIVE>#include</INCLUDE_DIRECTIVE> <iostream>
       

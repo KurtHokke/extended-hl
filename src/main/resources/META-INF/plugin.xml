@@ -24,30 +24,14 @@
     <depends>com.intellij.jetbrains.rd.client</depends>
 
 
-    <!-- <depends optional="true" config-file="../radler.xml">org.jetbrains.plugins.clion.radler</depends> -->
-
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <!-- <projectService serviceImplementation="org.extendedhl.cpp.RegisterCppAnnotator"/> -->
-        <colorSettingsPage implementation="org.extendedhl.cpp.MyColorSettingsPage"/>
 
-        <rdclient.highlighterModelSupport
-                implementation="org.extendedhl.cpp.core.ExtendedHighlightSupport"/>
-        <rdclient.highlighterExtensionHandler
-                implementation="org.extendedhl.cpp.core.ExtendedHighlighterExtensionHandler"/>
+        <colorSettingsPage implementation="org.extendedhl.cpp.config.ExtendedColorSettingsPage"/>
 
-        <!--suppress PluginXmlValidity -->
-        <!--<backend.markup.adapterFactory language="ExtendedC++"
-                            implementationClass="org.extendedhl.cpp.core.markup.ExtendedBackendMarkupAdapterFactory"/>-->
-        <!--<rdclient.markupExtension implementation="org.extendedhl.cpp.core.markup.ExtendedIFrontendProtocolMarkupExtension"/>-->
+        <rdclient.highlighterExtensionHandler implementation="org.extendedhl.cpp.core.ExtendedHighlightExtHandler"/>
 
-        <!--<rdclient.highlighterSuppressionHandler implementation="org.extendedhl.cpp.core.DefaultHighlightSuppressionHandler"/>-->
-
-
-        <!--<annotator language="C++"
-                   implementationClass="org.extendedhl.cpp.CppAnnotator"
-                   order="last"/>-->
     </extensions>
 
 
@@ -55,7 +39,7 @@
 
     <actions>
         <action id="org.extendedhl.cpp.Debugger"
-                class="org.extendedhl.cpp.Debugger"
+                class="org.extendedhl.cpp.util.Debugger"
                 text="Show Debug"
                 description="Show debug info">
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl 1"/>

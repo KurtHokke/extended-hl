@@ -1,15 +1,24 @@
-package org.extendedhl.cpp
+package org.extendedhl.cpp.config
 
 import com.intellij.lang.annotation.HighlightSeverity
+import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.psi.tree.IElementType
+import com.intellij.psi.tree.TokenSet
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
+import com.jetbrains.rider.colors.RiderLanguageTextAttributeKeys
 
-
+enum class GroupEnum(val groupName: String) {
+  PREPROCESSORS("Preprocessors"),
+  TYPES("Keywords//Types"),
+  KEYWORDS("Keywords")
+}
 
 data class HlConfig(
-  val tokenType: IElementType,
-  private val groupEnum: HlConfigProvider.Group,
+
   val name: String,
+  val groupEnum: GroupEnum,
+  val tokenType: IElementType? = null,
+  val tokenSet: TokenSet? = null,
   val displayName: String? = name.split("_").let { parts ->
       when (parts.size) {
         0 -> name
@@ -20,46 +29,49 @@ data class HlConfig(
   },
   val severity: HighlightSeverity = HighlightSeverity.INFORMATION,
 ) {
-
+  private val getFallback: () -> TextAttributesKey? = {
+    when (this.groupEnum) {
+      GroupEnum.TYPES -> RiderLanguageTextAttributeKeys.BUILTIN_TYPE_KEYWORD
+      else -> null
+    }
+  }
+  val key: TextAttributesKey get() = TextAttributesKey.createTextAttributesKey("EXTENDEDHL.${name}", getFallback())
   val settingsPath: String get() = "${groupEnum.groupName}//${displayName}"
 }
 
 object HlConfigProvider {
-  enum class Group(val groupName: String) {
-    PREPROCESSORS("Preprocessors"),
-    TYPES("Keywords//Types"),
-    KEYWORDS("Keywords")
-  }
+
   // Static for now; later, load from resources or settings
   val configs: List<HlConfig> by lazy {
     listOf(
-      HlConfig(CppTokenTypes.INCLUDE_DIRECTIVE, Group.PREPROCESSORS, "INCLUDE_DIRECTIVE"),
-      HlConfig(CppTokenTypes.DEFINE_DIRECTIVE, Group.PREPROCESSORS, "DEFINE_DIRECTIVE"),
-      HlConfig(CppTokenTypes.UNDEF_DIRECTIVE, Group.PREPROCESSORS, "UNDEF_DIRECTIVE"),
-      HlConfig(CppTokenTypes.IFDEF_DIRECTIVE, Group.PREPROCESSORS, "IFDEF_DIRECTIVE"),
-      HlConfig(CppTokenTypes.IFNDEF_DIRECTIVE, Group.PREPROCESSORS, "IFNDEF_DIRECTIVE"),
-      HlConfig(CppTokenTypes.IF_DIRECTIVE, Group.PREPROCESSORS, "IF_DIRECTIVE"),
-      HlConfig(CppTokenTypes.ELSE_DIRECTIVE, Group.PREPROCESSORS, "ELSE_DIRECTIVE"),
-      HlConfig(CppTokenTypes.ELIF_DIRECTIVE, Group.PREPROCESSORS, "ELIF_DIRECTIVE"),
-      HlConfig(CppTokenTypes.ENDIF_DIRECTIVE, Group.PREPROCESSORS, "ENDIF_DIRECTIVE"),
-      HlConfig(CppTokenTypes.LINE_DIRECTIVE, Group.PREPROCESSORS, "LINE_DIRECTIVE"),
-      HlConfig(CppTokenTypes.ERROR_DIRECTIVE, Group.PREPROCESSORS, "ERROR_DIRECTIVE"),
-      HlConfig(CppTokenTypes.PRAGMA_DIRECTIVE, Group.PREPROCESSORS, "PRAGMA_DIRECTIVE"),
-      HlConfig(CppTokenTypes.CLASS_KEYWORD,  Group.KEYWORDS, "CLASS_KEYWORD"),
-      HlConfig(CppTokenTypes.STRUCT_KEYWORD, Group.KEYWORDS, "STRUCT_KEYWORD"),
-      HlConfig(CppTokenTypes.ENUM_KEYWORD,  Group.KEYWORDS, "ENUM_KEYWORD"),
-      HlConfig(CppTokenTypes.NAMESPACE_CPP_KEYWORD, Group.KEYWORDS, "NAMESPACE_KEYWORD"),
-      HlConfig(CppTokenTypes.THIS_CPP_KEYWORD, Group.KEYWORDS, "THIS_KEYWORD"),
+      HlConfig("INCLUDE_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.INCLUDE_DIRECTIVE),
+      HlConfig("DEFINE_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.DEFINE_DIRECTIVE),
+      HlConfig("UNDEF_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.UNDEF_DIRECTIVE),
+      HlConfig("IFDEF_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.IFDEF_DIRECTIVE),
+      HlConfig("IFNDEF_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.IFNDEF_DIRECTIVE),
+      HlConfig("IF_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.IF_DIRECTIVE),
+      HlConfig("ELSE_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.ELSE_DIRECTIVE),
+      HlConfig("ELIF_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.ELIF_DIRECTIVE),
+      HlConfig("ENDIF_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.ENDIF_DIRECTIVE),
+      HlConfig("LINE_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.LINE_DIRECTIVE),
+      HlConfig("ERROR_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.ERROR_DIRECTIVE),
+      HlConfig("PRAGMA_DIRECTIVE", GroupEnum.PREPROCESSORS, CppTokenTypes.PRAGMA_DIRECTIVE),
+      HlConfig("CLASS_KEYWORD", GroupEnum.KEYWORDS, CppTokenTypes.CLASS_KEYWORD),
+      HlConfig("STRUCT_KEYWORD", GroupEnum.KEYWORDS, CppTokenTypes.STRUCT_KEYWORD),
+      HlConfig("ENUM_KEYWORD", GroupEnum.KEYWORDS, CppTokenTypes.ENUM_KEYWORD),
+      HlConfig("NAMESPACE_KEYWORD", GroupEnum.KEYWORDS, CppTokenTypes.NAMESPACE_CPP_KEYWORD),
+      HlConfig("THIS_KEYWORD", GroupEnum.KEYWORDS, CppTokenTypes.THIS_CPP_KEYWORD),
 
-      HlConfig(CppTokenTypes.INT_KEYWORD,  Group.TYPES, "INT_KEYWORD"),
-      HlConfig(CppTokenTypes.SHORT_KEYWORD, Group.TYPES, "SHORT_KEYWORD"),
-      HlConfig(CppTokenTypes.LONG_KEYWORD, Group.TYPES, "LONG_KEYWORD"),
-      HlConfig(CppTokenTypes.CHAR_KEYWORD, Group.TYPES, "CHAR_KEYWORD"),
-      HlConfig(CppTokenTypes.FLOAT_KEYWORD, Group.TYPES, "FLOAT_KEYWORD"),
-      HlConfig(CppTokenTypes.DOUBLE_KEYWORD, Group.TYPES, "DOUBLE_KEYWORD"),
-      HlConfig(CppTokenTypes.BOOL_KEYWORD, Group.TYPES, "BOOL_KEYWORD"),
-      HlConfig(CppTokenTypes.VOID_KEYWORD, Group.TYPES, "VOID_KEYWORD"),
-      HlConfig(CppTokenTypes.AUTO_KEYWORD, Group.TYPES, "AUTO_KEYWORD"),
+      HlConfig("BUILTIN_TYPE_KEYWORDS", GroupEnum.KEYWORDS, tokenSet = CppTokenTypes.BUILTIN_TYPE_KEYWORDS),
+      HlConfig("INT_KEYWORD", GroupEnum.TYPES, CppTokenTypes.INT_KEYWORD),
+      HlConfig("SHORT_KEYWORD", GroupEnum.TYPES, CppTokenTypes.SHORT_KEYWORD),
+      HlConfig("LONG_KEYWORD", GroupEnum.TYPES, CppTokenTypes.LONG_KEYWORD),
+      HlConfig("CHAR_KEYWORD", GroupEnum.TYPES, CppTokenTypes.CHAR_KEYWORD),
+      HlConfig("FLOAT_KEYWORD", GroupEnum.TYPES, CppTokenTypes.FLOAT_KEYWORD),
+      HlConfig("DOUBLE_KEYWORD", GroupEnum.TYPES, CppTokenTypes.DOUBLE_KEYWORD),
+      HlConfig("BOOL_KEYWORD", GroupEnum.TYPES, CppTokenTypes.BOOL_KEYWORD),
+      HlConfig("VOID_KEYWORD", GroupEnum.TYPES, CppTokenTypes.VOID_KEYWORD),
+      HlConfig("AUTO_KEYWORD", GroupEnum.TYPES, CppTokenTypes.AUTO_KEYWORD),
 
     )
   }

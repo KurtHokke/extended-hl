@@ -13,7 +13,7 @@ import com.jetbrains.rdclient.daemon.IProtocolHighlighterModelHandler
 import com.jetbrains.rdclient.daemon.IProtocolHighlighterModelSupport
 
 class ExtendedHighlightSupport : IProtocolHighlighterModelSupport {
-  private val log = org.extendedhl.cpp.logger<ExtendedHighlightSupport>()
+  private val log = org.extendedhl.cpp.logging.logger<ExtendedHighlightSupport>()
   override fun createHandler(
     lifetime: Lifetime,
     project: Project?,

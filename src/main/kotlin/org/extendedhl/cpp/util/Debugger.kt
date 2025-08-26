@@ -1,4 +1,4 @@
-package org.extendedhl.cpp
+package org.extendedhl.cpp.util
 
 import com.google.common.base.Strings
 import com.intellij.codeInsight.hint.HintManager

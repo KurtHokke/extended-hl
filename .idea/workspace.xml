@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8f0c63c3-9a6d-4beb-b508-6640131b3156" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/coroutines-javaagent.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/coroutines-javaagent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426-252.23892.426/localPlugin-intellij.rider.cpp.debugger-CL-252.23892.426-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426-252.23892.426/localPlugin-intellij.rider.plugins.clion.radler.cwm-CL-252.23892.426-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426-252.23892.426/localPlugin-org.jetbrains.plugins.clion.radler-CL-252.23892.426-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij-platform-test-runtime-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.c.core-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.c.debugger-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.c.doxygen-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.c.testing-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.asm-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.asm.debugger-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.debugger.dap-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.execution-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.externalSystem-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.lang.base-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.modulemap.language-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.projectModel-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.psi.base-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.translateCode-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.util-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.util.serializer-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.util.ui-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.workspaceModel-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.bazel-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.core-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.execution-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.externalSystem-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.toolchains-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.libraries.ai.grazie.spell.gec.engine.local-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.libraries.lucene.common-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.platform.backend-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.platform.ssh.nio-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.spellchecker-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledPlugin-com.intellij.cidr.lang-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledPlugin-com.intellij.clion-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledPlugin-com.intellij.nativeDebug-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledPlugin-com.intellij.platform.images-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/localIde-CL-CL-252.23892.426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/self-update.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run/Run IDE with Plugin.run.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/Utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clion64.exe.vmoptions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/idea.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/Colors.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/Const.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/CppAnnotator.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/Debugger.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/ExtendedHighlighter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/FileLogService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/HlConfig.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/MyColorSettingsPage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/PluginLogger.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/RegisterCppAnnotator.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/Utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/DefaultHighlightSuppressionHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightSupport.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlighterExtensionHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedSymbolsProvider.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedBackendMarkupAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedBackendMarkupAdapterFactory.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedIFrontendProtocolMarkupExtension.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/resources/META-INF/plugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldSrc/main/resources/META-INF/pluginIcon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/CppAnnotator.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/DefaultHighlightSuppressionHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/ExtendedHighlighter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/ExtendedSymbolsProvider.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/RegisterCppAnnotator.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/Utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/markup/ExtendedBackendMarkupAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/markup/ExtendedBackendMarkupAdapterFactory.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/markup/ExtendedIFrontendProtocolMarkupExtension.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Colors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Colors.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Const.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Const.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/MyColorSettingsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/ExtendedColorSettingsPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightExtHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightExtHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightSupport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightSupport.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/FileLogService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/FileLogService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/PluginLogger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/PluginLogger.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/Debugger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/Debugger.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="intellij platform" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Script" />
+        <option value="Kotlin File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KurtHokke&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:KurtHokke/extended-hl.git&quot;,
+    &quot;accountId&quot;: &quot;150a3b29-f690-4aee-a556-389f9e233a98&quot;
+  }
+}</component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-8.13-bin/5xuhj0ry160q40clulazy9h7d/gradle-8.13" javaHome="$PROJECT_DIR$/../../../../../Program Files/Android/Android Studio/jbr" gradleVersion="8.13" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="31n1FC3slaDCUPR5Klsb9Z660Go" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.cpp [buildNeeded].executor": "Run",
+    "Gradle.cpp [buildPlugin].executor": "Run",
+    "Gradle.cpp [clean].executor": "Run",
+    "Gradle.cpp [prepareSandbox].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "cpp",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.sourceCode.kotlin"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="org.extendedhl.cpp.util.javaAwtColor" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.cpp [prepareSandbox]">
+    <configuration name="cpp [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildNeeded" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="cpp [buildPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildPlugin" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="cpp [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="cpp [prepareSandbox]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="prepareSandbox" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.cpp [prepareSandbox]" />
+        <item itemvalue="Gradle.cpp [buildNeeded]" />
+        <item itemvalue="Gradle.cpp [clean]" />
+        <item itemvalue="Gradle.cpp [buildPlugin]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8f0c63c3-9a6d-4beb-b508-6640131b3156" name="Changes" comment="" />
+      <created>1756144917366</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1756144917366</updated>
+    </task>
+    <servers />
+  </component>
+</project>

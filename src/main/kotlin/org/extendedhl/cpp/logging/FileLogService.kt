@@ -1,4 +1,4 @@
-package org.extendedhl.cpp
+package org.extendedhl.cpp.logging
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.Logger
@@ -19,7 +19,7 @@ class FileLogService {
 
   private val lock = ReentrantLock()
   private val dateFmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
-  private val logDir: Path = Paths.get(Const.LOG_PATH)
+  private val logDir: Path = Paths.get(org.extendedhl.cpp.config.Const.LOG_PATH)
   private val logFile: Path = logDir.resolve("plugin.log")
   private var writer: BufferedWriter? = null
 

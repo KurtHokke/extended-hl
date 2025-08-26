@@ -1,4 +1,4 @@
-package org.extendedhl.cpp
+package org.extendedhl.cpp.config
 
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory
@@ -7,22 +7,22 @@ import com.intellij.openapi.fileTypes.FileTypeManager
 import com.intellij.psi.tree.IElementType
 import com.intellij.testFramework.LightVirtualFile
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
+import com.jetbrains.rider.cpp.fileType.CppTextAttributeKeys
 object Colors {
 
   val ALL_KEYS: Map<String, TextAttributesKey> by lazy {
     HlConfigProvider.configs.associate { config ->
-      //config.name to CreateTAK(config.name, getDefHl(config.tokenType))
-      val uniqueName = "EXTENDEDHL.${config.name}"
-      config.name to TextAttributesKey.createTextAttributesKey(uniqueName)
-    }
+        config.name to config.key
+      }
   }
-  val ALL_KEYS_BY_TOKEN: Map<IElementType, TextAttributesKey> by lazy {
-    HlConfigProvider.configs.associate { config ->
-      //config.name to CreateTAK(config.name, getDefHl(config.tokenType))
-      val uniqueName = "EXTENDEDHL.${config.name}"
-      config.tokenType to TextAttributesKey.createTextAttributesKey(uniqueName)
-    }
-  }
+
+  //val ALL_KEYS_BY_TOKEN: Map<IElementType, TextAttributesKey> by lazy {
+  //  HlConfigProvider.configs.associate { config ->
+  //    //config.name to CreateTAK(config.name, getDefHl(config.tokenType))
+  //    val uniqueName = "EXTENDEDHL.${config.name}"
+  //    config.tokenType to TextAttributesKey.createTextAttributesKey(uniqueName)
+  //  }
+  //}
 
   fun CreateTAK(name: String, fallback: TextAttributesKey? = null): TextAttributesKey =
     TextAttributesKey.createTextAttributesKey(name, fallback)

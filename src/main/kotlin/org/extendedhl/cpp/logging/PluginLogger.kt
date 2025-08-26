@@ -1,4 +1,4 @@
-package org.extendedhl.cpp
+package org.extendedhl.cpp.logging
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger

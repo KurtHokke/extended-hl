@@ -10,12 +10,9 @@ import com.jetbrains.rd.ide.model.HighlighterModel
 import com.jetbrains.rd.ide.model.RdMarkupModel
 import com.jetbrains.rd.util.lifetime.Lifetime
 import com.jetbrains.rdclient.daemon.IProtocolHighlighterModelHandler
-import com.intellij.openapi.util.Key
 
-// UserData keys stored on RangeHighlighter so compare() can identify “same model”
-private val MODEL_EXTERNAL_NAME_KEY = Key.create<String>("EXTENDEDHL.MODEL_EXTERNAL_NAME")
-private val MODEL_TAK_KEY = Key.create<String>("EXTENDEDHL.MODEL_TAK_EXTERNAL_NAME")
-private val MODEL_TOOLTIP_KEY = Key.create<String>("EXTENDEDHL.MODEL_TOOLTIP")
+import org.extendedhl.cpp.config.Const
+import org.extendedhl.cpp.config.KeysToAcceptProvider
 
 class ExtendedHighlightHandler(
   private val lifetime: Lifetime,
@@ -24,10 +21,12 @@ class ExtendedHighlightHandler(
   private val rdMarkup: RdMarkupModel,
   private val document: Document
 ) : IProtocolHighlighterModelHandler {
-  private val log = org.extendedhl.cpp.logger<ExtendedHighlightHandler>()
+  private val log = org.extendedhl.cpp.logging.logger<ExtendedHighlightHandler>()
   override fun accept(model: HighlighterModel): Boolean {
-    log.debug("accept: model.textAttributesKey=${model.textAttributesKey?.externalName}")
-    return model.textAttributesKey?.externalName == "ReSharper.CPP_BUILTIN_TYPE_KEYWORD"
+    val modelExternalName = model.textAttributesKey?.externalName ?: "NULL!!!"
+    val inKeysToAccept = KeysToAcceptProvider.map[modelExternalName]?.externalName
+    log.debug("accept: model.textAttributesKey=$modelExternalName, inKeysToAccept=$inKeysToAccept")
+    return modelExternalName == inKeysToAccept
   }
 
   override fun initialize(
@@ -40,8 +39,8 @@ class ExtendedHighlightHandler(
     highlighter.isGreedyToRight = false
 
     // Keep essential identity on the highlighter for future comparisons
-    highlighter.putUserData(MODEL_EXTERNAL_NAME_KEY, model.textAttributesKey?.externalName)
-    highlighter.putUserData(MODEL_TAK_KEY, resolveTextAttributesKey(model).externalName)
+    highlighter.putUserData(Const.MODEL_EXTERNAL_NAME_KEY, model.textAttributesKey?.externalName)
+    highlighter.putUserData(Const.MODEL_TAK_KEY, resolveTextAttributesKey(model).externalName)
 
   }
 
@@ -56,14 +55,14 @@ class ExtendedHighlightHandler(
     }
 
     // Identity must match
-    val existingExternalName = highlighter.getUserData(MODEL_EXTERNAL_NAME_KEY)
+    val existingExternalName = highlighter.getUserData(Const.MODEL_EXTERNAL_NAME_KEY)
     if (existingExternalName != model.textAttributesKey?.externalName) {
       log.debug("compare: existingExternalName=$existingExternalName != model.textAttributesKey?.externalName=${model.textAttributesKey?.externalName}")
       return false
     }
 
     // Attributes should match (avoid repaint if same)
-    val existingTakName = highlighter.getUserData(MODEL_TAK_KEY)
+    val existingTakName = highlighter.getUserData(Const.MODEL_TAK_KEY)
     val expectedTakName = resolveTextAttributesKey(model).externalName
     log.debug("compare: existingTakName=$existingTakName == expectedTakName=$expectedTakName")
     return existingTakName == expectedTakName
@@ -102,5 +101,6 @@ class ExtendedHighlightHandler(
   //}
 
 }
+
 
 
