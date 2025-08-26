@@ -1,17 +1,14 @@
 package org.extendedhl.cpp.config
 
-data class KeysToAccept(
-    val externalName: String,
-)
+//data class KeysToAccept(
+//    val externalName: String,
+//)
 
 object KeysToAcceptProvider{
 
-  val list: List<KeysToAccept> by lazy {
+  val list: List<String> by lazy {
     listOf(
-        KeysToAccept("ReSharper.CPP_BUILTIN_TYPE_KEYWORD")
+        "ReSharper.CPP_BUILTIN_TYPE_KEYWORD"
     )
-  }
-  val map: Map<String, KeysToAccept> by lazy {
-    list.associateBy { it.externalName }
   }
 }

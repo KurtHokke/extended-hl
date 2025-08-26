@@ -5,103 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f0c63c3-9a6d-4beb-b508-6640131b3156" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/coroutines-javaagent.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/coroutines-javaagent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426-252.23892.426/localPlugin-intellij.rider.cpp.debugger-CL-252.23892.426-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426-252.23892.426/localPlugin-intellij.rider.plugins.clion.radler.cwm-CL-252.23892.426-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426-252.23892.426/localPlugin-org.jetbrains.plugins.clion.radler-CL-252.23892.426-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij-platform-test-runtime-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.c.core-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.c.debugger-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.c.doxygen-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.c.testing-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.asm-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.asm.debugger-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.debugger.dap-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.execution-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.externalSystem-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.lang.base-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.modulemap.language-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.projectModel-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.psi.base-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.translateCode-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.util-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.util.serializer-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.util.ui-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.cidr.workspaceModel-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.bazel-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.core-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.execution-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.externalSystem-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.clion.toolchains-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.libraries.ai.grazie.spell.gec.engine.local-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.libraries.lucene.common-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.platform.backend-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.platform.ssh.nio-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledModule-intellij.spellchecker-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledPlugin-com.intellij.cidr.lang-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledPlugin-com.intellij.clion-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledPlugin-com.intellij.nativeDebug-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/bundledPlugin-com.intellij.platform.images-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/localPlatformArtifacts/CL-252.23892.426/localIde-CL-CL-252.23892.426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.intellijPlatform/self-update.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.run/Run IDE with Plugin.run.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/Utils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clion64.exe.vmoptions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/idea.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/Colors.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/Const.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/CppAnnotator.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/Debugger.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/ExtendedHighlighter.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/FileLogService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/HlConfig.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/MyColorSettingsPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/PluginLogger.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/RegisterCppAnnotator.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/Utils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/DefaultHighlightSuppressionHandler.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightHandler.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightSupport.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlighterExtensionHandler.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/ExtendedSymbolsProvider.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedBackendMarkupAdapter.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedBackendMarkupAdapterFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedIFrontendProtocolMarkupExtension.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/resources/META-INF/plugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldSrc/main/resources/META-INF/pluginIcon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/CppAnnotator.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/DefaultHighlightSuppressionHandler.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/ExtendedHighlighter.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/ExtendedSymbolsProvider.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/RegisterCppAnnotator.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/Utils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/markup/ExtendedBackendMarkupAdapter.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/markup/ExtendedBackendMarkupAdapterFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/_cppOld/markup/ExtendedIFrontendProtocolMarkupExtension.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Colors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Colors.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Const.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Const.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/MyColorSettingsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/ExtendedColorSettingsPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.log" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/KeysToAccept.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/KeysToAccept.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightExtHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightExtHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightSupport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightSupport.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/FileLogService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/FileLogService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/PluginLogger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/PluginLogger.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/Debugger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/Debugger.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/ExtendedHighlightHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/ExtendedHighlightModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightSupport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/ExtendedHighlightSupport.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedMarkupExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/markup/ExtendedMarkupExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedMarkupRegisterKeys.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/markup/ExtendedMarkupRegisterKeys.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/markup/KeysToRegister.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/markup/KeysToRegister.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,6 +146,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\home\arcno\src\intellij\cpp\oldSrc" />
+    </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
       <recent name="org.extendedhl.cpp.util.javaAwtColor" />
     </key>
