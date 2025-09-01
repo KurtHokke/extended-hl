@@ -19,7 +19,7 @@ class FileLogService {
 
   private val lock = ReentrantLock()
   private val dateFmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
-  private val logDir: Path = Paths.get(org.extendedhl.cpp.config.Const.LOG_PATH)
+  private val logDir: Path = Paths.get("C:/home/arcno/src/intellij/cpp")
   private val logFile: Path = logDir.resolve("plugin.log")
   private var writer: BufferedWriter? = null
 

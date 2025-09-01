@@ -30,7 +30,7 @@ import org.extendedhl.cpp.config.KeysToAcceptProvider
 import org.extendedhl.cpp.config.Colors
 import org.extendedhl.cpp.logging.PluginLogger
 
-private val DOC_LAST_APPLIED_CACHE: Key<MutableMap<SmartPsiElementPointer<PsiElement>, TextAttributesKey>> =
+val DOC_LAST_APPLIED_CACHE: Key<MutableMap<SmartPsiElementPointer<PsiElement>, TextAttributesKey>> =
   Key.create("extendedhl.doc.lastAppliedCache")
 //private val DOC_LAST_APPLIED_CACHE: Key<MutableMap<Pair<Int, Int>, TextAttributesKey>> =
 //    Key.create("extendedhl.doc.lastAppliedCache")
@@ -124,6 +124,7 @@ class ExtendedHighlightExtHandler : FrontendHighlighterExtensionHandler {
     }
     log.debug("Found colorKey for ${config.name}: $colorKey")
     hl.setTextAttributesKey(colorKey)
+    hlModel
     // Clean up invalid or matching entries before storing new one
     val keysToRemove = mutableListOf<SmartPsiElementPointer<PsiElement>>()
     for (entry in cache.entries) {
@@ -137,21 +138,20 @@ class ExtendedHighlightExtHandler : FrontendHighlighterExtensionHandler {
     val pointer = SmartPointerManager.getInstance(element.project).createSmartPsiElementPointer(element)
     cache[pointer] = colorKey
   }
+}
+fun resolvePsiElementAtOffset(
+    highlighter: RangeHighlighterEx,
+    preferStart: Boolean = true
+): PsiElement? = ReadAction.compute<PsiElement?, Throwable> {
+  val document = highlighter.document // RangeHighlighterEx gives you the Document
+  val vFile = FileDocumentManager.getInstance().getFile(document) ?: return@compute null
+  val project = ProjectLocator.getInstance().guessProjectForFile(vFile) ?: return@compute null
 
-  private fun resolvePsiElementAtOffset(
-      highlighter: RangeHighlighterEx,
-      preferStart: Boolean = true
-  ): PsiElement? = ReadAction.compute<PsiElement?, Throwable> {
-    val document = highlighter.document // RangeHighlighterEx gives you the Document
-    val vFile = FileDocumentManager.getInstance().getFile(document) ?: return@compute null
-    val project = ProjectLocator.getInstance().guessProjectForFile(vFile) ?: return@compute null
+  // Ensure PSI is in sync with the document
+  PsiDocumentManager.getInstance(project).commitDocument(document)
 
-    // Ensure PSI is in sync with the document
-    PsiDocumentManager.getInstance(project).commitDocument(document)
+  val psiFile = PsiManager.getInstance(project).findFile(vFile) ?: return@compute null
 
-    val psiFile = PsiManager.getInstance(project).findFile(vFile) ?: return@compute null
-
-    val offset = if (preferStart) highlighter.startOffset else highlighter.endOffset.coerceAtLeast(highlighter.startOffset)
-    psiFile.findElementAt(offset)
-  }
+  val offset = if (preferStart) highlighter.startOffset else highlighter.endOffset.coerceAtLeast(highlighter.startOffset)
+  psiFile.findElementAt(offset)
 }

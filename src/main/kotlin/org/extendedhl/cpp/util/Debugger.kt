@@ -2,6 +2,7 @@ package org.extendedhl.cpp.util
 
 import com.google.common.base.Strings
 import com.intellij.codeInsight.hint.HintManager
+import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -9,13 +10,18 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiUtilCore
+import com.intellij.psi.util.PsiTreeUtil
+import com.intellij.psi.util.elementType
 import org.jetbrains.annotations.NotNull
-
 import com.jetbrains.rider.cpp.fileType.CppSyntaxHighlighter
+import com.jetbrains.rider.colors.IRiderTextAttributeKeys
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
+import com.jetbrains.rider.cpp.fileType.psi.CppElement
 import com.jetbrains.rdclient.highlighting.FrontendHighlighterAttributeCustomizer
+import com.jetbrains.rider.cpp.fileType.lexer.CppElementType
 
 class Debugger : AnAction() {
+  private val log = org.extendedhl.cpp.logging.logger<Debugger>()
   override fun actionPerformed(e: AnActionEvent) {
     val project: Project = e.project ?: return;
     val editor: Editor = e.getData(CommonDataKeys.EDITOR) ?: return
@@ -28,11 +34,21 @@ class Debugger : AnAction() {
     }
     val html: String = buildDebugHtml(element)
     HintManager.getInstance().showInformationHint(editor, html)
+    val builtDemo = BuildDemoText().build("""
+      #include <iostream>
+      int main() {
+        std::cout << "Hello World!" << std::endl;
+        return 0;
+      }
+    """.trimIndent())
+    log.info("builtDemo: $builtDemo")
   }
 
   private fun buildDebugHtml(el: @NotNull PsiElement): String {
     val sb = StringBuilder("<html><body style='font-family: monospace;'>")
     val eltype = PsiUtilCore.getElementType(el)
+    val refs = el.references
+
 
     sb.append(printAstTypeNamesTree(el, StringBuilder(), 2))
     appendLine(sb, "", "\n")
@@ -40,6 +56,23 @@ class Debugger : AnAction() {
     CppSyntaxHighlighter().getTokenHighlights(eltype)
       .forEach { attr -> appendLine(sb, "Syntax highlighting attribute", attr.externalName) }
 
+    if (refs.isNotEmpty()) {
+      refs.forEach { ref -> appendLine(sb, "Reference", ref.toString()) }
+    } else {
+      appendLine(sb, "No references found", "")
+    }
+    if (eltype == CppTokenTypes.RPAR) {
+      appendLine(sb, "eltype == CppTokenTypes.RPAR", "")
+    }
+
+
+
+    val classParent = PsiTreeUtil.getParentOfType(el, ASTWrapperPsiElement::class.java)
+    classParent?.let {
+      appendLine(sb, "classParent", it.javaClass.name)
+      appendLine(sb, "classParent.text", it.text)
+      appendLine(sb, "classParent.elementType", it.elementType.toString())
+    }
     appendLine(sb, "PsiUtilCore.getElementType(el).toString()", eltype.toString())
     appendLine(sb, "PsiUtilCore.getElementType(el).debugName", eltype.debugName)
     appendLine(sb, "PsiUtilCore.getElementType(el).javaClass.toString()", eltype.javaClass.toString())

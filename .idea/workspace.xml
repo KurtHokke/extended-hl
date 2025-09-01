@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f0c63c3-9a6d-4beb-b508-6640131b3156" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.log" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/KeysToAccept.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/KeysToAccept.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightExtHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightExtHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/ExtendedHighlightHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/ExtendedHighlightModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightSupport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/ExtendedHighlightSupport.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedMarkupExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/markup/ExtendedMarkupExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/markup/ExtendedMarkupRegisterKeys.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/markup/ExtendedMarkupRegisterKeys.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/markup/KeysToRegister.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/markup/KeysToRegister.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/self-update.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.intellijPlatform/self-update.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Colors.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Const.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/ExtendedColorSettingsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/ExtendedColorSettingsPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/KeysToAccept.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightExtHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/ExtendedHighlightExtHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/FileLogService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/FileLogService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/Debugger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/Debugger.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +107,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Script" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
         <option value="Kotlin File" />
       </list>
     </option>
@@ -121,6 +129,9 @@
   }
 }</component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-8.13-bin/5xuhj0ry160q40clulazy9h7d/gradle-8.13" javaHome="$PROJECT_DIR$/../../../../../Program Files/Android/Android Studio/jbr" gradleVersion="8.13" />
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/bin/CLion/lib/app-client.jar!/com/intellij/lang/annotation/Annotator.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -130,21 +141,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.cpp [buildNeeded].executor": "Run",
-    "Gradle.cpp [buildPlugin].executor": "Run",
-    "Gradle.cpp [clean].executor": "Run",
-    "Gradle.cpp [prepareSandbox].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "cpp",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "preferences.sourceCode.kotlin"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.cpp [\&quot;prepareSandbox_run clion nova\&quot;].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.cpp [\&quot;run clion nova\&quot;].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.cpp [buildNeeded].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.cpp [buildPlugin].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.cpp [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.cpp [prepareSandbox].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cpp&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\home\arcno\src\intellij\cpp\oldSrc" />
@@ -153,7 +166,51 @@
       <recent name="org.extendedhl.cpp.util.javaAwtColor" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.cpp [prepareSandbox]">
+  <component name="RunManager" selected="Gradle.cpp [&quot;run clion nova&quot;]">
+    <configuration name="cpp [&quot;prepareSandbox_run clion nova&quot;]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="&quot;prepareSandbox_run clion nova&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="cpp [&quot;run clion nova&quot;]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="&quot;run clion nova&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="cpp [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -198,28 +255,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="cpp [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="cpp [prepareSandbox]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -253,10 +288,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.cpp [&quot;run clion nova&quot;]" />
+        <item itemvalue="Gradle.cpp [&quot;prepareSandbox_run clion nova&quot;]" />
         <item itemvalue="Gradle.cpp [prepareSandbox]" />
-        <item itemvalue="Gradle.cpp [buildNeeded]" />
-        <item itemvalue="Gradle.cpp [clean]" />
         <item itemvalue="Gradle.cpp [buildPlugin]" />
+        <item itemvalue="Gradle.cpp [buildNeeded]" />
       </list>
     </recent_temporary>
   </component>
@@ -276,5 +312,9 @@
       <updated>1756144917366</updated>
     </task>
     <servers />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

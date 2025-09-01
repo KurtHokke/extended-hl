@@ -29,8 +29,9 @@
     <extensions defaultExtensionNs="com.intellij">
 
         <colorSettingsPage implementation="org.extendedhl.cpp.config.ExtendedColorSettingsPage"/>
-
-        <rdclient.highlighterExtensionHandler implementation="org.extendedhl.cpp.core.ExtendedHighlightExtHandler"/>
+        <annotator language="C++" implementationClass="org.extendedhl.cpp.core.ExtendedAnnotator"/>
+        <!--<rdclient.highlighting.frontendHighlighterAttributeCustomizer implementation="org.extendedhl.cpp.core.ExtendedAttrHandler"/>-->
+        <rdclient.highlighterExtensionHandler implementation="org.extendedhl.cpp.core.ExtendedHlExtensionHandler"/>
 
     </extensions>
 
