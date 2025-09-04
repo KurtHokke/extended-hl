@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f0c63c3-9a6d-4beb-b508-6640131b3156" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.intellijPlatform/self-update.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.intellijPlatform/self-update.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/sessions/kotlin-compiler-12487000768694824254.salive" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Colors.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/Const.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/ExtendedColorSettingsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/ExtendedColorSettingsPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.log" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/KeysToAccept.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHighlightExtHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/oldSrc/ExtendedHighlightExtHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/FileLogService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/logging/FileLogService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/Debugger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/Debugger.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedAnnotator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedAnnotator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedAttrHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/psi/Helpers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/psi/Helpers.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,10 +146,11 @@
     &quot;Gradle.cpp [prepareSandbox].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;cpp&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -289,10 +284,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.cpp [&quot;run clion nova&quot;]" />
-        <item itemvalue="Gradle.cpp [&quot;prepareSandbox_run clion nova&quot;]" />
-        <item itemvalue="Gradle.cpp [prepareSandbox]" />
         <item itemvalue="Gradle.cpp [buildPlugin]" />
+        <item itemvalue="Gradle.cpp [prepareSandbox]" />
         <item itemvalue="Gradle.cpp [buildNeeded]" />
+        <item itemvalue="Gradle.cpp [&quot;prepareSandbox_run clion nova&quot;]" />
       </list>
     </recent_temporary>
   </component>

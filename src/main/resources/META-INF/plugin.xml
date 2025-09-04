@@ -15,13 +15,12 @@
     <description><![CDATA[
         yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
     ]]></description>
-
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.clion</depends>
     <depends>org.jetbrains.plugins.clion.radler</depends>
-    <depends>com.intellij.jetbrains.rd.client</depends>
+    <!--<depends>com.intellij.jetbrains.rd.client</depends>-->
 
 
     <!-- Extension points defined by the plugin.

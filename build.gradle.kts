@@ -2,12 +2,10 @@ import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformTestingExtension
 import org.jetbrains.intellij.platform.gradle.tasks.RunIdeTask
 
-//import org.gradle.kotlin.dsl.withType
-
 plugins {
   id("java")
-  id("org.jetbrains.kotlin.jvm") version "2.1.0"
-  id("org.jetbrains.intellij.platform") version "2.7.2"
+  alias(libs.plugins.kotlin.jvm)
+  alias(libs.plugins.intellij.platform)
 }
 
 group = "org.extendedhl"
@@ -23,17 +21,18 @@ val clionHome: String by project
 val clionRadler: String by project
 val clionRdIdeModels: String by project
 val clionCidrPSIBase: String by project
-// Configure IntelliJ Platform Gradle Plugin
-// Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
+// Configure IntelliJ Platform Gradle Plugin Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
 dependencies {
   intellijPlatform {
     local(clionHome)
-    plugin(id = "com.jetbrains.gerryPurpleTheme", version =  "2025.1.0820")
+    plugin(libs.plugins.onedark.theme.toNotation())
   }
   compileOnly(fileTree(getIdeRelativePath(clionRadler)))
   compileOnly(files(getIdeRelativePath(clionRdIdeModels)))
   compileOnly(files(getIdeRelativePath(clionCidrPSIBase)))
 }
+fun Provider<PluginDependency>.toNotation(): Provider<String> =
+    map { "${it.pluginId}:${it.version}" }
 fun getIdeRelativePath(path: String): String {
   return intellijPlatform.platformPath.resolve(path).toString()
 }
@@ -80,7 +79,7 @@ fun IntelliJPlatformTestingExtension.customRunIdeTask(
 ) {
   val p = runIde.register("run clion nova")
   p.configure {
-    useInstaller = false
+
     localPath.dir(clionHome)
 
     task(configureRunIdeTask)

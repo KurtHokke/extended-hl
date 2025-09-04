@@ -2,17 +2,21 @@ package org.extendedhl.cpp.core
 
 import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
-import com.intellij.openapi.editor.colors.EditorColorsManager
+import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.project.DumbAware
+import com.intellij.openapi.util.Key
 import com.intellij.openapi.util.TextRange
-import com.intellij.extapi.psi.ASTWrapperPsiElement
-import com.intellij.lang.annotation.HighlightSeverity
-import com.intellij.psi.PsiElement
-import com.intellij.psi.impl.source.tree.LeafPsiElement
+import com.intellij.platform.workspace.storage.impl.cache.cache
+import com.intellij.psi.*
 import com.intellij.psi.tree.TokenSet
 import com.intellij.psi.util.PsiUtilCore
 import com.intellij.psi.util.PsiTreeUtil
+import com.intellij.psi.util.CachedValue
+import com.intellij.psi.util.CachedValueProvider
+import com.intellij.psi.util.CachedValuesManager
+import com.intellij.psi.util.PsiModificationTracker
+import com.intellij.psi.createSmartPointer
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
 import com.jetbrains.rider.cpp.fileType.psi.CppBlock
 import com.jetbrains.rider.cpp.fileType.psi.CppDummyNode
@@ -21,15 +25,80 @@ import org.extendedhl.cpp.config.HlConfigProvider
 import org.extendedhl.cpp.util.List.fromWrappedIndex
 import org.extendedhl.cpp.util.psi.getElType
 
+
+private data class AnnotEntry(
+    val ptr: SmartPsiElementPointer<PsiElement>,
+    val ranges: List<TextRange>,
+    val key: TextAttributesKey
+)
+
+/**
+ * Per-file cache that is:
+ * - Invalidated on any PSI change (MODIFICATION_COUNT).
+ * - Populated lazily per element via getOrComputeFor().
+ */
+private object AnnotationCache {
+  private val KEY: Key<CachedValue<MutableMap<Int, AnnotEntry>>> =
+    Key.create("your.plugin.annot.perFileElementCache")
+
+  private fun getMap(file: PsiFile): MutableMap<Int, AnnotEntry> {
+    val mgr = CachedValuesManager.getManager(file.project)
+    var cached = file.getUserData(KEY)
+    if (cached == null) {
+      cached = mgr.createCachedValue({
+        CachedValueProvider.Result.create(
+           mutableMapOf<Int, AnnotEntry>(),
+           PsiModificationTracker.MODIFICATION_COUNT
+        )
+      }, false)
+      file.putUserData(KEY, cached)
+    }
+    return cached.value
+  }
+
+  /**
+   * Returns an up-to-date entry for [element] if available; otherwise computes it via [compute],
+   * stores it, and returns it. The stored entry is validated before reuse.
+   */
+  fun getOrComputeFor(
+      element: PsiElement,
+      compute: (PsiElement) -> AnnotEntry?
+  ): AnnotEntry? {
+    val file = element.containingFile ?: return null
+    val map = getMap(file)
+    val key = element.textRange.startOffset
+
+    val existing = map[key]
+    if (existing != null) {
+      val resolved = existing.ptr.element
+      if (resolved === element && resolved.isValid) {
+        // still valid for the same start offset
+        return existing
+      }
+      // If pointer resolves to something else or null at this offset, recompute below.
+    }
+
+    val created = compute(element) ?: return null
+    map[key] = created
+    return created
+  }
+}
+
+
 class ExtendedAnnotator : Annotator, DumbAware {
   private val log = org.extendedhl.cpp.logging.logger<ExtendedAnnotator>()
+
   override fun annotate(el: PsiElement, holder: AnnotationHolder) {
+
     if (PsiUtilCore.findLanguageFromElement(el).id != "C++") return
-    log.debug("Annotating element: ${el.text}")
+    log.debug("Annotating element: $el")
     when (el) {
       is CppDummyNode -> {
         log.debug("el is CppDummyNode!!!: $el")
         if (el.firstChild.getElType() == CppTokenTypes.LBRACKET && el.firstChild.nextSibling.getElType() == CppTokenTypes.LBRACKET) {
+          //val entry = AnnotationCache.getOrComputeFor(el) { el ->
+          //
+          //}
           val ranges = resolveCPPAttributesBracketsRanges(el)
           if (ranges == null) {
             log.debug("ranges is null")
@@ -71,7 +140,7 @@ class ExtendedAnnotator : Annotator, DumbAware {
     val resolvedToken = PsiUtilCore.getElementType(el)
     when (resolvedToken) {
       CppTokenTypes.BLOCK_COMMENT, CppTokenTypes.EOL_COMMENT -> {
-        val lookup = el.text.substring(0,3).replace("*", "/")
+        val lookup = el.text.take(3).replace("*", "/")
         val key = HlConfigProvider.keysByOptionalStringId[lookup]
         if (key != null) {
           holder.doAnnotate(el.textRange, key)

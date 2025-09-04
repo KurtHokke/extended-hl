@@ -10,12 +10,12 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
 import com.intellij.testFramework.LightVirtualFile
-import com.jetbrains.rhizomedb.attr
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
-import com.jetbrains.rider.colors.RiderLanguageTextAttributeKeys
 import com.jetbrains.rider.cpp.fileType.CppTextAttributeKeys
 import com.jetbrains.cidr.radler.inspections.RadTextAttributesKeyProcessor
+import com.jetbrains.rider.colors.RiderLanguageTextAttributeKeys
 import com.intellij.codeHighlighting.RainbowHighlighter
+import com.jetbrains.rhizomedb.attr
 
 private val log = org.extendedhl.cpp.logging.logger<HlConfig>()
 
@@ -54,7 +54,7 @@ data class HlConfig(
   val tokenSet: TokenSet? = null,
   val displayName: String? = createDisplayName(name),
   val severity: HighlightSeverity = HighlightSeverity.INFORMATION,
-  val externalName: String? = null,
+  val externalNames: List<String>? = null,
   val optionalId: Int? = null,
   val optionalStringId: String? = null
 ) {
@@ -111,42 +111,58 @@ object HlConfigProvider {
       types.map { (name, type) ->
         HlConfig(name, GroupEnum.PREPROCESSORS, Conds(false), type)
       }
+  private fun assembleKeywordConfigs(vararg types: Pair<String, IElementType>): List<HlConfig> =
+      types.map { (name, type) ->
+        HlConfig(name, GroupEnum.KEYWORDS, Conds(false), type)
+      }
+  private fun assembleBuiltinTypesConfigs(vararg types: Pair<String, IElementType>): List<HlConfig> =
+      types.map { (name, type) ->
+        HlConfig(name, GroupEnum.BUILTIN_TYPES, Conds(false), type)
+      }
   // Static for now; later, load from resources or settings
+  //HlConfig\(("[A-Z_]+").*(CppTokenTypes\.[A-Z_]+)\),
   val configs: List<HlConfig> by lazy {
     listOf(
-        HlConfig("INCLUDE_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.INCLUDE_DIRECTIVE),
-        HlConfig("DEFINE_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.DEFINE_DIRECTIVE),
-        HlConfig("UNDEF_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.UNDEF_DIRECTIVE),
-        HlConfig("IFDEF_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.IFDEF_DIRECTIVE),
-        HlConfig("IFNDEF_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.IFNDEF_DIRECTIVE),
-        HlConfig("IF_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.IF_DIRECTIVE),
-        HlConfig("ELSE_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.ELSE_DIRECTIVE),
-        HlConfig("ELIF_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.ELIF_DIRECTIVE),
-        HlConfig("ENDIF_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.ENDIF_DIRECTIVE),
-        HlConfig("LINE_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.LINE_DIRECTIVE),
-        HlConfig("ERROR_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.ERROR_DIRECTIVE),
-        HlConfig("PRAGMA_DIRECTIVE", GroupEnum.PREPROCESSORS, Conds(false), CppTokenTypes.PRAGMA_DIRECTIVE),
+        *assembleDirectiveConfigs(
+          "INCLUDE_DIRECTIVE" to CppTokenTypes.INCLUDE_DIRECTIVE,
+          "DEFINE_DIRECTIVE" to CppTokenTypes.DEFINE_DIRECTIVE,
+          "UNDEF_DIRECTIVE" to CppTokenTypes.UNDEF_DIRECTIVE,
+          "IFDEF_DIRECTIVE" to CppTokenTypes.IFDEF_DIRECTIVE,
+          "IFNDEF_DIRECTIVE" to CppTokenTypes.IFNDEF_DIRECTIVE,
+          "IF_DIRECTIVE" to CppTokenTypes.IF_DIRECTIVE,
+          "ELSE_DIRECTIVE" to CppTokenTypes.ELSE_DIRECTIVE,
+          "ELIF_DIRECTIVE" to CppTokenTypes.ELIF_DIRECTIVE,
+          "ENDIF_DIRECTIVE" to CppTokenTypes.ENDIF_DIRECTIVE,
+          "LINE_DIRECTIVE" to CppTokenTypes.LINE_DIRECTIVE,
+          "ERROR_DIRECTIVE" to CppTokenTypes.ERROR_DIRECTIVE,
+          "PRAGMA_DIRECTIVE" to CppTokenTypes.PRAGMA_DIRECTIVE,
+        ).toTypedArray(),
 
-        HlConfig("CLASS_KEYWORD", GroupEnum.KEYWORDS, Conds(false), CppTokenTypes.CLASS_KEYWORD),
+        *assembleKeywordConfigs(
+          "CLASS_KEYWORD" to CppTokenTypes.CLASS_KEYWORD,
+          "STRUCT_KEYWORD" to CppTokenTypes.STRUCT_KEYWORD,
+          "ENUM_KEYWORD" to CppTokenTypes.ENUM_KEYWORD,
+          "NAMESPACE_KEYWORD" to CppTokenTypes.NAMESPACE_CPP_KEYWORD,
+        ).toTypedArray(),
         HlConfig("ACCESS_SPECIFIER_KEYWORDS", GroupEnum.KEYWORDS, Conds(false, listOf("public","private","protected")), CppTokenTypes.KEYWORD),
-        HlConfig("STRUCT_KEYWORD", GroupEnum.KEYWORDS, Conds(false), CppTokenTypes.STRUCT_KEYWORD),
-        HlConfig("ENUM_KEYWORD", GroupEnum.KEYWORDS, Conds(false), CppTokenTypes.ENUM_KEYWORD),
-        HlConfig("NAMESPACE_KEYWORD", GroupEnum.KEYWORDS, Conds(false), CppTokenTypes.NAMESPACE_CPP_KEYWORD),
 
-        HlConfig("INT_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.INT_KEYWORD),
-        HlConfig("SHORT_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.SHORT_KEYWORD),
-        HlConfig("LONG_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.LONG_KEYWORD),
-        HlConfig("CHAR_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.CHAR_KEYWORD),
-        HlConfig("FLOAT_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.FLOAT_KEYWORD),
-        HlConfig("DOUBLE_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.DOUBLE_KEYWORD),
-        HlConfig("BOOL_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.BOOL_KEYWORD),
-        HlConfig("VOID_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.VOID_KEYWORD),
-        HlConfig("AUTO_KEYWORD", GroupEnum.BUILTIN_TYPES, Conds(false), CppTokenTypes.AUTO_KEYWORD),
+        *assembleBuiltinTypesConfigs(
+          "INT_KEYWORD" to CppTokenTypes.INT_KEYWORD,
+          "SHORT_KEYWORD" to CppTokenTypes.SHORT_KEYWORD,
+          "LONG_KEYWORD" to CppTokenTypes.LONG_KEYWORD,
+          "CHAR_KEYWORD" to CppTokenTypes.CHAR_KEYWORD,
+          "FLOAT_KEYWORD" to CppTokenTypes.FLOAT_KEYWORD,
+          "DOUBLE_KEYWORD" to CppTokenTypes.DOUBLE_KEYWORD,
+          "BOOL_KEYWORD" to CppTokenTypes.BOOL_KEYWORD,
+          "VOID_KEYWORD" to CppTokenTypes.VOID_KEYWORD,
+          "AUTO_KEYWORD" to CppTokenTypes.AUTO_KEYWORD,
+        ).toTypedArray(),
 
-        HlConfig("CLASSID", GroupEnum.TYPES, externalName = "ReSharper.CPP_CLASS_IDENTIFIER", displayName = "class Identifier"),
-        HlConfig("STRUCTID", GroupEnum.TYPES, externalName = "ReSharper.CPP_STRUCT_IDENTIFIER", displayName = "struct Identifier"),
-        HlConfig("ENUMID", GroupEnum.TYPES, externalName = "ReSharper.CPP_ENUM_IDENTIFIER", displayName = "enum Identifier"),
-        HlConfig("MFUNCID", GroupEnum.TYPES, externalName = "ReSharper.CPP_MEMBER_FUNCTION_IDENTIFIER", displayName = "member Function Identifier"),
+        HlConfig("CLASSID", GroupEnum.TYPES, externalNames = listOf("ReSharper.CPP_CLASS_IDENTIFIER"), displayName = "Class identifier"),
+        HlConfig("STRUCTID", GroupEnum.TYPES, externalNames = listOf("ReSharper.CPP_STRUCT_IDENTIFIER"), displayName = "Struct identifier"),
+        HlConfig("ENUMID", GroupEnum.TYPES, externalNames = listOf("ReSharper.CPP_ENUM_IDENTIFIER"), displayName = "Enum identifier"),
+        HlConfig("MFUNCID", GroupEnum.TYPES, externalNames = listOf("ReSharper.CPP_MEMBER_FUNCTION_IDENTIFIER"), displayName = "Member function identifier"),
+        HlConfig("FUNCID", GroupEnum.TYPES, externalNames = listOf("ReSharper.CPP_GLOBAL_FUNCTION_IDENTIFIER", "CPP_GLOBAL_FUNCTION_USAGE_IDENTIFIER"), displayName = "Function identifier"),
 
         HlConfig("LVL1", GroupEnum.BRACKETS, optionalId = 0, displayName = "curly braces lvl 1"),
         HlConfig("LVL2", GroupEnum.BRACKETS, optionalId = 1, displayName = "curly braces lvl 2"),
@@ -168,8 +184,13 @@ object HlConfigProvider {
     configs.mapNotNull { cfg -> cfg.tokenType?.let { t -> t to cfg } }.toMap()
   }
   val configsByExternalName: Map<String, HlConfig> by lazy {
-    configs.mapNotNull { cfg -> cfg.externalName?.let { t -> t to cfg } }.toMap()
+    configs
+      .asSequence()
+      .flatMap { cfg -> (cfg.externalNames ?: emptyList()).asSequence().map { name -> name to cfg } }
+      .toMap()
   }
+
+
   val ALL_KEYS: Map<String, TextAttributesKey> by lazy {
     configs.associate { config ->
       config.name to config.key
@@ -182,8 +203,9 @@ object HlConfigProvider {
       .map { it.key }
   }
   val keysByOptionalStringId: Map<String, TextAttributesKey> by lazy {
-    configs.filter { it.optionalStringId != null }
-    .associate { it.optionalStringId!! to it.key }
+    configs
+      .filter { it.optionalStringId != null }
+      .associate { it.optionalStringId!! to it.key }
   }
 
   val cppHighlighter: SyntaxHighlighter by lazy {
