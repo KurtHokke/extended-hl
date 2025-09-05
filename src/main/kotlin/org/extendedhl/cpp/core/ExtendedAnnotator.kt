@@ -1,9 +1,14 @@
 package org.extendedhl.cpp.core
 
+import com.intellij.codeInsight.daemon.impl.HighlightInfo
+import com.intellij.codeInsight.daemon.impl.HighlightInfoType
 import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.colors.TextAttributesKey
+import com.intellij.openapi.editor.ex.MarkupModelEx
+import com.intellij.openapi.editor.impl.DocumentMarkupModel
+import com.intellij.openapi.editor.markup.RangeHighlighter
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.util.Key
 import com.intellij.openapi.util.TextRange
@@ -17,15 +22,27 @@ import com.intellij.psi.util.CachedValueProvider
 import com.intellij.psi.util.CachedValuesManager
 import com.intellij.psi.util.PsiModificationTracker
 import com.intellij.psi.createSmartPointer
+import com.intellij.psi.tree.IElementType
+import com.intellij.psi.util.elementType
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
 import com.jetbrains.rider.cpp.fileType.psi.CppBlock
 import com.jetbrains.rider.cpp.fileType.psi.CppDummyNode
 
+
 import org.extendedhl.cpp.config.HlConfigProvider
+import org.extendedhl.cpp.logging.logger
 import org.extendedhl.cpp.util.List.fromWrappedIndex
 import org.extendedhl.cpp.util.psi.getElType
 
-
+private data class CacheMapKey(
+    private val startOffset: Int,
+    private val endOffset: Int,
+    private val elType: IElementType
+) {
+  companion object {
+    fun from(el: PsiElement) = CacheMapKey(el.textRange.startOffset, el.textRange.endOffset, el.elementType!!)
+  }
+}
 private data class AnnotEntry(
     val ptr: SmartPsiElementPointer<PsiElement>,
     val ranges: List<TextRange>,
@@ -38,6 +55,8 @@ private data class AnnotEntry(
  * - Populated lazily per element via getOrComputeFor().
  */
 private object AnnotationCache {
+  private val log = logger<AnnotationCache>()
+
   private val KEY: Key<CachedValue<MutableMap<Int, AnnotEntry>>> =
     Key.create("your.plugin.annot.perFileElementCache")
 
@@ -60,24 +79,24 @@ private object AnnotationCache {
    * Returns an up-to-date entry for [element] if available; otherwise computes it via [compute],
    * stores it, and returns it. The stored entry is validated before reuse.
    */
-  fun getOrComputeFor(
-      element: PsiElement,
-      compute: (PsiElement) -> AnnotEntry?
+  fun <T : PsiElement> getOrComputeFor(
+      element: T,
+      compute: (T) -> AnnotEntry?
   ): AnnotEntry? {
     val file = element.containingFile ?: return null
     val map = getMap(file)
-    val key = element.textRange.startOffset
-
+    val key = CacheMapKey.from(element).hashCode()
     val existing = map[key]
     if (existing != null) {
       val resolved = existing.ptr.element
       if (resolved === element && resolved.isValid) {
         // still valid for the same start offset
+        log.debug("Reusing existing AnnotEntry for $element")
         return existing
       }
       // If pointer resolves to something else or null at this offset, recompute below.
     }
-
+    log.debug("Computing AnnotEntry for $element")
     val created = compute(element) ?: return null
     map[key] = created
     return created
@@ -86,84 +105,121 @@ private object AnnotationCache {
 
 
 class ExtendedAnnotator : Annotator, DumbAware {
-  private val log = org.extendedhl.cpp.logging.logger<ExtendedAnnotator>()
+  private val log = logger<ExtendedAnnotator>()
 
   override fun annotate(el: PsiElement, holder: AnnotationHolder) {
-
     if (PsiUtilCore.findLanguageFromElement(el).id != "C++") return
+    val elType = PsiUtilCore.getElementType(el)
+    if (!HlConfigProvider.shouldHandleType(elType)) {
+      log.debug("elType not handled: $elType")
+      return
+    }
     log.debug("Annotating element: $el")
     when (el) {
       is CppDummyNode -> {
         log.debug("el is CppDummyNode!!!: $el")
         if (el.firstChild.getElType() == CppTokenTypes.LBRACKET && el.firstChild.nextSibling.getElType() == CppTokenTypes.LBRACKET) {
-          //val entry = AnnotationCache.getOrComputeFor(el) { el ->
-          //
-          //}
-          val ranges = resolveCPPAttributesBracketsRanges(el)
-          if (ranges == null) {
-            log.debug("ranges is null")
-            return
-          }
-          ranges.forEach {
-            log.debug("ranges: $it")
-          }
-          holder.doAnnotate(ranges, HlConfigProvider.ALL_KEYS["CPP_ATTRIBUTES_BRACKETS"])
+          val entry = AnnotationCache.getOrComputeFor(el) { el ->
+            val ranges = resolveCPPAttributesBracketsRanges(el)
+            if (ranges == null) {
+              log.debug("ranges is null")
+              return@getOrComputeFor null
+            }
+            ranges.forEach { log.debug("ranges: $it") }
+            val key = HlConfigProvider.ALL_KEYS["CPP_ATTRIBUTES_BRACKETS"]
+            if (key == null) {
+              log.error("HlConfigProvider.ALL_KEYS[\"CPP_ATTRIBUTES_BRACKETS\"] == null")
+              return@getOrComputeFor null
+            }
+            AnnotEntry(
+                ptr = el.createSmartPointer(),
+                ranges = ranges,
+                key = key
+            )
+          } ?: return
+          holder.doAnnotate(entry.ranges, entry.key)
           return
         }
       }
       is CppBlock -> {
-        var depth = 0
         log.debug("el is CppBlock!!!: $el")
-        log.debug("depth: 0")
+        val entry = AnnotationCache.getOrComputeFor(el) { el: CppBlock ->
+          var depth = 0
+          log.debug("depth: 0")
 
-        var parentBlock = PsiTreeUtil.getParentOfType(el, CppBlock::class.java)
-        while (parentBlock != null) {
-          depth++
-          log.debug("depth: $depth")
-          parentBlock = PsiTreeUtil.getParentOfType(parentBlock, CppBlock::class.java)
-        }
-        log.debug("CppBlock (lBrace and rBrace).toString():")
-        log.debug(el.lBrace.toString())
-        log.debug(el.rBrace.toString())
-        val key = HlConfigProvider.bracketsKeysByLevel.fromWrappedIndex(depth)
-        log.debug("(lBrace and rBrace) key: ${key.externalName}")
+          var parentBlock = PsiTreeUtil.getParentOfType(el, CppBlock::class.java)
+          while (parentBlock != null) {
+            depth++
+            log.debug("depth: $depth")
+            parentBlock = PsiTreeUtil.getParentOfType(parentBlock, CppBlock::class.java)
+          }
+          val key = HlConfigProvider.bracketsKeysByLevel.fromWrappedIndex(depth)
 
-        val lBraceRange = el.lBrace?.textRange
-        val rBraceRange = el.rBrace?.textRange
-        if (lBraceRange == null || rBraceRange == null) {
-          log.debug("lBraceRange or rBraceRange is null")
-          return
-        }
-        holder.doAnnotate(listOf(lBraceRange, rBraceRange), key)
+          val lBraceRange = el.lBrace?.textRange
+          val rBraceRange = el.rBrace?.textRange
+          if (lBraceRange == null || rBraceRange == null) {
+            log.debug("lBraceRange or rBraceRange is null")
+            return@getOrComputeFor null
+          }
+          AnnotEntry(
+            ptr = el.createSmartPointer(),
+            ranges = listOf(lBraceRange, rBraceRange),
+            key = key
+          )
+        } ?: return
+        holder.doAnnotate(entry.ranges, entry.key)
+        return
       }
     }
-    val resolvedToken = PsiUtilCore.getElementType(el)
-    when (resolvedToken) {
+    when (elType) {
       CppTokenTypes.BLOCK_COMMENT, CppTokenTypes.EOL_COMMENT -> {
-        val lookup = el.text.take(3).replace("*", "/")
-        val key = HlConfigProvider.keysByOptionalStringId[lookup]
-        if (key != null) {
-          holder.doAnnotate(el.textRange, key)
-          return
-        }
+        val entry = AnnotationCache.getOrComputeFor(el) { el ->
+          val lookup = el.text.take(3).replace("*", "/")
+          val key = HlConfigProvider.keysByOptionalStringId[lookup] ?: return@getOrComputeFor null
+          AnnotEntry(
+              ptr = el.createSmartPointer(),
+              ranges = listOf(el.textRange),
+              key = key
+          )
+        } ?: return
+        holder.doAnnotate(entry.ranges, entry.key)
+        return
       }
     }
-    val config = HlConfigProvider.configsByType[resolvedToken]
-
-    if (config == null) {
-      log.debug("Resolved token: $resolvedToken\n")
+    if (HlConfigProvider.shouldAskMarkupModel(elType)) {
+      log.debug("Asking markup model for key")
+      val entry = AnnotationCache.getOrComputeFor(el) { el ->
+        findKeyFromMarkupModel(el)?.let { backendKey ->
+          log.debug("Got answer: $elType: ${backendKey.externalName}")
+          val key = HlConfigProvider.keysByExternalName[backendKey.externalName] ?: return@let null
+          AnnotEntry(
+              ptr = el.createSmartPointer(),
+              ranges = listOf(el.textRange),
+              key = key
+          )
+        } ?: return@getOrComputeFor null
+      } ?: return
+      holder.doAnnotate(entry.ranges, entry.key)
       return
     }
-    if (!config.checkConds(el)) {
-      log.debug("Condition check failed for token: $resolvedToken\n")
-      return
-    }
-    log.debug("Resolved token: $resolvedToken")
-    log.debug("config?.name: ${config.name}")
-    log.debug("config?.key?.externalName: ${config.key.externalName}\n")
-
-    log.info("Annotating element: ${el.text} with config: ${config.name}")
-    holder.doAnnotate(el.textRange, config.key)
+    val entry = AnnotationCache.getOrComputeFor(el) { el ->
+      val config = HlConfigProvider.configsByType[elType]
+      if (config == null) {
+        log.debug("Resolved token not in config: $elType\n")
+        return@getOrComputeFor null
+      }
+      if (!config.checkConds(el)) {
+        log.debug("Condition check failed for token: $elType\n")
+        return@getOrComputeFor null
+      }
+      AnnotEntry(
+        ptr = el.createSmartPointer(),
+        ranges = listOf(el.textRange),
+        key = config.key
+      )
+    } ?: return
+    log.info("Annotating element: [${el.text},${entry.ranges}] with key: ${entry.key}")
+    holder.doAnnotate(entry.ranges, entry.key)
   }
 
   private fun AnnotationHolder.doAnnotate(range: TextRange, key: TextAttributesKey?) {
@@ -192,5 +248,69 @@ class ExtendedAnnotator : Annotator, DumbAware {
       }
     }
     return result
+  }
+  /**
+   * Finds the best TextAttributesKey from MarkupModel that applies to this element's range.
+   * Prefers a highlighter that fully covers the element's range, then higher layer, then smaller span.
+   */
+  private fun findKeyFromMarkupModel(el: PsiElement): TextAttributesKey? {
+    val file = el.containingFile ?: return null
+    val doc = file.viewProvider.document ?: return null
+    val markup = DocumentMarkupModel.forDocument(doc, el.project, /* create = */ false) ?: return null
+
+    val elementRange = el.textRange ?: return null
+    var bestKey: TextAttributesKey? = null
+    var bestIsFullCover = false
+    var bestLayer = Int.MIN_VALUE
+    var bestSpan = Int.MAX_VALUE
+
+    // Prefer MarkupModelEx for efficient range processing
+    val processor: (RangeHighlighter) -> Boolean = processor@ { rh ->
+      val key = rh.textAttributesKey ?: return@processor true // continue
+      val hr = rh.startOffset..rh.endOffset
+      val elr = elementRange.startOffset..elementRange.endOffset
+
+      val fullyCovers = rh.startOffset <= elementRange.startOffset && rh.endOffset >= elementRange.endOffset
+      val span = rh.endOffset - rh.startOffset
+      val layer = rh.layer
+
+      val better = when {
+        // Prefer full cover over partial
+        fullyCovers && !bestIsFullCover -> true
+        fullyCovers == bestIsFullCover && layer > bestLayer -> true
+        fullyCovers == bestIsFullCover && layer == bestLayer && span < bestSpan -> true
+        else -> false
+      }
+
+      if (better) {
+        val hlInfoType = HighlightInfo.fromRangeHighlighter(rh)?.type
+        if (hlInfoType != null) {
+          bestKey = hlInfoType.attributesKey
+          bestIsFullCover = fullyCovers
+          bestLayer = layer
+          bestSpan = span
+        }
+      }
+      true // continue processing
+    }
+
+    when (markup) {
+      is MarkupModelEx -> {
+        markup.processRangeHighlightersOverlappingWith(
+            elementRange.startOffset,
+            elementRange.endOffset,
+            processor
+        )
+      }
+      else -> {
+        // Fallback: iterate all. Less efficient but safe.
+        for (rh in markup.allHighlighters) {
+          // quick reject
+          if (rh.endOffset <= elementRange.startOffset || rh.startOffset >= elementRange.endOffset) continue
+          processor(rh)
+        }
+      }
+    }
+    return bestKey
   }
 }

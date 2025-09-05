@@ -3,9 +3,11 @@ kotlin = "2.1.0"
 intellij-platform = "2.8.0"
 onedark-theme = "5.14.1"
 gerry-theme = "2025.1.0820"
+preprocessor = "1.4"
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 intellij-platform = { id = "org.jetbrains.intellij.platform", version.ref = "intellij-platform" }
 onedark-theme = { id = "com.markskelton.one-dark-theme", version.ref = "onedark-theme" }
 gerry-theme = { id = "com.jetbrains.gerryPurpleTheme", version.ref = "gerry-theme" }
+preprocessor = { id = "dev.tocraft.preprocessor", version.ref = "preprocessor" }

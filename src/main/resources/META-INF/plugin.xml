@@ -30,7 +30,7 @@
         <colorSettingsPage implementation="org.extendedhl.cpp.config.ExtendedColorSettingsPage"/>
         <annotator language="C++" implementationClass="org.extendedhl.cpp.core.ExtendedAnnotator"/>
         <!--<rdclient.highlighting.frontendHighlighterAttributeCustomizer implementation="org.extendedhl.cpp.core.ExtendedAttrHandler"/>-->
-        <rdclient.highlighterExtensionHandler implementation="org.extendedhl.cpp.core.ExtendedHlExtensionHandler"/>
+        <!--<rdclient.highlighterExtensionHandler implementation="org.extendedhl.cpp.core.ExtendedHlExtensionHandler"/>-->
 
     </extensions>
 

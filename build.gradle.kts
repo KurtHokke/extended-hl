@@ -1,11 +1,13 @@
 import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformTestingExtension
 import org.jetbrains.intellij.platform.gradle.tasks.RunIdeTask
+import org.jetbrains.intellij.platform.gradle.tasks.BuildPluginTask
 
 plugins {
   id("java")
   alias(libs.plugins.kotlin.jvm)
   alias(libs.plugins.intellij.platform)
+  alias(libs.plugins.preprocessor)
 }
 
 group = "org.extendedhl"
@@ -20,6 +22,7 @@ repositories {
 val clionHome: String by project
 val clionRadler: String by project
 val clionRdIdeModels: String by project
+val clionRdPlatform: String by project
 val clionCidrPSIBase: String by project
 // Configure IntelliJ Platform Gradle Plugin Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
 dependencies {
@@ -29,6 +32,7 @@ dependencies {
   }
   compileOnly(fileTree(getIdeRelativePath(clionRadler)))
   compileOnly(files(getIdeRelativePath(clionRdIdeModels)))
+  compileOnly(files(getIdeRelativePath(clionRdPlatform)))
   compileOnly(files(getIdeRelativePath(clionCidrPSIBase)))
 }
 fun Provider<PluginDependency>.toNotation(): Provider<String> =
@@ -36,6 +40,7 @@ fun Provider<PluginDependency>.toNotation(): Provider<String> =
 fun getIdeRelativePath(path: String): String {
   return intellijPlatform.platformPath.resolve(path).toString()
 }
+
 
 
 intellijPlatform {
@@ -51,6 +56,10 @@ intellijPlatform {
   }
 }
 
+preprocess {
+  vars["release"] = null
+}
+
 tasks {
   //val projectName = project.extensionProvider.flatMap { it.projectName }
   // Set the JVM compatibility versions
@@ -62,6 +71,11 @@ tasks {
     exclude("**/ExtendedHighlightExtHandler.kt")
     exclude("**/ExtendedHighlighterReapplier.kt")
     exclude("**/ColorSchemeSettingsListener.kt")
+  }
+  withType<BuildPluginTask> {
+    preprocess {
+      vars["release"] = "1"
+    }
   }
   withType<RunIdeTask> {
     autoReload = false

@@ -6,10 +6,12 @@ import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.fileTypes.FileTypeManager
 import com.intellij.openapi.fileTypes.SyntaxHighlighter
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory
+import com.intellij.psi.TokenType
 import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
 import com.intellij.testFramework.LightVirtualFile
+import com.jetbrains.rider.cpp.fileType.psi.CppElementsTypes
 import com.jetbrains.rider.cpp.fileType.lexer.CppTokenTypes
 import com.jetbrains.rider.cpp.fileType.CppTextAttributeKeys
 import com.jetbrains.cidr.radler.inspections.RadTextAttributesKeyProcessor
@@ -189,6 +191,12 @@ object HlConfigProvider {
       .flatMap { cfg -> (cfg.externalNames ?: emptyList()).asSequence().map { name -> name to cfg } }
       .toMap()
   }
+  val keysByExternalName: Map<String, TextAttributesKey> by lazy {
+    configs
+      .asSequence()
+      .flatMap { cfg -> (cfg.externalNames ?: emptyList()).asSequence().map { name -> name to cfg.key } }
+      .toMap()
+  }
 
 
   val ALL_KEYS: Map<String, TextAttributesKey> by lazy {
@@ -214,4 +222,33 @@ object HlConfigProvider {
     SyntaxHighlighterFactory.getSyntaxHighlighter(fileType, /* project = */ null, vFile)
       ?: error("No SyntaxHighlighter found for .cpp")
   }
+
+  private val supportedTokenSet: TokenSet by lazy {
+    val singleTypes = configs.mapNotNull { it.tokenType }.toTypedArray()
+    val singleSet = if (singleTypes.isNotEmpty()) TokenSet.create(*singleTypes) else TokenSet.EMPTY
+
+    val sets = configs.mapNotNull { it.tokenSet }
+    when {
+      sets.isEmpty() -> singleSet
+      singleSet == TokenSet.EMPTY -> TokenSet.orSet(*sets.toTypedArray())
+      else -> TokenSet.orSet(singleSet, *sets.toTypedArray())
+    }
+  }
+  private val extraSupportedTokenSet: TokenSet by lazy {
+    TokenSet.create(
+        CppElementsTypes.DUMMY_BLOCK,
+        CppElementsTypes.DUMMY_NODE,
+        CppTokenTypes.IDENTIFIER
+    )
+  }
+  private val typesForAskingMarkupModel: TokenSet by lazy {
+    TokenSet.create(
+        CppTokenTypes.IDENTIFIER
+    )
+  }
+  fun shouldHandleType(elType: IElementType): Boolean =
+      supportedTokenSet.contains(elType) || extraSupportedTokenSet.contains(elType)
+  fun shouldAskMarkupModel(elType: IElementType): Boolean =
+      typesForAskingMarkupModel.contains(elType)
+
 }
