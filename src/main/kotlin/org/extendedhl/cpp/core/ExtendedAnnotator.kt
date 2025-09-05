@@ -91,12 +91,16 @@ private object AnnotationCache {
       val resolved = existing.ptr.element
       if (resolved === element && resolved.isValid) {
         // still valid for the same start offset
+        //#if debug
         log.debug("Reusing existing AnnotEntry for $element")
+        //#endif
         return existing
       }
       // If pointer resolves to something else or null at this offset, recompute below.
     }
+    //#if debug
     log.debug("Computing AnnotEntry for $element")
+    //#endif
     val created = compute(element) ?: return null
     map[key] = created
     return created
@@ -111,18 +115,26 @@ class ExtendedAnnotator : Annotator, DumbAware {
     if (PsiUtilCore.findLanguageFromElement(el).id != "C++") return
     val elType = PsiUtilCore.getElementType(el)
     if (!HlConfigProvider.shouldHandleType(elType)) {
+      //#if debug
       log.debug("elType not handled: $elType")
+      //#endif
       return
     }
+    //#if debug
     log.debug("Annotating element: $el")
+    //#endif
     when (el) {
       is CppDummyNode -> {
+        //#if debug
         log.debug("el is CppDummyNode!!!: $el")
+        //#endif
         if (el.firstChild.getElType() == CppTokenTypes.LBRACKET && el.firstChild.nextSibling.getElType() == CppTokenTypes.LBRACKET) {
           val entry = AnnotationCache.getOrComputeFor(el) { el ->
             val ranges = resolveCPPAttributesBracketsRanges(el)
             if (ranges == null) {
+              //#if debug
               log.debug("ranges is null")
+              //#endif
               return@getOrComputeFor null
             }
             ranges.forEach { log.debug("ranges: $it") }
@@ -142,15 +154,21 @@ class ExtendedAnnotator : Annotator, DumbAware {
         }
       }
       is CppBlock -> {
+        //#if debug
         log.debug("el is CppBlock!!!: $el")
+        //#endif
         val entry = AnnotationCache.getOrComputeFor(el) { el: CppBlock ->
           var depth = 0
+          //#if debug
           log.debug("depth: 0")
+          //#endif
 
           var parentBlock = PsiTreeUtil.getParentOfType(el, CppBlock::class.java)
           while (parentBlock != null) {
             depth++
+            //#if debug
             log.debug("depth: $depth")
+            //#endif
             parentBlock = PsiTreeUtil.getParentOfType(parentBlock, CppBlock::class.java)
           }
           val key = HlConfigProvider.bracketsKeysByLevel.fromWrappedIndex(depth)
@@ -158,7 +176,9 @@ class ExtendedAnnotator : Annotator, DumbAware {
           val lBraceRange = el.lBrace?.textRange
           val rBraceRange = el.rBrace?.textRange
           if (lBraceRange == null || rBraceRange == null) {
+            //#if debug
             log.debug("lBraceRange or rBraceRange is null")
+            //#endif
             return@getOrComputeFor null
           }
           AnnotEntry(
@@ -187,10 +207,14 @@ class ExtendedAnnotator : Annotator, DumbAware {
       }
     }
     if (HlConfigProvider.shouldAskMarkupModel(elType)) {
+      //#if debug
       log.debug("Asking markup model for key")
+      //#endif
       val entry = AnnotationCache.getOrComputeFor(el) { el ->
         findKeyFromMarkupModel(el)?.let { backendKey ->
+          //#if debug
           log.debug("Got answer: $elType: ${backendKey.externalName}")
+          //#endif
           val key = HlConfigProvider.keysByExternalName[backendKey.externalName] ?: return@let null
           AnnotEntry(
               ptr = el.createSmartPointer(),
@@ -205,11 +229,15 @@ class ExtendedAnnotator : Annotator, DumbAware {
     val entry = AnnotationCache.getOrComputeFor(el) { el ->
       val config = HlConfigProvider.configsByType[elType]
       if (config == null) {
+        //#if debug
         log.debug("Resolved token not in config: $elType\n")
+        //#endif
         return@getOrComputeFor null
       }
       if (!config.checkConds(el)) {
+        //#if debug
         log.debug("Condition check failed for token: $elType\n")
+        //#endif
         return@getOrComputeFor null
       }
       AnnotEntry(
@@ -218,7 +246,9 @@ class ExtendedAnnotator : Annotator, DumbAware {
         key = config.key
       )
     } ?: return
-    log.info("Annotating element: [${el.text},${entry.ranges}] with key: ${entry.key}")
+    //#if debug
+    log.debug("Annotating element: [${el.text},${entry.ranges}] with key: ${entry.key}")
+    //#endif
     holder.doAnnotate(entry.ranges, entry.key)
   }
 

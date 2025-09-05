@@ -6,13 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8f0c63c3-9a6d-4beb-b508-6640131b3156" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.intellijPlatform/self-update.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.intellijPlatform/self-update.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.log" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/config/HlConfig.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedAnnotator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedAnnotator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHlExtensionHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/core/ExtendedHlExtensionHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/BuildDemoText.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/extendedhl/cpp/util/BuildDemoText.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +52,12 @@
                 <item name="cpp" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="intellij platform" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cpp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -121,24 +126,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.cpp [\&quot;prepareSandbox_run clion nova\&quot;].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.cpp [\&quot;run clion nova\&quot;].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.cpp [buildNeeded].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.cpp [buildPlugin].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.cpp [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.cpp [prepareSandbox].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;cpp&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.cpp [\"prepareSandbox_run clion nova\"].executor": "Run",
+    "Gradle.cpp [\"run clion nova\"].executor": "Run",
+    "Gradle.cpp [PreProcess_Release].executor": "Run",
+    "Gradle.cpp [applyPreProcessKotlin].executor": "Run",
+    "Gradle.cpp [buildNeeded].executor": "Run",
+    "Gradle.cpp [buildPlugin].executor": "Run",
+    "Gradle.cpp [clean].executor": "Run",
+    "Gradle.cpp [compileKotlin].executor": "Run",
+    "Gradle.cpp [prepareSandbox].executor": "Run",
+    "Gradle.cpp [preprocessKotlin].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "cpp",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\home\arcno\src\intellij\cpp\oldSrc" />
@@ -147,8 +156,8 @@
       <recent name="org.extendedhl.cpp.util.javaAwtColor" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.cpp [&quot;run clion nova&quot;]">
-    <configuration name="cpp [&quot;prepareSandbox_run clion nova&quot;]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.cpp [compileKotlin]">
+    <configuration name="cpp [PreProcess_Release]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -159,7 +168,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="&quot;prepareSandbox_run clion nova&quot;" />
+            <option value="PreProcess_Release" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -170,7 +179,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="cpp [&quot;run clion nova&quot;]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="cpp [applyPreProcessKotlin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -181,29 +190,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="&quot;run clion nova&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="cpp [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="buildNeeded" />
+            <option value="applyPreProcessKotlin" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -236,7 +223,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="cpp [prepareSandbox]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="cpp [compileKotlin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -247,7 +234,29 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="prepareSandbox" />
+            <option value="compileKotlin" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="cpp [preprocessKotlin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="preprocessKotlin" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -269,11 +278,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.cpp [&quot;run clion nova&quot;]" />
+        <item itemvalue="Gradle.cpp [compileKotlin]" />
+        <item itemvalue="Gradle.cpp [preprocessKotlin]" />
         <item itemvalue="Gradle.cpp [buildPlugin]" />
-        <item itemvalue="Gradle.cpp [prepareSandbox]" />
-        <item itemvalue="Gradle.cpp [buildNeeded]" />
-        <item itemvalue="Gradle.cpp [&quot;prepareSandbox_run clion nova&quot;]" />
+        <item itemvalue="Gradle.cpp [PreProcess_Release]" />
+        <item itemvalue="Gradle.cpp [applyPreProcessKotlin]" />
       </list>
     </recent_temporary>
   </component>

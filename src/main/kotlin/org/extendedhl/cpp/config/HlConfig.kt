@@ -79,21 +79,29 @@ data class HlConfig(
         false -> el.firstChild == null
         true -> el.firstChild != null
       }
+      //#if debug
       log.debug("checked hasChildren for $name: $ok")
+      //#endif
     }
     if (!ok) return false
     conds.textEquals?.let {
       ok = el.text == it
+      //#if debug
       log.debug("checked textEquals for $name: $ok")
+      //#endif
     }
     if (!ok) return false
     conds.textEqualsList?.let {
       ok = it.contains(el.text)
+      //#if debug
       log.debug("checked textEqualsList for $name: $ok")
+      //#endif
     }
     conds.textEqualsUntil?.let {
       ok = el.text.regionMatches(0, it, 0, it.length)
+      //#if debug
       log.debug("checked textEqualsUntil for $name: $ok")
+      //#endif
     }
     return ok
   }

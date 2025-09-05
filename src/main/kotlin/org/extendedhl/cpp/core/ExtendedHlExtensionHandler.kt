@@ -27,11 +27,17 @@ class ExtendedHlExtensionHandler : FrontendHighlighterExtensionHandler {
         log.warn("No config found for keyExternalName: $keyExternalName")
         return
       }
-      log.info("setting text attributes for struct-like: ${highlighter.text} to ${config.key.externalName}")
+      //#if debug
+      log.debug("setting text attributes for struct-like: ${highlighter.text} to ${config.key.externalName}")
+      //#endif
       highlighter.setTextAttributesKey(config.key)
       return
     }
-    log.info("externalName: $keyExternalName")
-    log.info("text: ${highlighter.text}")
+    //#if debug
+    log.debug("externalName: $keyExternalName")
+    //#endif
+    //#if debug
+    log.debug("text: ${highlighter.text}")
+    //#endif
   }
 }

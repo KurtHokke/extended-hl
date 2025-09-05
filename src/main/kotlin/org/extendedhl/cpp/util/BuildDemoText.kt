@@ -24,7 +24,9 @@ class BuildDemoText {
       val tokenEnd = lexer.tokenEnd
 
       val tokenText = cppCode.substring(tokenStart, tokenEnd)
+      //#if debug
       log.debug("Token: $tokenType, $tokenText, $tokenStart-$tokenEnd")
+      //#endif
       // Preserve whitespace or text before the token
       if (tokenStart > lastEnd) {
         val beforeText = cppCode.substring(lastEnd, tokenStart)
@@ -43,7 +45,9 @@ class BuildDemoText {
       val remainingText = cppCode.substring(lastEnd)
       htmlOutput.append(remainingText)
     }
+    //#if debug
     log.debug("Demo text:\n$htmlOutput")
+    //#endif
     return htmlOutput.toString()
   }
   private fun getHtmlTagForToken(tokenType: IElementType?, tokenText: String): String? {

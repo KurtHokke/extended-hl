@@ -1,7 +1,11 @@
+import dev.tocraft.gradle.preprocess.tasks.PreProcessTask
+import dev.tocraft.gradle.preprocess.tasks.ApplyPreProcessTask
 import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformTestingExtension
 import org.jetbrains.intellij.platform.gradle.tasks.RunIdeTask
 import org.jetbrains.intellij.platform.gradle.tasks.BuildPluginTask
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   id("java")
@@ -57,7 +61,8 @@ intellijPlatform {
 }
 
 preprocess {
-  vars["release"] = null
+  vars["debug"] = "0"
+  vars["release"] = "1"
 }
 
 tasks {
@@ -67,21 +72,40 @@ tasks {
       sourceCompatibility = "21"
       targetCompatibility = "21"
   }
-  withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+  withType<KotlinCompile>().configureEach {
     exclude("**/ExtendedHighlightExtHandler.kt")
     exclude("**/ExtendedHighlighterReapplier.kt")
     exclude("**/ColorSchemeSettingsListener.kt")
+    
+    //preprocess {
+    //  vars["debug"] = "0"
+    //  vars["release"] = "1"
+    //}
   }
-  withType<BuildPluginTask> {
-    preprocess {
-      vars["release"] = "1"
-    }
-  }
+  //register<PreProcessTask>("PreProcess_Release") {
+  //  group = "user"
+  //  target.set(file("build/preprocessed"))
+  //  sources.set(project.files("src/main/kotlin"))
+  //  preprocess {
+  //    vars["debug"] = "0"
+  //    vars["release"] = "1"
+  //  }
+  //}
+  //register<PreProcessTask>("PreProcess_Debug") {
+  //  group = "user"
+  //  target.set(file("build/preprocessed"))
+  //  sources.set(project.files("src/main/kotlin"))
+  //  preprocess {
+  //    vars["debug"] = "1"
+  //    vars["release"] = "0"
+  //  }
+  //}
   withType<RunIdeTask> {
     autoReload = false
     //System.getProperties()
 
   }
+
   intellijPlatformTesting {
     customRunIdeTask {
       setClionRadlerSystemProperties()
@@ -101,9 +125,16 @@ fun IntelliJPlatformTestingExtension.customRunIdeTask(
   }
 }
 kotlin {
+  sourceSets {
+    main {
+      kotlin {
+        srcDirs("build/generated/preprocessed/main/kotlin")
+      }
+    }
+  }
   compilerOptions {
 
-    jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+    jvmTarget.set(JvmTarget.JVM_21)
   }
 }
 fun JavaForkOptions.setClionRadlerSystemProperties() {
